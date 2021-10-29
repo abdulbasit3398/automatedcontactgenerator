@@ -48,6 +48,7 @@ Route::get('/tables',function () {
 })->name('tables');
 
 Route::get('/chat', 'CrmChatController@index')->name('chat');
+Route::get('/get-messages', 'CrmChatController@getMessages')->name('get-messages');
 Route::post('/send-chat', 'CrmChatController@send_chat')->name('send_chat');
 
 Route::get('/checkout',function () {
@@ -60,6 +61,7 @@ Route::get('/register/{website}', 'Auth\RegisterController@register_product')->n
 Route::post('/register/create_free', 'Auth\RegisterController@create_free')->name('create_free');
 Route::post('/register/create_product', 'Auth\RegisterController@create_product')->name('create_product');
 Route::get('/dashboard', 'UserController@index')->name('dashboard');
+Route::post('/d-calender', 'UserController@calender')->name('d-calender');
 Route::post('/save-table', 'UserController@saveData')->name('saveData');
 
 Route::get('/auto-responder', 'UserController@auto_responder')->name('auto-responder');
@@ -166,7 +168,7 @@ Route::get('/messageSend12', 'SignalWireController@sendMessage');
 //     'as' => 'paypal.checkout.completed',
 //     'uses' => 'PayPalController@completed',
 // ]);
- 
+
 // Route::get('/paypal/checkout/{order}/cancelled', [
 //     'name' => 'PayPal Express Checkout',
 //     'as' => 'paypal.checkout.cancelled',

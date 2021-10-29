@@ -8,11 +8,16 @@
 <!-- Calender css -->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/libs/tui-time-picker/tui-time-picker.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('assets/libs/tui-date-picker/tui-date-picker.min.css')}}">
-<link href="{{asset('assets/libs/tui-calendar/tui-calendar.min.css')}}" rel="stylesheet" type="text/css" />
+{{--<link href="{{asset('assets/libs/tui-calendar/tui-calendar.min.css')}}" rel="stylesheet" type="text/css" />--}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 <!-- Create project css -->
 <link href="{{asset('assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
 <link href="{{asset('assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
+
+
+
 <style type="text/css">
 .custom-input{
   border: 0 !important;
@@ -45,7 +50,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body upload-modal-body">
-           
+
           <div class="mb-3 row">
             <div class="col-md-6">
               <label for="phone_no" class="form-label">First Name</label>
@@ -83,7 +88,7 @@
               <p id="d_total_payment"></p>
             </div>
           </div>
- 
+
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -103,13 +108,13 @@
           <form method="POST"  class="require-validation" action="{{route('save-user-contacts')}}" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="package_id" id="package_id">
-            
+
 
             <div class="mb-3">
               <label for="contact_name" class="form-label">Name*</label>
               <input id="contact_name" type="text" class="form-control @error('contact_name') is-invalid @enderror " name="contact_name" value="{{ old('contact_name') }}" required autocomplete="contact_name" autofocus >
 
-              
+
             </div>
 
             <div class="mb-3 row">
@@ -245,8 +250,8 @@
                   <td>{{$user->email}}</td>
                   <td>${{$user->package_price}}</td>
                   <td>
-                    <a href="#" class="btn btn-success waves-effect waves-light me-1 show-user" data-first_name="{{$user->first_name}}" data-last_name="{{$user->last_name}}" data-email="{{$user->email}}" data-username="{{$user->username}}" data-payment_paid="{{$user->package_price}}"><i class="fas fa-eye"></i></a> 
-                     
+                    <a href="#" class="btn btn-success waves-effect waves-light me-1 show-user" data-first_name="{{$user->first_name}}" data-last_name="{{$user->last_name}}" data-email="{{$user->email}}" data-username="{{$user->username}}" data-payment_paid="{{$user->package_price}}"><i class="fas fa-eye"></i></a>
+
                   </td>
                 </tr>
                 @endforeach
@@ -260,8 +265,7 @@
     </div>
 
   </div>
-  
-  
+
 
   <div class="container-fluid">
 
@@ -271,7 +275,7 @@
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
           <h4 class="mb-sm-0 font-size-18"></h4>
 
-          
+
 
         </div>
       </div>
@@ -292,7 +296,7 @@
               </div>
             </div>
             <br/>
-            
+
             @if(\Session::has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
               {!! \Session::get('success') !!}
@@ -320,8 +324,8 @@
                   <td>{{$contact->contact_phone}}</td>
                   <td>{{$contact->contact_email}}</td>
                   <td>{{$contact->company_name}}</td>
-                  
-                  
+
+
                   <td>
                     <a href="{{route('show-user-contact',$contact->id)}}" class="btn btn-success waves-effect waves-light me-1"><i class="fas fa-eye"></i></a>
                     <a href="{{route('edit-user-contact',$contact->id)}}" class="btn btn-primary waves-effect waves-light me-1"><i class="fas fa-pencil-alt"></i></a>
@@ -330,7 +334,7 @@
 
                 </tr>
                 @endforeach
-                
+
               </tbody>
             </table>
           </div>
@@ -353,7 +357,7 @@
           @csrf
           <textarea id="elm1" name="additional_notes" rows="10">{!! isset($notes->notes) ? $notes->notes : '' !!}</textarea>
           <button type="submit" class="btn btn-primary" style="float: right;margin-top: 17px;">Save</button>
-        </form> 
+        </form>
 
       </div>
     </div>
@@ -425,9 +429,9 @@
               </div>
             </div>
           </div>
-           
-          
-        </form> 
+
+
+        </form>
 
       </div>
     </div>
@@ -437,95 +441,92 @@
 <div class="row">
   <div class="col-lg-12">
     <div class="card">
-      <div class="card-body" id="Calendar" name="Calendar">
+      <div class="card-body">
         <h4 class="card-title pb-2">Calendar</h4>
-        <div id="lnb">
-          <div id="right">
-            <div id="menu" class="mb-3">
-              <span id="menu-navi" class="d-sm-flex flex-wrap text-center text-sm-start justify-content-sm-between">
-                <div class="d-sm-flex flex-wrap gap-1">
-                  <div class="btn-group mb-2" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-primary move-day" data-action="move-prev">
-                      <i class="calendar-icon ic-arrow-line-left mdi mdi-chevron-left" data-action="move-prev"></i>
-                    </button>
-                    <button type="button" class="btn btn-primary move-day" data-action="move-next">
-                      <i class="calendar-icon ic-arrow-line-right mdi mdi-chevron-right" data-action="move-next"></i>
-                    </button>
-                  </div>
+{{--        <div id="lnb">--}}
+{{--          <div id="right">--}}
+{{--            <div id="menu" class="mb-3">--}}
+{{--              <span id="menu-navi" class="d-sm-flex flex-wrap text-center text-sm-start justify-content-sm-between">--}}
+{{--                <div class="d-sm-flex flex-wrap gap-1">--}}
+{{--                  <div class="btn-group mb-2" role="group" aria-label="Basic example">--}}
+{{--                    <button type="button" class="btn btn-primary move-day" data-action="move-prev">--}}
+{{--                      <i class="calendar-icon ic-arrow-line-left mdi mdi-chevron-left" data-action="move-prev"></i>--}}
+{{--                    </button>--}}
+{{--                    <button type="button" class="btn btn-primary move-day" data-action="move-next">--}}
+{{--                      <i class="calendar-icon ic-arrow-line-right mdi mdi-chevron-right" data-action="move-next"></i>--}}
+{{--                    </button>--}}
+{{--                  </div>--}}
+{{--                  <button type="button" class="btn btn-primary move-today mb-2" data-action="move-today">Today</button>--}}
+{{--                </div>--}}
 
+{{--                <h4 id="renderRange" class="render-range fw-bold pt-1 mx-3"></h4>--}}
 
-                  <button type="button" class="btn btn-primary move-today mb-2" data-action="move-today">Today</button>
-                </div>
+{{--                <div class="dropdown align-self-start mt-3 mt-sm-0 mb-2">--}}
+{{--                  <button id="dropdownMenu-calendarType" class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"--}}
+{{--                  aria-haspopup="true" aria-expanded="true">--}}
+{{--                  <i id="calendarTypeIcon" class="calendar-icon ic_view_month" style="margin-right: 4px;"></i>--}}
+{{--                  <span id="calendarTypeName">Dropdown</span>&nbsp;--}}
+{{--                  <i class="calendar-icon tui-full-calendar-dropdown-arrow"></i>--}}
+{{--                </button>--}}
+{{--                <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="dropdownMenu-calendarType">--}}
+{{--                  <li role="presentation">--}}
+{{--                    <a class="dropdown-item" role="menuitem" data-action="toggle-daily">--}}
+{{--                      <i class="calendar-icon ic_view_day"></i>Daily--}}
+{{--                    </a>--}}
+{{--                  </li>--}}
+{{--                  <li role="presentation">--}}
+{{--                    <a class="dropdown-item" role="menuitem" data-action="toggle-weekly">--}}
+{{--                      <i class="calendar-icon ic_view_week"></i>Weekly--}}
+{{--                    </a>--}}
+{{--                  </li>--}}
+{{--                  <li role="presentation">--}}
+{{--                    <a class="dropdown-item" role="menuitem" data-action="toggle-monthly">--}}
+{{--                      <i class="calendar-icon ic_view_month"></i>Month--}}
+{{--                    </a>--}}
+{{--                  </li>--}}
+{{--                  <li role="presentation">--}}
+{{--                    <a class="dropdown-item" role="menuitem" data-action="toggle-weeks2">--}}
+{{--                      <i class="calendar-icon ic_view_week"></i>2 weeks--}}
+{{--                    </a>--}}
+{{--                  </li>--}}
+{{--                  <li role="presentation">--}}
+{{--                    <a class="dropdown-item" role="menuitem" data-action="toggle-weeks3">--}}
+{{--                      <i class="calendar-icon ic_view_week"></i>3 weeks--}}
+{{--                    </a>--}}
+{{--                  </li>--}}
+{{--                  <li role="presentation" class="dropdown-divider"></li>--}}
+{{--                  <li role="presentation">--}}
+{{--                    <a class="dropdown-item" role="menuitem" data-action="toggle-workweek">--}}
+{{--                      <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-workweek" checked>--}}
+{{--                      <span class="checkbox-title"></span>Show weekends--}}
+{{--                    </a>--}}
+{{--                  </li>--}}
+{{--                  <li role="presentation">--}}
+{{--                    <a class="dropdown-item" role="menuitem" data-action="toggle-start-day-1">--}}
+{{--                      <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-start-day-1">--}}
+{{--                      <span class="checkbox-title"></span>Start Week on Monday--}}
+{{--                    </a>--}}
+{{--                  </li>--}}
+{{--                  <li role="presentation">--}}
+{{--                    <a class="dropdown-item" role="menuitem" data-action="toggle-narrow-weekend">--}}
+{{--                      <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-narrow-weekend">--}}
+{{--                      <span class="checkbox-title"></span>Narrower than weekdays--}}
+{{--                    </a>--}}
+{{--                  </li>--}}
+{{--                </ul>--}}
+{{--              </div>--}}
+{{--            </span>--}}
 
-                <h4 id="renderRange" class="render-range fw-bold pt-1 mx-3"></h4>
+{{--          </div>--}}
+{{--        </div>--}}
 
-                <div class="dropdown align-self-start mt-3 mt-sm-0 mb-2">
-                  <button id="dropdownMenu-calendarType" class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="true">
-                  <i id="calendarTypeIcon" class="calendar-icon ic_view_month" style="margin-right: 4px;"></i>
-                  <span id="calendarTypeName">Dropdown</span>&nbsp;
-                  <i class="calendar-icon tui-full-calendar-dropdown-arrow"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="dropdownMenu-calendarType">
-                  <li role="presentation">
-                    <a class="dropdown-item" role="menuitem" data-action="toggle-daily">
-                      <i class="calendar-icon ic_view_day"></i>Daily
-                    </a>
-                  </li>
-                  <li role="presentation">
-                    <a class="dropdown-item" role="menuitem" data-action="toggle-weekly">
-                      <i class="calendar-icon ic_view_week"></i>Weekly
-                    </a>
-                  </li>
-                  <li role="presentation">
-                    <a class="dropdown-item" role="menuitem" data-action="toggle-monthly">
-                      <i class="calendar-icon ic_view_month"></i>Month
-                    </a>
-                  </li>
-                  <li role="presentation">
-                    <a class="dropdown-item" role="menuitem" data-action="toggle-weeks2">
-                      <i class="calendar-icon ic_view_week"></i>2 weeks
-                    </a>
-                  </li>
-                  <li role="presentation">
-                    <a class="dropdown-item" role="menuitem" data-action="toggle-weeks3">
-                      <i class="calendar-icon ic_view_week"></i>3 weeks
-                    </a>
-                  </li>
-                  <li role="presentation" class="dropdown-divider"></li>
-                  <li role="presentation">
-                    <a class="dropdown-item" role="menuitem" data-action="toggle-workweek">
-                      <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-workweek" checked>
-                      <span class="checkbox-title"></span>Show weekends
-                    </a>
-                  </li>
-                  <li role="presentation">
-                    <a class="dropdown-item" role="menuitem" data-action="toggle-start-day-1">
-                      <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-start-day-1">
-                      <span class="checkbox-title"></span>Start Week on Monday
-                    </a>
-                  </li>
-                  <li role="presentation">
-                    <a class="dropdown-item" role="menuitem" data-action="toggle-narrow-weekend">
-                      <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-narrow-weekend">
-                      <span class="checkbox-title"></span>Narrower than weekdays
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </span>
+{{--        <div class="lnb-new-schedule float-sm-end ms-sm-3 mt-4 mt-sm-0">--}}
+{{--          <button id="btn-new-schedule" type="button" class="btn btn-primary lnb-new-schedule-btn" data-toggle="modal">--}}
+{{--          New schedule</button>--}}
+{{--        </div>--}}
+{{--        <div id="calendarList" class="lnb-calendars-d1 mt-4 mt-sm-0 me-sm-0 mb-4"></div>--}}
 
-          </div>
-        </div>
-
-        <div class="lnb-new-schedule float-sm-end ms-sm-3 mt-4 mt-sm-0">
-          <button id="btn-new-schedule" type="button" class="btn btn-primary lnb-new-schedule-btn" data-toggle="modal">
-          New schedule</button>
-        </div>
-        <div id="calendarList" class="lnb-calendars-d1 mt-4 mt-sm-0 me-sm-0 mb-4"></div>
-
-
-        <div id="calendar" style="height: 800px;"></div>
+        <div id="calendar"></div>
 
       </div>
     </div>
@@ -575,7 +576,7 @@
                 </li>
                 <li>
                   <a href="javascript: void(0);" class="text-body d-flex align-items-center">
-                    <i class="mdi mdi-google-drive font-size-16 text-muted me-2"></i> <span class="me-auto">Google Drive</span> 
+                    <i class="mdi mdi-google-drive font-size-16 text-muted me-2"></i> <span class="me-auto">Google Drive</span>
                   </a>
                 </li>
                 <li>
@@ -1331,7 +1332,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="row justify-content-end">
             <div class="col-lg-10">
               <button type="submit" class="btn btn-primary">Create Task</button>
@@ -1415,7 +1416,7 @@
         <button type="button" class="btn btn-outline-secondary btn-sm" onclick="addColumn('demoA')">
           Add Column
         </button>
-        
+
         <button type="button" class="btn btn-outline-secondary btn-sm" onclick="deleteColumn('demoA')">
           Delete Column
         </button>
@@ -1426,13 +1427,13 @@
         <p class="card-title-desc"></p>
         <form method="POST" action="{{ route('saveData') }}">
           @csrf
-          
+
           <div class="table-responsive" >
             <table class="table table-editable table-nowrap align-middle table-edits" id="demoA">
               <tbody>
                 <tr id="headingz">
                   @if ($column_count > 0)
-                  
+
                   @for($i = 0; $i < $column_count; $i++)
                   <td><input class="form-control custom-input t-heading" type="text" name="heading[]" value="{{ $data['table_data']['heading'][$i] }}"></td>
                   @endfor
@@ -1443,9 +1444,9 @@
                   <td><input class="form-control custom-input t-heading" type="text" name="heading[]" value="Gender"></td>
                   <td><input class="form-control custom-input t-heading" type="text" name="heading[]" value="Notes"></td>
                   @endif
-                  
+
                   <td>
-                    
+
 
                   </td>
                 </tr>
@@ -1518,13 +1519,13 @@
           </form>
         </div>
       </div>
-    </div> 
-  </div> 
+    </div>
+  </div>
 
   <!-- End table -->
 
 
-</div> 
+</div>
 @endsection
 
 @section('scripts')
@@ -1545,16 +1546,16 @@
 <script src="{{asset('assets/libs/tui-dom/tui-dom.min.js')}}"></script>
 <script src="{{asset('assets/libs/tui-time-picker/tui-time-picker.min.js')}}"></script>
 <script src="{{asset('assets/libs/tui-date-picker/tui-date-picker.min.js')}}"></script>
-<script src="{{asset('assets/libs//moment/min/moment.min.js')}}"></script>
+{{--<script src="{{asset('assets/libs//moment/min/moment.min.js')}}"></script>--}}
 <script src="{{asset('assets/libs/chance/chance.min.js')}}"></script>
-<script src="{{asset('assets/libs/tui-calendar/tui-calendar.min.js')}}"></script>
-<script src="{{asset('assets/js/pages/calendars.js')}}"></script>
-<script src="{{asset('assets/js/pages/schedules.js')}}"></script>
-<script src="{{asset('assets/js/pages/calendar.init.js')}}"></script>
+{{--<script src="{{asset('assets/libs/tui-calendar/tui-calendar.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/pages/calendars.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/pages/schedules.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/pages/calendar.init.js')}}"></script>--}}
 
 <!-- file-manager js -->
-<script src="{{asset('assets/libs/apexcharts/apexcharts.min.js')}}"></script>
-<script src="{{asset('assets/js/pages/file-manager.init.js')}}"></script>
+{{--<script src="{{asset('assets/libs/apexcharts/apexcharts.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/pages/file-manager.init.js')}}"></script>--}}
 
 <!-- Create project js -->
 <script src="{{asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
@@ -1570,7 +1571,13 @@
 
 <!-- Editable table -->
 <script src="{{asset('assets/libs/table-edits/build/table-edits.min.js')}}"></script>
-<script src="{{asset('assets/js/pages/table-editable.int.js')}}"></script> 
+<script src="{{asset('assets/js/pages/table-editable.int.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+{{--Toaster + FullCalender--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 
 <script type="text/javascript">
   $(document).ready(function(){
@@ -1603,7 +1610,7 @@
     $(wrapper).append(fieldHTML);
 
   });
-  
+
   function dltDiv(div) {
     $(div).closest('.add-member-div').remove();
   }
@@ -1613,7 +1620,7 @@
   $('.add_btn').click(function(){
     // var tr = this.closest('tr');
     // var tr_position = tr.rowIndex;
-    
+
     // var html = '<tr><td><input type="text" name="" class="form-control custom-input"></td><td><input type="text" name="" class="form-control custom-input"></td><td><input type="text" name="" class="form-control custom-input"></td><td><input type="text" name="" class="form-control custom-input"></td><td><input type="button" value="Add Bottom" class="add_btn" onclick=addRow() /></td></tr>';
     // $("#demoA tbody tr").eq(tr_position - 1).after(html);
   });
@@ -1622,10 +1629,10 @@
     var tr = this1.closest('tr');
     var tr_position = tr.rowIndex;
     var row = document.getElementById('demoA').tBodies[0];
-    
+
     var col_number = document.getElementById('demoA').rows[0].cells.length;
 
-  
+
     var html = '<tr>';
     for(var i = 0; i < col_number-1; i++){
 
@@ -1650,7 +1657,7 @@
  // var tblHeadObj = document.getElementById(tblId).tHead;
   // alert(document.getElementById(tblId).rows[0].cells.length);
   var col_number = document.getElementById(tblId).rows[0].cells.length;
-  
+
 
 
  var tblBodyObj = document.getElementById(tblId).tBodies[0];
@@ -1662,7 +1669,7 @@
    var newCell = tblBodyObj.rows[i].insertCell(col_number-1);
    newCell.innerHTML = '<textarea class="form-control custom-input" name="field'+col_number +'[]"></textarea>';
  }
- 
+
 }
 
 function deleteColumn(tblId)
@@ -1675,6 +1682,92 @@ function deleteColumn(tblId)
    }
  }
 }
+
+
+
+
+$(function (){
+
+    var calendar = $('#calendar').fullCalendar({
+        selectable: true,
+
+        events: '{{route('dashboard')}}',
+
+        eventDrop: function (event, delta) {
+            var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD");
+            var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD");
+
+            $.ajax({
+                url: '{{route('d-calender')}}',
+                data: {
+                    title: event.title,
+                    start: start,
+                    end: end,
+                    id: event.id,
+                    type: 'update'
+                },
+                type: "POST",
+                success: function (response) {
+                    displayMessage("Event Updated Successfully");
+                }
+            });
+        },
+        eventClick: function (event) {
+            var deleteMsg = confirm("Do you really want to delete?");
+            if (deleteMsg) {
+                $.ajax({
+                    type: "POST",
+                    url: '{{route('d-calender')}}',
+                    data: {
+                        id: event.id,
+                        type: 'delete'
+                    },
+                    success: function (response) {
+                        calendar.fullCalendar('removeEvents', event.id);
+                        displayMessage("Event Deleted Successfully");
+                    }
+                });
+            }
+            calendar.fullCalendar('unselect');
+        },
+
+        select: function (start, end, allDay) {
+            var title = prompt('Event Title:');
+            if (title) {
+                var start = $.fullCalendar.formatDate(start, "Y-MM-DD");
+                var end = $.fullCalendar.formatDate(end, "Y-MM-DD");
+                $.ajax({
+                    url: '{{route('d-calender')}}',
+                    data: {
+                        title: title,
+                        start: start,
+                        end: end,
+                        type: 'add'
+                    },
+                    type: "POST",
+                    success: function (data) {
+                        displayMessage("Event Created Successfully");
+                        calendar.fullCalendar('renderEvent',
+                            {
+                                title: title,
+                                start: start,
+                                end: end,
+                                allDay: allDay
+                            },true);
+                    }
+                });
+            }
+            calendar.fullCalendar('unselect');
+        },
+    });
+
+});
+
+
+  function displayMessage(message) {
+      toastr.success(message, 'Event');
+  }
+
 
 </script>
 @endsection
