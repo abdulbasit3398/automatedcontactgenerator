@@ -20,7 +20,7 @@
                   <img src="{{asset('assets/images/logo.png')}}" alt="" width="150">
                 </span>
               </a>
-            </div>
+            </div>im
 
             <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
               <i class="fa fa-fw fa-bars"></i>
@@ -365,7 +365,7 @@
 <div class="dropdown d-inline-block">
   <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  <img class="rounded-circle header-profile-user" src="{{asset('public/assets/images/users/'.\Auth::user()->profile_image)}}"
+  <img class="rounded-circle header-profile-user" src="{{asset('assets/images/users/'.\Auth::user()->profile_image)}}"
   alt="Header Avatar">
   <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{\Auth::user()->username}}</span>
   <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>

@@ -71,7 +71,7 @@
 				<div class="py-4 border-bottom">
 					<div class="media">
 						<div class="align-self-center me-3">
-							<img src="{{asset('public/assets/images/users/'.\Auth::user()->profile_image)}}" class="avatar-xs rounded-circle" alt="">
+							<img src="{{asset('assets/images/users/'.\Auth::user()->profile_image)}}" class="avatar-xs rounded-circle" alt="">
 						</div>
 						<div class="media-body">
 							<h5 class="font-size-15 mt-0 mb-1">{{\Auth::user()->username}}</h5>
@@ -150,7 +150,7 @@
                                                             <i class="mdi mdi-circle font-size-10"></i>
                                                         </div>
                                                         <div class="align-self-center me-3">
-                                                            <img src="{{asset('public/assets/images/users/'.$person->profile_image)}}" class="rounded-circle avatar-xs" alt="">
+                                                            <img src="{{asset('assets/images/users/'.$person->profile_image)}}" class="rounded-circle avatar-xs" alt="">
                                                         </div>
 
                                                         <div class="media-body overflow-hidden">
@@ -265,7 +265,7 @@
 											<a href="#" class="new_message" data-id="{{$user->id}}" data-username="{{$user->username}}">
 												<div class="media">
 													<div class="align-self-center me-3">
-														<img src="{{asset('public/assets/images/users/'.$user->profile_image)}}" class="avatar-xs rounded-circle" alt="">
+														<img src="{{asset('assets/images/users/'.$user->profile_image)}}" class="avatar-xs rounded-circle" alt="">
 													</div>
 													<div class="media-body">
 														<h5 class="font-size-15 mt-0 mb-1">{{($user->first_name) ? $user->first_name.' '.$user->last_name : 'No Name'}}</h5>
