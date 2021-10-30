@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use Excel;
 use Auth;
 use Stripe;
@@ -54,12 +55,22 @@ class UserController extends Controller
         'sourceAmount' => 100
       ]
     ]);
-    $response_data = (string) $result->getBody(); 
+    $response_data = (string) $result->getBody();
     $json = json_decode($response_data);
     dd($json);
   }
-  public function index()
+  public function index(Request $request)
   {
+      if($request->ajax()) {
+          $data = Event::where('user_id',auth()->id())->whereDate('start', '>=', $request->start)
+              ->whereDate('end',   '<=', $request->end)
+
+              ->get(['id', 'title', 'start', 'end']);
+
+          return response()->json($data);
+
+      }
+
     $data['contacts'] = UserContact::where('user_id',Auth::id())->get();
     $user_data = UserData::where('user_id', Auth::user()->id)->first();
     $table_data = array();
@@ -68,7 +79,7 @@ class UserController extends Controller
 
     if($user_data != null){
       $table_data = json_decode($user_data->data);
-      $column_count = $user_data->column_count;  
+      $column_count = $user_data->column_count;
       $row_count = isset($table_data->field1) ? sizeof($table_data->field1) : 0;
       // $row_count = 0;
     }
@@ -87,17 +98,17 @@ class UserController extends Controller
     //     'Content-Type: application/x-www-form-urlencoded',
     //     'Authorization: Basic '.$auth
     // );
-    // $ch = curl_init(); 
+    // $ch = curl_init();
     // curl_setopt($ch,CURLOPT_URL, $target_url);
     // curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-    // curl_setopt($ch,CURLOPT_POST, 1); 
-    // curl_setopt($ch,CURLOPT_HEADER, 1); 
+    // curl_setopt($ch,CURLOPT_POST, 1);
+    // curl_setopt($ch,CURLOPT_HEADER, 1);
     // curl_setopt($ch,CURLOPT_RETURNTRANSFER, 1);
-    // curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0(compatible;)"); 
+    // curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0(compatible;)");
     // curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
     // curl_setopt($ch,CURLOPT_FRESH_CONNECT, 1);
-    // curl_setopt($ch, CURLOPT_FORBID_REUSE, 1); 
-    // curl_setopt($ch,CURLOPT_TIMEOUT,100); 
+    // curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
+    // curl_setopt($ch,CURLOPT_TIMEOUT,100);
     // curl_setopt($ch, CURLOPT_POSTFIELDS,'To=%2B19293747445&From=%2B14075569943&Body=hi%20i%20am%20Ronnie');
     // $result = curl_exec ($ch); if ($result === FALSE) {
     // echo "Error sending" . $fname . " " . curl_error($ch);
@@ -105,7 +116,7 @@ class UserController extends Controller
     // }else{
     //  curl_close ($ch);
     // echo "Result: " . $result;
-    // } 
+    // }
     // dd('sd');
     $data['user_clock'] = UserClockStatus::where('user_id',Auth::id())->orderBy('id','DESC')->get();
 
@@ -116,8 +127,48 @@ class UserController extends Controller
 
     $users = User::where('referrer_id',Auth::id())->get();
     $notes = AdditionalNote::where('user_id',Auth::id())->first();
+
     return view('user.dashboard',compact('users','notes','data', 'column_count', 'row_count'));
   }
+
+
+    public function calender(Request $request)
+    {
+
+        switch ($request->type) {
+            case 'add':
+                $event = Event::create([
+                    'user_id' => auth()->id(),
+                    'title' => $request->title,
+                    'color' => $request->start,
+                    'start' => $request->start,
+                    'end' => $request->end,
+                ]);
+
+                return response()->json($event);
+                break;
+
+            case 'update':
+                $event = Event::find($request->id)->update([
+                    'title' => $request->title,
+                    'color' => $request->start,
+                    'start' => $request->start,
+                    'end' => $request->end,
+                ]);
+
+                return response()->json($event);
+                break;
+
+            case 'delete':
+                $event = Event::find($request->id)->delete();
+                return response()->json($event);
+                break;
+
+            default:
+                break;
+        }
+    }
+
   public function saveData(Request $request){
 
     // dd(sizeof($request->heading));
@@ -128,7 +179,7 @@ class UserController extends Controller
       $get_user_data->column_count = sizeof($request->heading);
       $get_user_data->update();
         // dd($get_user_data);
-    } else { 
+    } else {
       $user_data = new UserData();
       $user_data->user_id = Auth::user()->id;
       $user_data->column_count = sizeof($request->heading);
@@ -136,7 +187,7 @@ class UserController extends Controller
       $user_data->save();
       // dd($user_data);
     }
-    
+
     // dd("done");
     // dd(json_decode($user_data)->data);
 
@@ -362,7 +413,7 @@ class UserController extends Controller
       $custom->package_name = 'Custom Biz Opp Leads';
       $custom->answer = $request->package_notes;
       $custom->save();
-      
+
       return redirect()->back()->with('success','Your request submited.');
 
     }
@@ -372,7 +423,7 @@ class UserController extends Controller
       $custom->package_name = 'Custom Prospects';
       $custom->answer = $request->package_notes;
       $custom->save();
-      
+
       return redirect()->back()->with('success','Your request submited.');
     }
     else
@@ -393,7 +444,7 @@ class UserController extends Controller
         $total_price = $package_price - $wallet;
         $deduct_from_wallet = $wallet;
       }
-      
+
     }
     else
       $total_price = $package_price;
@@ -424,7 +475,7 @@ class UserController extends Controller
       $payment_id = 'wallet';
     }
 
-    
+
     if($payment_done == 1)
     {
 
@@ -453,10 +504,10 @@ class UserController extends Controller
         $inventory->validity = $product['validity'][$key];
         $inventory->save();
         // }
-        
+
 
       }
-      $phone_number = 
+      $phone_number =
       $user = User::find(Auth::id());
       $user->payment_id = $payment_id;
       // $user->current_package = $package_detail->id;
@@ -582,7 +633,7 @@ class UserController extends Controller
     if($prev_contact)
       return redirect()->back()->with('success','Contact already exist.');
 
-    $contact = new UserContact; 
+    $contact = new UserContact;
     $contact->user_id = Auth::id();
     $contact->contact_name = $request->contact_name;
     $contact->contact_email = $request->email;
@@ -683,9 +734,9 @@ class UserController extends Controller
 
       $user_wallet->save();
     }
-    
 
-    
+
+
 
   }
   public function sales_funnels()
@@ -693,7 +744,7 @@ class UserController extends Controller
     return view('user.sales_funnels');
   }
 
-  
+
   public function save_time_track(Request $request)
   {
     $clock = new UserClockStatus;
@@ -739,7 +790,7 @@ class UserController extends Controller
           $name = time().'.'.$image->getClientOriginalExtension();
           $imagePath = $destinationPath. "/". $name;
           $image->move($destinationPath, $name);
-          
+
           $task_member->team_member_avatar = $name;
 
         }
@@ -766,12 +817,12 @@ class UserController extends Controller
       'PhoneNumbers' => array($request->phone_number),
       'LicenseKey' => $this->admin_setting('CDYNE_LICENSE_KEY')
     );
-    
+
     $result = $client->CheckPhoneNumbers($param);
 
     $data['valid'] = $result->CheckPhoneNumbersResult->PhoneReturn->Valid;
     $data['clean_number'] = $result->CheckPhoneNumbersResult->PhoneReturn->CleanNumber;
-    
+
     return $data;
   }
   public function bulk_import_list_clean(Request $request)
@@ -780,7 +831,7 @@ class UserController extends Controller
     'contact_file' => 'required|max:50000|mimes:xlsx,csv,xls'
   ]);
    $number = array();
-    
+
    $array = Excel::toArray(new ListCleanImport, request()->file('contact_file'));
 
    if(count($array[0]) > 999)
@@ -799,7 +850,7 @@ class UserController extends Controller
         'PhoneNumbers' => $number,
         'LicenseKey' => $this->admin_setting('CDYNE_LICENSE_KEY')
       );
-      
+
       $result = $client->CheckPhoneNumbers($param);
     }
     catch(\Exception $e)
@@ -807,10 +858,10 @@ class UserController extends Controller
       dd($e);
       return redirect()->back()->with('error','There is error in connection. Please try again later.');
     }
-    
-    
+
+
     $valid_numbers = array();
-    
+
     if(isset($result->CheckPhoneNumbersResult->PhoneReturn->Valid))
       $valid_numbers[] = $result->CheckPhoneNumbersResult->PhoneReturn->CleanNumber;
     else
@@ -819,7 +870,7 @@ class UserController extends Controller
         if($result->CheckPhoneNumbersResult->PhoneReturn[$i]->Valid == true)
           $valid_numbers[] = $result->CheckPhoneNumbersResult->PhoneReturn[$i]->CleanNumber;
     }
-    
+
 
 
     $image = $request->file('contact_file');
@@ -887,7 +938,7 @@ class UserController extends Controller
       $phone_number = $user_phone_num->phone_number;
       return $phone_number;
     }
-    
+
 
     $project_id = config('signal_wire_api.signal_wire.project_id');
     $token      = config('signal_wire_api.signal_wire.token');
@@ -896,7 +947,7 @@ class UserController extends Controller
     $client     = new SClient($project_id, $token, array("signalwireSpaceUrl" => $space_url));
 
     $numbers = $client->availablePhoneNumbers('US')->local->read();
-    
+
     for($i = 0; $i < count($numbers); $i++)
     {
       $incoming_phone_number = $client->incomingPhoneNumbers->
@@ -919,7 +970,7 @@ class UserController extends Controller
         return $phone_number;
       }
     }
-    
+
   }
 
 }

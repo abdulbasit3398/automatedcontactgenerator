@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        
+
         <meta charset="utf-8" />
         <title>Login | Automatedcontactgenerator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +39,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-body pt-0"> 
+                            <div class="card-body pt-0">
                                 <div class="auth-logo">
                                     <a href="index.html" class="auth-logo-light">
                                         <div class="avatar-md profile-user-wid mb-4">
@@ -62,7 +62,7 @@
                                     @csrf
                                         <div class="mb-3">
                                             <label for="username" class="form-label">{{ __('Username/E-Mail Address') }}*</label>
-                                            <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="abdulbasit3398@gmail.com" required autocomplete="email" autofocus>
 
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -70,11 +70,11 @@
                                                 </span>
                                             @enderror
                                         </div>
-                
+
                                         <div class="mb-3">
                                             <label class="form-label">{{ __('Password') }}</label>
                                             <div class="input-group auth-pass-inputgroup">
-                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="adminadmin" required autocomplete="current-password">
 
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">
@@ -91,14 +91,14 @@
                                                 Remember me
                                             </label>
                                         </div>
-                                        
+
                                         <div class="mt-3 d-grid">
                                             <button class="btn btn-primary waves-effect waves-light" type="submit">Log In</button>
                                         </div>
-            
+
                                         <div class="mt-4 text-center">
                                             <h5 class="font-size-14 mb-3">Sign in with</h5>
-            
+
                                             <ul class="list-inline">
                                                 <li class="list-inline-item">
                                                     <a href="javascript::void()" class="social-list-item bg-primary text-white border-primary">
@@ -123,7 +123,7 @@
                                         </div>
                                     </form>
                                 </div>
-            
+
                             </div>
                         </div>
                         <div class="mt-5 text-center">
@@ -131,7 +131,7 @@
                                 <p>Don't have an account ? <a href="{{route('register')}}" class="fw-medium text-primary"> Sign up now </a> </p>
                                 <!-- <p>© <script>document.write(new Date().getFullYear())</script> Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p> -->
                             </div>
-                            
+
                         </div>
 
                     </div>

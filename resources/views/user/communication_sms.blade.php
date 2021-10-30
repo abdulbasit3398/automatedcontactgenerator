@@ -17,7 +17,7 @@
           <span class="d-none d-sm-inline-block me-2">Compose</span>
 
         </a>
-         
+
 
       </div>
     </div>
@@ -68,8 +68,8 @@
                   </li>
                   @endforeach
                   @endif
-                  
-                   
+
+
                 </ul>
               </div>
             </div>
@@ -94,10 +94,10 @@
                                 </a>
                               </li>
                             @endforeach
-                               
+
                           </ul>
                         </div>
-         
+
                       </div>
                     </div>
                   </div>
@@ -128,7 +128,7 @@
               <h5 class="font-size-15 mb-1">{{$data['contact_name']}}</h5>
             </div>
             <div class="col-md-8 col-3">
-               
+
             </div>
           </div>
         </div>
@@ -137,7 +137,7 @@
         <div>
           <div class="chat-conversation p-3">
             <ul class="list-unstyled mb-0" data-simplebar style="max-height: 486px;">
-              <!-- <li> 
+              <!-- <li>
                 <div class="chat-day-title">
                   <span class="title">Today</span>
                 </div>
@@ -151,7 +151,7 @@
               @endphp
               <li class="{{$class}}">
                 <div class="conversation-list">
-                   
+
                   <div class="ctext-wrap">
                     <p>
                       {{$sms->message}}
@@ -167,7 +167,7 @@
           </div>
           <div class="p-3 chat-input-section">
             <form method="post" action="{{route('send-communication-sms')}}" enctype="multipart/form-data">
-              @csrf 
+              @csrf
               <div class="row">
 
                 <div class="col-12 collapse mb-2" id="collapseExample">
@@ -187,7 +187,7 @@
                         </li>
                       </ul>
                     </div>
-                     
+
                   </div>
                 </div>
                 <div class="col-auto">

@@ -17,17 +17,17 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    
+
     protected $fillable = [
         'username', 'email', 'password','website','current_package','payment_id','referrer_id','package_validation','total_contacts','remaining_contacts','affiliate_account','first_name','last_name','company_name'
     ];
 
-    
+
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-   
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
@@ -103,5 +103,20 @@ class User extends Authenticatable
     public function signal_wire_phone_number()
     {
         return $this->hasOne(UserPhoneNumber::class,'user_id');
+    }
+
+    public function conversations () {
+        return $this->hasMany(Conversation::class,'sender_id');
+    }
+
+    public function getFullNameAttribute (){
+        $name = $this->first_name ." ". $this->last_name;
+        if($name == '')
+            return 'No name';
+        return $name;
+    }
+
+    public function events(){
+        return $this->hasMany(Event::class);
     }
 }
