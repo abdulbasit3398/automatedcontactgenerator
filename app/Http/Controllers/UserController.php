@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use Excel;
 use Auth;
+use Illuminate\Support\Facades\Storage;
 use Stripe;
 use App\User;
 use SoapClient;
@@ -31,6 +32,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use Twilio\Rest\Client as TClient;
 use SignalWire\Rest\Client as SClient;
+use function foo\func;
 
 class UserController extends Controller
 {
@@ -128,7 +130,15 @@ class UserController extends Controller
     $users = User::where('referrer_id',Auth::id())->get();
     $notes = AdditionalNote::where('user_id',Auth::id())->first();
 
-    return view('user.dashboard',compact('users','notes','data', 'column_count', 'row_count'));
+//      $drive_files = cache()->remember('google_files', now()->addDay(), function () {
+//          return Storage::disk('google')->allFiles();
+//      });
+
+
+
+      $drive_files = Storage::disk('google')->allFiles();
+    $directories = Storage::disk('google')->allDirectories();
+    return view('user.dashboard',compact('users','notes','data', 'column_count', 'row_count','drive_files','directories'));
   }
 
 

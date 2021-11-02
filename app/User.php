@@ -111,7 +111,8 @@ class User extends Authenticatable
 
     public function getFullNameAttribute (){
         $name = $this->first_name ." ". $this->last_name;
-        if($name == '')
+
+        if(strlen($this->first_name) < 1 && strlen($this->last_name) <1)
             return 'No name';
         return $name;
     }

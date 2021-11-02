@@ -11,6 +11,42 @@
 |
 */
 
+//use Illuminate\Support\Facades\Storage;
+
+//use Google\Service\Storage;
+
+use Illuminate\Support\Facades\Storage;
+
+Route::group(['namespace' => 'Google'], function() {
+
+    Route::post('/upload-to-root', 'GoogleDriveController@store')->name('upload-to-root');
+    Route::get('/file-url', 'GoogleDriveController@fileURL')->name('file-url');
+    Route::post('/create-directoy', 'GoogleDriveController@createDirectory')->name('create-directory');
+    Route::delete('/remove-directoy', 'GoogleDriveController@removeDirectory')->name('remove-directory');
+    Route::delete('/remove-file', 'GoogleDriveController@removeFile')->name('remove-file');
+    Route::post('/put-in-directory', 'GoogleDriveController@putInDirectory')->name('put-in-dir');
+
+});
+
+
+
+Route::post('/create-group', 'CrmChatController@createGroup')->name('create-group');
+Route::get('/get-group-messages', 'CrmChatController@getGroupMessages')->name('get-group-messages');
+
+Route::post('/send-group-chat', 'CrmChatController@sendGroupChat')->name('send-group-chat');
+Route::post('/update-group', 'CrmChatController@updateGroup')->name('update-group');
+
+Route::delete('/remove-group', 'CrmChatController@removeGroup')->name('remove-group');
+
+
+Route::get('/chat', 'CrmChatController@index')->name('chat');
+Route::get('/get-messages', 'CrmChatController@getMessages')->name('get-messages');
+Route::post('/send-chat', 'CrmChatController@send_chat')->name('send_chat');
+
+
+
+
+
 Route::get('/test', 'HomeController@test')->name('test');
 
 
@@ -46,10 +82,6 @@ Route::get('/create-task',function () {
 Route::get('/tables',function () {
     return view('user.tables');
 })->name('tables');
-
-Route::get('/chat', 'CrmChatController@index')->name('chat');
-Route::get('/get-messages', 'CrmChatController@getMessages')->name('get-messages');
-Route::post('/send-chat', 'CrmChatController@send_chat')->name('send_chat');
 
 Route::get('/checkout',function () {
     return view('user.checkout');

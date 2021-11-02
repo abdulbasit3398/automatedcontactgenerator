@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('custom-css')
-
+    <link href="{{asset('assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 
@@ -45,6 +45,87 @@
     </div>
   </div>
 </div>
+
+<div id="createGroup" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" action="{{route('create-group')}}" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Group Name</label>
+                        <div class="col-md-10">
+                            <input type="text"required name="group_name" id="group_name" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+
+                        <label for="example-text-input" class="col-md-2 col-form-label">Members</label>
+                        <div class="col-md-10">
+                            <select name="members[]" id="members"
+                                    required multiple
+                                    class="select2 form-control select2-multiple"
+                                    style="width: 100%!important;">
+
+                                @foreach($users as $user)
+                                    <option value="{{$user->id}}">{{$user->full_name}}</option>
+                                @endforeach
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary w-md">Save</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="addRemoveMembers" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" action="{{route('update-group')}}" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <input type="hidden" name="update_group_id" id="update_group_id" class="form-control">
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Group Name</label>
+                        <div class="col-md-10">
+                            <input type="text"required name="update_group_name" id="update_group_name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Members</label>
+                        <div class="col-md-10">
+                            <select name="update_members[]" id="update_members"
+                                    required multiple
+                                    class="select2 form-control select2-multiple"
+                                    style="width: 100%!important;">
+
+                                @foreach($users as $user)
+                                    <option value="{{$user->id}}">{{$user->full_name}}</option>
+                                @endforeach
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary w-md">Update</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
 
 <div class="container-fluid">
 	<!-- start page title -->
@@ -93,26 +174,22 @@
 					</div>
 				</div>
 
-{{--				<div class="search-box chat-search-box py-4">--}}
-{{--					<div class="position-relative">--}}
-{{--						<input type="text" class="form-control" placeholder="Search...">--}}
-{{--						<i class="bx bx-search-alt search-icon"></i>--}}
-{{--					</div>--}}
-{{--				</div>--}}
 				<div class="chat-leftsidebar-nav mt-5">
 					<ul class="nav nav-pills nav-justified">
-						<li class="nav-item">
+						<li class="nav-item" onclick="showChat()">
 							<a href="#chat" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
 								<i class="bx bx-chat font-size-20 d-sm-none"></i>
 								<span class="d-none d-sm-block">Chat</span>
 							</a>
 						</li>
-{{--						<li class="nav-item">--}}
-{{--							<a href="#groups" data-bs-toggle="tab" aria-expanded="false" class="nav-link">--}}
-{{--								<i class="bx bx-group font-size-20 d-sm-none"></i>--}}
-{{--								<span class="d-none d-sm-block">Groups</span>--}}
-{{--							</a>--}}
-{{--						</li>--}}
+
+						<li class="nav-item" onclick="showGroupChat()">
+							<a href="#groups" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+								<i class="bx bx-group font-size-20 d-sm-none"></i>
+								<span class="d-none d-sm-block">Groups</span>
+							</a>
+						</li>
+
 						<li class="nav-item">
 							<a href="#contacts" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
 								<i class="bx bx-book-content font-size-20 d-sm-none"></i>
@@ -170,90 +247,75 @@
 								</ul>
 							</div>
 						</div>
-{{--						<div class="tab-pane" id="groups">--}}
-{{--							<h5 class="font-size-14 mb-3">Groups</h5>--}}
-{{--							<ul class="list-unstyled chat-list" data-simplebar style="max-height: 410px;">--}}
-{{--								<li>--}}
-{{--									<a href="#">--}}
-{{--										<div class="media align-items-center">--}}
-{{--											<div class="avatar-xs me-3">--}}
-{{--												<span class="avatar-title rounded-circle bg-primary bg-soft text-primary">--}}
-{{--													G--}}
-{{--												</span>--}}
-{{--											</div>--}}
+						<div class="tab-pane" id="groups">
+							<h5 class="font-size-14 mb-3">Groups </h5>
 
-{{--											<div class="media-body">--}}
-{{--												<h5 class="font-size-14 mb-0">General</h5>--}}
-{{--											</div>--}}
-{{--										</div>--}}
-{{--									</a>--}}
-{{--								</li>--}}
+							<ul class="list-unstyled chat-list all-group-chatters" data-simplebar style="max-height: 410px;">
+								<li id="create_group_li">
+                                    <a >
+                                        <div class="media align-items-center">
+                                            <div class="avatar-xs me-3">
+												<span class="avatar-title rounded-circle bg-primary bg-soft text-primary">
+													<i class="mdi mdi-account-search"></i>
+												</span>
+                                            </div>
 
-{{--								<li>--}}
-{{--									<a href="#">--}}
-{{--										<div class="media align-items-center">--}}
-{{--											<div class="avatar-xs me-3">--}}
-{{--												<span class="avatar-title rounded-circle bg-primary bg-soft text-primary">--}}
-{{--													R--}}
-{{--												</span>--}}
-{{--											</div>--}}
+                                            <div class="media-body">
+                                                <h5 class="font-size-14 mb-0">Create Group</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+								</li>
 
-{{--											<div class="media-body">--}}
-{{--												<h5 class="font-size-14 mb-0">Reporting</h5>--}}
-{{--											</div>--}}
-{{--										</div>--}}
-{{--									</a>--}}
-{{--								</li>--}}
+                                <?php
+                                    $group_count = count($my_groups) + count($member_of_groups);
+                                ?>
+                                @if($group_count > 0)
 
-{{--								<li>--}}
-{{--									<a href="#">--}}
-{{--										<div class="media align-items-center">--}}
-{{--											<div class="avatar-xs me-3">--}}
-{{--												<span class="avatar-title rounded-circle bg-primary bg-soft text-primary">--}}
-{{--													M--}}
-{{--												</span>--}}
-{{--											</div>--}}
+                                    @foreach($my_groups as $group)
+                                        <li onclick="getGroupMessages({{$group->id}})">
+                                            <a href="#">
+                                                <div class="media align-items-center">
+                                                    <div class="avatar-xs me-3">
+                                                        <span class="avatar-title rounded-circle bg-primary bg-soft text-primary">
+                                                            {{ucfirst($group->name[0])}}
+                                                        </span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h5 class="font-size-14 mb-0">{{$group->name}}</h5>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    @endforeach
 
-{{--											<div class="media-body">--}}
-{{--												<h5 class="font-size-14 mb-0">Meeting</h5>--}}
-{{--											</div>--}}
-{{--										</div>--}}
-{{--									</a>--}}
-{{--								</li>--}}
+                                    @foreach($member_of_groups as $g)
+                                    @if($g->group()->exists())
+                                        <li onclick="getGroupMessages({{$g->group->id}})">
+                                            <a href="#">
+                                                <div class="media align-items-center">
+                                                    <div class="avatar-xs me-3">
+                                                        <span class="avatar-title rounded-circle bg-primary bg-soft text-primary">
+                                                            {{ucfirst($g->group->name[0])}}
+                                                        </span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h5 class="font-size-14 mb-0">{{$g->group->name}}</h5>
+                                                    </div>
 
-{{--								<li>--}}
-{{--									<a href="#">--}}
-{{--										<div class="media align-items-center">--}}
-{{--											<div class="avatar-xs me-3">--}}
-{{--												<span class="avatar-title rounded-circle bg-primary bg-soft text-primary">--}}
-{{--													A--}}
-{{--												</span>--}}
-{{--											</div>--}}
+                                                </div>
+                                            </a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                                @else
+                                    <li class="text-center">
+                                        <p>No Recent Group</p>
+                                    </li>
 
-{{--											<div class="media-body">--}}
-{{--												<h5 class="font-size-14 mb-0">Project A</h5>--}}
-{{--											</div>--}}
-{{--										</div>--}}
-{{--									</a>--}}
-{{--								</li>--}}
-
-{{--								<li>--}}
-{{--									<a href="#">--}}
-{{--										<div class="media align-items-center">--}}
-{{--											<div class="avatar-xs me-3">--}}
-{{--												<span class="avatar-title rounded-circle bg-primary bg-soft text-primary">--}}
-{{--													B--}}
-{{--												</span>--}}
-{{--											</div>--}}
-
-{{--											<div class="media-body">--}}
-{{--												<h5 class="font-size-14 mb-0">Project B</h5>--}}
-{{--											</div>--}}
-{{--										</div>--}}
-{{--									</a>--}}
-{{--								</li>--}}
-{{--							</ul>--}}
-{{--						</div>--}}
+                                @endif
+							</ul>
+						</div>
 						<div class="tab-pane" id="contacts">
 
 							<div  data-simplebar style="max-height: 410px;">
@@ -288,64 +350,15 @@
 			</div>
 		</div>
 
-
-		<div class="w-100 user-chat">
+		<div class="w-100 user-chat" id="chat_div">
 			<div class="card">
 				<div class="p-4 border-bottom ">
 					<div class="row">
 						<div class="col-md-4 col-9">
 							<h5 class="font-size-15 mb-1" id="inbox_name"></h5>
-{{--							<p class="text-muted mb-0"><i class="mdi mdi-circle text-success align-middle me-1"></i> Active now</p>--}}
 						</div>
 						<div class="col-md-8 col-3">
-{{--							<ul class="list-inline user-chat-nav text-end mb-0">--}}
-{{--								<li class="list-inline-item d-none d-sm-inline-block">--}}
-{{--									<div class="dropdown">--}}
-{{--										<button class="btn nav-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--											<i class="bx bx-search-alt-2"></i>--}}
-{{--										</button>--}}
-{{--										<div class="dropdown-menu dropdown-menu-end dropdown-menu-md">--}}
-{{--											<form class="p-3">--}}
-{{--												<div class="form-group m-0">--}}
-{{--													<div class="input-group">--}}
-{{--														<input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">--}}
 
-{{--														<button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>--}}
-
-{{--													</div>--}}
-{{--												</div>--}}
-{{--											</form>--}}
-{{--										</div>--}}
-{{--									</div>--}}
-{{--								</li>--}}
-{{--								<li class="list-inline-item  d-none d-sm-inline-block">--}}
-{{--									<div class="dropdown">--}}
-{{--										<button class="btn nav-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--											<i class="bx bx-cog"></i>--}}
-{{--										</button>--}}
-{{--										<div class="dropdown-menu dropdown-menu-end">--}}
-{{--											<a class="dropdown-item" href="#">View Profile</a>--}}
-{{--											<a class="dropdown-item" href="#">Clear chat</a>--}}
-{{--											<a class="dropdown-item" href="#">Muted</a>--}}
-{{--											<a class="dropdown-item" href="#">Delete</a>--}}
-{{--										</div>--}}
-{{--									</div>--}}
-{{--								</li>--}}
-
-{{--								<li class="list-inline-item">--}}
-{{--									<div class="dropdown">--}}
-{{--										<button class="btn nav-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--											<i class="bx bx-dots-horizontal-rounded"></i>--}}
-{{--										</button>--}}
-{{--										<div class="dropdown-menu dropdown-menu-end">--}}
-{{--											<a class="dropdown-item" href="#">Action</a>--}}
-{{--											<a class="dropdown-item" href="#">Another action</a>--}}
-{{--											<a class="dropdown-item" href="#">Something else</a>--}}
-{{--										</div>--}}
-{{--									</div>--}}
-{{--								</li>--}}
-
-{{--							</ul>--}}
 						</div>
 					</div>
 				</div>
@@ -358,58 +371,10 @@
 
                             </div>
 
-{{--							<li>--}}
-{{--								<div class="conversation-list">--}}
-{{--									<div class="dropdown">--}}
-
-{{--										<a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--											<i class="bx bx-dots-vertical-rounded"></i>--}}
-{{--										</a>--}}
-{{--										<div class="dropdown-menu">--}}
-{{--											<a class="dropdown-item" href="#">Copy</a>--}}
-{{--											<a class="dropdown-item" href="#">Save</a>--}}
-{{--											<a class="dropdown-item" href="#">Forward</a>--}}
-{{--											<a class="dropdown-item" href="#">Delete</a>--}}
-{{--										</div>--}}
-{{--									</div>--}}
-{{--									<div class="ctext-wrap">--}}
-{{--										<div class="conversation-name">Steven Franklin</div>--}}
-{{--										<p>--}}
-{{--											Hello!--}}
-{{--										</p>--}}
-{{--										<p class="chat-time mb-0"><i class="bx bx-time-five align-middle me-1"></i> 10:00</p>--}}
-{{--									</div>--}}
-
-{{--								</div>--}}
-{{--							</li>--}}
-
-{{--							<li class="right">--}}
-{{--								<div class="conversation-list">--}}
-{{--									<div class="dropdown">--}}
-
-{{--										<a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--											<i class="bx bx-dots-vertical-rounded"></i>--}}
-{{--										</a>--}}
-{{--										<div class="dropdown-menu">--}}
-{{--											<a class="dropdown-item" href="#">Copy</a>--}}
-{{--											<a class="dropdown-item" href="#">Save</a>--}}
-{{--											<a class="dropdown-item" href="#">Forward</a>--}}
-{{--											<a class="dropdown-item" href="#">Delete</a>--}}
-{{--										</div>--}}
-{{--									</div>--}}
-{{--									<div class="ctext-wrap">--}}
-{{--										<div class="conversation-name">Henry Wells</div>--}}
-{{--										<p>--}}
-{{--											Wow that's great--}}
-{{--										</p>--}}
-
-{{--										<p class="chat-time mb-0"><i class="bx bx-time-five align-middle me-1"></i> 10:07</p>--}}
-{{--									</div>--}}
-{{--								</div>--}}
-{{--							</li>--}}
-
 						</ul>
 					</div>
+
+
 					<div class="p-3 chat-input-section">
                         <form id="chat_form" action="{{route('send_chat')}}" action="POST" enctype="multipart/form-data">
                             @csrf
@@ -443,15 +408,64 @@
 			</div>
 		</div>
 
-	</div>
-	<!-- end row -->
+        <div class="w-100 user-chat" id="full_group_chat">
+            <div class="card">
+                <div id="group_chat_div">
 
+                </div>
+
+                <div class="p-3 chat-input-section">
+                    <form id="group_chat_form" action="{{route('send-group-chat')}}" method="POST"
+                          enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col-12 collapse mb-2" id="gcollapseExample">
+                                <input class="form-control form-control-sm" id="group_file_mms" type="file" name="group_file_mms" accept="image/*,.pdf,.txt,.doc,.docx">
+                            </div>
+                            <div class="col">
+                                <div class="position-relative">
+                                    <input type="hidden" name="group_id" id="group_id" value="">
+                                    <input type="text" class="form-control chat-input" name="group_msg" id="group_msg" placeholder="Enter Message...">
+                                    <div class="chat-input-links" id="tooltip-container">
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item" >
+                                                <a id="gcollapse" class="collapsed" data-bs-toggle="collapse" href="#gcollapseExample" aria-expanded="false"
+                                                   aria-controls="collapseExample" href="javascript: void(0);" title="Add Files">
+                                                    <i class="mdi mdi-file-document-outline"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary btn-rounded chat-send w-md waves-effect waves-light">
+                                    <span class="d-none d-sm-inline-block me-2" >Send</span><i class="mdi mdi-send"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+	<!-- end row -->
 </div>
 @endsection
 
 @section('scripts')
-<script type="text/javascript">
+    <script src="{{asset('assets/libs/select2/js/select2.min.js')}}"></script>
+    <script type="text/javascript">
+
+
+
 	$(document).ready(function(){
+
+	    $('.select2').select2({
+            placeholder:'Select Members'
+        });
 		$('.new_message').click(function(){
 			$('#message_body').val('');
 			var id = $(this).data('id');
@@ -462,13 +476,26 @@
 			$('#newMessage').modal('show');
 		});
 
+        $('#create_group_li').click(function(){
+            $('#members').val('').trigger('change');
+            $('#group_name').val('');
+
+            $('#createGroup').modal('show');
+        });
+
         $('.all-chatters').on('click', 'li', function() {
             $('.all-chatters li.active').removeClass('active');
+            $(this).addClass('active');
+        });
+        $('.all-group-chatters').on('click', 'li', function() {
+            $('.all-group-chatters li.active').removeClass('active');
             $(this).addClass('active');
         });
 
         $(".all-chatters li:nth-child(1)").addClass('active');
         $(".all-chatters li:nth-child(1)").click();
+
+        $('#full_group_chat').hide();
 
         $('#chat_form').submit(function(e) {
             e.preventDefault();
@@ -493,7 +520,43 @@
                 }
             });
         });
-	});
+        $('#group_chat_form').submit(function(e) {
+            e.preventDefault();
+            if($('#group_msg').val().trim().length === 0){
+                alert('Please type a message');
+                return;
+            }
+            let formData = new FormData(e.target);
+            $.ajax({
+                url:'{{route('send-group-chat')}}',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (message) {
+                    $('.no-g-msg').hide();
+                    $('#group_msg').val('');
+                    $("#group_msg_list").append(message);
+                    $('#group_file_mms').val('');
+                    $('#gcollapse').trigger('click');
+                }
+            });
+        });
+
+    });
+
+
+	function addRemoveMembers(id,name,members){
+	    $('#update_group_id').val(id);
+	    $('#update_group_name').val(name);
+	    var members_array = [];
+
+        for (var arrayIndex in members) {
+            members_array.push(members[arrayIndex].user.id);
+        }
+        $('#update_members').val(members_array).change();
+        $('#addRemoveMembers').modal('show');
+    }
 
     function getMessages(conversation_id,rcvr_id, name){
 
@@ -520,6 +583,47 @@
         }
     }
 
+    function showChat(){
 
-</script>
+        $('#chat_div').show();
+        $('#full_group_chat').hide();
+
+    }
+
+    function showGroupChat(){
+        $(".all-group-chatters li:nth-child(2)").addClass('active');
+        $(".all-group-chatters li:nth-child(2)").click();
+
+        $('#chat_div').hide();
+        $('#full_group_chat').show();
+    }
+
+    function getGroupMessages(group_id){
+        $('#group_chat_div').html('');
+        $('#group_id').val(group_id);
+
+        $.ajax({
+            url:'{{route('get-group-messages')}}',
+            data:{group_id},
+            success:function (div){
+                $('#group_chat_div').append(div);
+            }
+        });
+
+    }
+
+    function removeGroup(group_id){
+	    if(confirm('Are you sure you want to delete this group')){
+	        $.ajax({
+               url:'{{route('remove-group')}}',
+                method:'DELETE',
+               data:{group_id,'_token':'{{csrf_token()}}'},
+               success:function (){
+                   window.location.reload();
+               }
+            });
+        }
+    }
+
+    </script>
 @endsection
