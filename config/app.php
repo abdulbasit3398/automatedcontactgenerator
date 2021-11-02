@@ -177,7 +177,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         // Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class
-              
+
+        App\Providers\GoogleDriveServiceProvider::class,
+
     ],
 
     /*
