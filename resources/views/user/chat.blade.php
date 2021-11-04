@@ -367,8 +367,10 @@
 					<div class="chat-conversation p-3">
 						<ul class="list-unstyled mb-0 all-chat-ul"  data-simplebar style="max-height: 486px;">
 
-                            <div id="msg_list" >
+                            <div id="msg_list" style="min-height: 15rem" >
+                                <li>
 
+                                </li>
                             </div>
 
 						</ul>

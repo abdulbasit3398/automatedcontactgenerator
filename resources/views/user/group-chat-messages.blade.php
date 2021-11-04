@@ -57,7 +57,7 @@
 <div class="chat-conversation p-3">
         <ul class="list-unstyled mb-0 all-chat-ul"  data-simplebar style="max-height: 486px;">
 
-            <div id="group_msg_list" >
+            <div id="group_msg_list" style="min-height: 15rem">
 
                 @if($group->messages()->exists())
                     <?php
@@ -84,9 +84,9 @@
                                     <div class="conversation-name">{{$name}}</div> <p> {{$message->body}} </p>
                                     @if($message->media)
                                         <div class="mb-3">
-                                            <a href="{{url('/assets/mms_files/'.$message->media)}}">
-                                                <img src="{{asset('/assets/mms_files/'.$message->media)}}" alt="">
-                                            </a>
+                                            <embed src="{{asset('/assets/mms_files/'.$message->media)}}" width="100%" height="100px" />
+
+                                            <a href="{{url('/assets/mms_files/'.$message->media)}}" target="_blank"> Open</a>
                                         </div>
                                     @endif
                                     <p class="chat-time mb-0"><i class="bx bx-time-five align-middle me-1"></i>{{$message->created_at}}</p>
