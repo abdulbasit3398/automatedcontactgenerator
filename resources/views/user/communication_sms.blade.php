@@ -56,7 +56,7 @@
                           <i class="mdi mdi-circle font-size-10"></i>
                         </div>
                         <div class="align-self-center me-3">
-                          <img src="{{asset('assets/images/users/'.$number->contact->contact_avatar)}}" class="rounded-circle avatar-xs" alt="">
+                          <img src="{{asset('assets/images/users/'.(isset($number->contact))?'$number->contact->contact_avatar':'avatar-1.png')}}" class="rounded-circle avatar-xs" alt="">
                         </div>
 
                         <div class="media-body overflow-hidden">

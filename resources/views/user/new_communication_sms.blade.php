@@ -76,7 +76,7 @@
 						<div class="mb-3 row new_to_contacts" >
 							<label for="example-text-input" class="col-md-2 col-form-label">Select Contacts</label>
 							<div class="col-md-10">
-								<select class="select2 form-control select2-multiple" name="sms_recipient_contact[]" id="sms_recipient_contact" required="required" multiple="multiple" data-placeholder="Choose ...">
+								<select class="select2 form-control select2-multiple" name="sms_recipient_contact[]" id="sms_recipient_contact" required multiple="multiple" data-placeholder="Choose ...">
 
 									@foreach($data['contacts'] as $contact)
 									<option value="{{$contact->id}}" {{(isset($_GET['num']) && $_GET['num'] == $contact->id) ? 'selected':''}}>{{$contact->contact_name.'  '.$contact->contact_phone}}</option>
@@ -90,8 +90,10 @@
 							<div class="col-md-10">
 								<div class="input-group">
 									<div class="input-group-text">+1</div>
-									<input type="number" class="form-control" name="sms_recipient_number" id="sms_recipient_number" placeholder="1231231234">
+									<input type="text" class="form-control" name="sms_recipient_number" id="sms_recipient_number" placeholder="1231231234">
+
 								</div>
+								<small>For multiple numbers you can seperate by comma( , )</small>
 							</div>
 						</div>
 
@@ -174,20 +176,22 @@
 
 @section('scripts')
 <script src="{{asset('assets/libs/select2/js/select2.min.js')}}"></script>
-<script src="assets/js/pages/form-advanced.init.js"></script>
+<script src="{{asset('assets/js/pages/form-advanced.init.js')}}"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('input[name="user_type"]').change(function(){
 			var type = $('input[name="user_type"]:checked').val();
 			if(type == 'To Contacts')
 			{
-				$('#sms_recipient_contact').attr('required','false');
+				$('#sms_recipient_contact').attr('required','true');
+				$('#sms_recipient_number').removeAttr('required');
 				$('.new_number').hide();
 				$('.new_to_contacts').show();
 			}
 			else if(type == 'To new number')
 			{
-				$('.new_number').attr('required','true');
+				$('#sms_recipient_contact').removeAttr('required','false');
+				$('#sms_recipient_number').attr('required','true');
 				$('.new_number').show();
 				$('.new_to_contacts').hide();
 			}
