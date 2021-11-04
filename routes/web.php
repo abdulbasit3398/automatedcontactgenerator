@@ -40,10 +40,8 @@ Route::post('/send-chat', 'CrmChatController@send_chat')->name('send_chat');
 
 //GIGI
 Route::group(['namespace' => 'Gigi'], function() {
-    Route::get('/gigi', 'GigiController@index')->name('gigi-index');
+    Route::get('/gigy', 'GigiController@index')->name('gigi-index');
 });
-
-
 
 
 
