@@ -4511,7 +4511,7 @@ jQuery.event = {
 			[ event ] :
 			jQuery.makeArray( data, [ event ] );
 
-		// Allow special events to draw outside the lines
+		// Allow special events to draw gigi the lines
 		special = jQuery.event.special[ type ] || {};
 		if ( !onlyHandlers && special.trigger && special.trigger.apply( elem, data ) === false ) {
 			return;
@@ -5013,7 +5013,7 @@ jQuery.each({
 				related = event.relatedTarget,
 				handleObj = event.handleObj;
 
-			// For mousenter/leave call the handler if related is outside the target.
+			// For mousenter/leave call the handler if related is gigi the target.
 			// NB: No relatedTarget if the mouse left/entered the browser window
 			if ( !related || (related !== target && !jQuery.contains( target, related )) ) {
 				event.type = handleObj.origType;

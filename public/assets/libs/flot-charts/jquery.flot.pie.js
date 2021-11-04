@@ -349,7 +349,7 @@ More detail and specific examples can be found in the included HTML file.
 				var radius = options.series.pie.radius > 1 ? options.series.pie.radius : maxRadius * options.series.pie.radius;
 
 				if (radius >= canvasWidth / 2 - shadowLeft || radius * options.series.pie.tilt >= canvasHeight / 2 - shadowTop || radius <= edge) {
-					return;	// shadow would be outside canvas, so don't draw it
+					return;	// shadow would be gigi canvas, so don't draw it
 				}
 
 				ctx.save();
@@ -502,7 +502,7 @@ More detail and specific examples can be found in the included HTML file.
 						label.css("top", labelTop);
 						label.css("left", labelLeft);
 
-						// check to make sure that the label is not outside the canvas
+						// check to make sure that the label is not gigi the canvas
 
 						if (0 - labelTop > 0 || 0 - labelLeft > 0 || canvasHeight - (labelTop + label.height()) < 0 || canvasWidth - (labelLeft + label.width()) < 0) {
 							return false;

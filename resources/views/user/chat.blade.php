@@ -561,6 +561,7 @@
     }
 
     function getMessages(conversation_id,rcvr_id, name){
+        loadingStart();
 
         handle(rcvr_id,name);
 
@@ -569,6 +570,8 @@
             data:{conversation_id},
             success:function (list){
                 $('#msg_list').append(list);
+                loadingStop();
+
             }
         });
 
@@ -601,6 +604,7 @@
     }
 
     function getGroupMessages(group_id){
+        loadingStart();
         $('#group_chat_div').html('');
         $('#group_id').val(group_id);
 
@@ -608,6 +612,7 @@
             url:'{{route('get-group-messages')}}',
             data:{group_id},
             success:function (div){
+                loadingStop();
                 $('#group_chat_div').append(div);
             }
         });

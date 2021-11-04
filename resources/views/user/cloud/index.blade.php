@@ -340,12 +340,13 @@
 
 
         function findUrl(file){
-            console.log()
+            loadingStart();
             $.ajax({
                 url:'{{route('file-url')}}',
                 data:{file},
                 success:(url)=>{
                     if(url){
+                        loadingStop();
                         window.open(url, '_blank');
                     }
                 }
@@ -354,13 +355,15 @@
         }
 
         function removeFile(file){
-                $.ajax({
+            loadingStart();
+            $.ajax({
                     url:'{{route('remove-file')}}',
                     method:'DELETE',
                     data:{file,'_token':'{{csrf_token()}}'},
                     success:(result)=>{
                         if(result){
                             $('#recent_file_'+file).remove();
+                            loadingStop();
                             displayMessage('File Removed');
                         }
                     }
@@ -368,12 +371,14 @@
             }
 
         function removeDirectory(id){
+            loadingStart();
             $.ajax({
                 url:'{{route('remove-directory')}}',
                 method:'DELETE',
                 data:{id,'_token':'{{csrf_token()}}'},
                 success:function (){
                     $('.dir_'+id).remove();
+                    loadingStart();
                     displayMessage('Directory Removed');
                 }
             })

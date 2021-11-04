@@ -28,20 +28,20 @@ Route::group(['namespace' => 'Google'], function() {
 
 });
 
-
-
+//Chat Messages + Group Messages
 Route::post('/create-group', 'CrmChatController@createGroup')->name('create-group');
 Route::get('/get-group-messages', 'CrmChatController@getGroupMessages')->name('get-group-messages');
-
 Route::post('/send-group-chat', 'CrmChatController@sendGroupChat')->name('send-group-chat');
 Route::post('/update-group', 'CrmChatController@updateGroup')->name('update-group');
-
 Route::delete('/remove-group', 'CrmChatController@removeGroup')->name('remove-group');
-
-
 Route::get('/chat', 'CrmChatController@index')->name('chat');
 Route::get('/get-messages', 'CrmChatController@getMessages')->name('get-messages');
 Route::post('/send-chat', 'CrmChatController@send_chat')->name('send_chat');
+
+//GIGI
+Route::group(['namespace' => 'Gigi'], function() {
+    Route::get('/gigi', 'GigiController@index')->name('gigi-index');
+});
 
 
 
