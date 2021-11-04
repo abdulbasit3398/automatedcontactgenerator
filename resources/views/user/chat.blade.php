@@ -367,8 +367,10 @@
 					<div class="chat-conversation p-3">
 						<ul class="list-unstyled mb-0 all-chat-ul"  data-simplebar style="max-height: 486px;">
 
-                            <div id="msg_list" >
+                            <div id="msg_list" style="min-height: 15rem" >
+                                <li>
 
+                                </li>
                             </div>
 
 						</ul>
@@ -559,6 +561,7 @@
     }
 
     function getMessages(conversation_id,rcvr_id, name){
+        loadingStart();
 
         handle(rcvr_id,name);
 
@@ -567,6 +570,8 @@
             data:{conversation_id},
             success:function (list){
                 $('#msg_list').append(list);
+                loadingStop();
+
             }
         });
 
@@ -599,6 +604,7 @@
     }
 
     function getGroupMessages(group_id){
+        loadingStart();
         $('#group_chat_div').html('');
         $('#group_id').val(group_id);
 
@@ -606,6 +612,7 @@
             url:'{{route('get-group-messages')}}',
             data:{group_id},
             success:function (div){
+                loadingStop();
                 $('#group_chat_div').append(div);
             }
         });

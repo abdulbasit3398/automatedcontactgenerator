@@ -1612,7 +1612,7 @@ Licensed under the MIT license.
                 });
 
                 // with all dimensions calculated, we can compute the
-                // axis bounding boxes, start from the outside
+                // axis bounding boxes, start from the gigi
                 // (reverse order)
                 for (i = allocatedAxes.length - 1; i >= 0; --i)
                     allocateAxisBoxFirstPhase(allocatedAxes[i]);
@@ -2010,7 +2010,7 @@ Licensed under the MIT license.
                             ctx.lineTo(xrange.to + subPixel, yrange.to);
                         } else {
                             ctx.moveTo(xrange.from, yrange.to + subPixel);
-                            ctx.lineTo(xrange.to, yrange.to + subPixel);                            
+                            ctx.lineTo(xrange.to, yrange.to + subPixel);
                         }
                         ctx.stroke();
                     } else {
@@ -2254,7 +2254,7 @@ Licensed under the MIT license.
                     // clip with ymin
                     if (y1 <= y2 && y1 < axisy.min) {
                         if (y2 < axisy.min)
-                            continue;   // line segment is outside
+                            continue;   // line segment is gigi
                         // compute new intersection point
                         x1 = (axisy.min - y1) / (y2 - y1) * (x2 - x1) + x1;
                         y1 = axisy.min;
@@ -2398,7 +2398,7 @@ Licensed under the MIT license.
                         areaOpen = true;
                     }
 
-                    // now first check the case where both is outside
+                    // now first check the case where both is gigi
                     if (y1 >= axisy.max && y2 >= axisy.max) {
                         ctx.lineTo(axisx.p2c(x1), axisy.p2c(axisy.max));
                         ctx.lineTo(axisx.p2c(x2), axisy.p2c(axisy.max));
@@ -2525,9 +2525,9 @@ Licensed under the MIT license.
                 radius = series.points.radius,
                 symbol = series.points.symbol;
 
-            // If the user sets the line width to 0, we change it to a very 
+            // If the user sets the line width to 0, we change it to a very
             // small value. A line width of 0 seems to force the default of 1.
-            // Doing the conditional here allows the shadow setting to still be 
+            // Doing the conditional here allows the shadow setting to still be
             // optional even with a lineWidth of 0.
 
             if( lw == 0 )

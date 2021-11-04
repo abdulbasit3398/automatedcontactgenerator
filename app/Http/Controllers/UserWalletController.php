@@ -23,15 +23,15 @@ use App\Notifications\RequestPaymentNotification;
 class UserWalletController extends Controller
 {
   public $gateway;
- 
+
   public function __construct()
   {
     $this->middleware('auth');
-     
+
   }
   public function my_wallet()
   {
-    
+
     // dd($this->check_account_balance());
     $data['total_send'] = WalletTransection::where([['user_id',Auth::id()],['transection_type','send']])->sum('amount');
     $data['total_receive'] = WalletTransection::where([['user_id',Auth::id()],['transection_type','receive']])->sum('amount');
@@ -40,16 +40,17 @@ class UserWalletController extends Controller
     $data['receive'] = WalletTransection::where([['user_id',Auth::id()],['transection_type','receive']])->orderBy('id','DESC')->get();
     $data['withdraw'] = UserWithdrawalRequest::where('user_id',Auth::id())->orderBy('id','DESC')->get();
     $data['total_withdraw'] = UserWithdrawalRequest::where([['user_id',Auth::id()],['status','Complete']])->sum('amount');
+
     return view('user.my_wallet',compact('data'));
   }
 
-  
+
    public function deposit_into_wallet(Request $request)
   {
     $this->validate($request,[
       'amount' => 'required|numeric',
     ]);
-    
+
     $prev_card = UserCard::where([['user_id',Auth::id()],['card_number',$request->card_number]])->first();
     if(!$prev_card)
     {
@@ -64,8 +65,8 @@ class UserWalletController extends Controller
     $amount = $request->amount;
 
     // $this->stripe_payment($request,$amount);
-    $this->paypal_payment($request,$amount);    
-   
+    $this->paypal_payment($request,$amount);
+
 
   }
 
@@ -162,11 +163,11 @@ class UserWalletController extends Controller
       $transection->save();
 
     }
-      
+
     return 'Done';
   }
 
-  
+
   public function send_payment()
   {
     return view('user.send_payment');
@@ -224,7 +225,7 @@ class UserWalletController extends Controller
       $new_receiver_wallet->withdrawable_funds = $withdrawable;
       $new_receiver_wallet->non_withdrawable_funds = $non_withdrawable;
       $new_receiver_wallet->save();
-      
+
       $recever_prev_balance = 0;
       $recever_new_balance = $withdrawable + $non_withdrawable;
 
@@ -270,7 +271,7 @@ class UserWalletController extends Controller
   }
   public function request_payment()
   {
-    return view('user.request_payment');  
+    return view('user.request_payment');
   }
   public function proceed_request_payment(Request $request)
   {
@@ -282,7 +283,7 @@ class UserWalletController extends Controller
     $receiver = User::where('email',$request->user_email)->first();
     if(!$receiver)
       return redirect()->back()->with('error','No user found with this email.');
-    
+
     $receiver->notify(new RequestPaymentNotification($request->amount));
 
     $new = new PaymentRequestSent;
@@ -346,7 +347,7 @@ class UserWalletController extends Controller
     // $client = new Client();
     // try
     // {
-      
+
     //   $result = $client->request('POST','https://api.sandbox.transferwise.tech/v2/quotes', [
     //     'headers' => [
     //       'Authorization' => 'Bearer 3570f922-8e5d-4ebd-80fb-c47e0ead0386',
@@ -361,7 +362,7 @@ class UserWalletController extends Controller
     //       'sourceAmount' => 100
     //     ]
     //   ]);
-    //   $response_data = (string) $result->getBody(); 
+    //   $response_data = (string) $result->getBody();
     //   $json = json_decode($response_data);
 
     // }
@@ -385,7 +386,7 @@ class UserWalletController extends Controller
     //     'sourceAmount' => 100
     //   ]
     // ]);
-    // $response_data = (string) $result->getBody(); 
+    // $response_data = (string) $result->getBody();
     // $json = json_decode($response_data);
     // dd($json);
 
@@ -398,7 +399,7 @@ class UserWalletController extends Controller
     $wise_profile_id = $this->admin_setting('WISE_PROFILE_ID_'.$wise_env);
     $wise_url = $this->admin_setting('WISE_API_URL_'.$wise_env);
     $wise_currency = $this->admin_setting('WISE_CURRENCY_'.$wise_env);
-    
+
     $client = new Client();
     $result = $client->request('GET',$wise_url.'v1/borderless-accounts?profileId='.$wise_profile_id, [
       'headers' => [
@@ -414,7 +415,7 @@ class UserWalletController extends Controller
       //   'sourceAmount' => 100
       // ]
     ]);
-    $response_data = (string) $result->getBody(); 
+    $response_data = (string) $result->getBody();
     $json = json_decode($response_data);
     for($i = 0; $i < count($json); $i++)
       for($j = 0; $j < count($json[$i]->balances); $j++)
@@ -423,7 +424,7 @@ class UserWalletController extends Controller
         else
           return 0;
   }
-  
+
 
 public function charge(Request $request)
 {

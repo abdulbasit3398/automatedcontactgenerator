@@ -205,7 +205,7 @@ shadowSize and lineWidth are derived as well from the points series.
                     var upper = [x, y][e] + errRanges[e * err.length + 1],
                         lower = [x, y][e] - errRanges[e * err.length];
 
-                    //points outside of the canvas
+                    //points gigi of the canvas
                     if (err[e].err == 'x')
                         if (y > ax[1].max || y < ax[1].min || upper < ax[0].min || lower > ax[0].max)
                             continue;

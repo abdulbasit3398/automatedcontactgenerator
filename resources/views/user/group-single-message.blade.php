@@ -4,9 +4,9 @@
             <div class="conversation-name">{{$msg->sender->full_name}}</div> <p> {{$msg->body}} </p>
             @if($msg->media)
                 <div class="mb-3">
-                    <a href="{{url('/assets/mms_files/'.$msg->media)}}">
-                        <img src="{{asset('/assets/mms_files/'.$msg->media)}}" alt="">
-                    </a>
+                    <embed src="{{asset('/assets/mms_files/'.$msg->media)}}" width="100%" height="100px" />
+
+                    <a href="{{url('/assets/mms_files/'.$msg->media)}}" target="_blank"> Open</a>
                 </div>
             @endif
 

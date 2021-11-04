@@ -26,7 +26,7 @@
 
 
 	<div class="row">
-        
+
             <div class="col-xl-8">
                 <div class="card">
                     <div class="card-body">
@@ -34,7 +34,7 @@
                             <table class="table align-middle mb-0 table-nowrap">
                                 <thead class="table-light">
                                     <tr>
-                                    
+
                                         <th>Name</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
@@ -43,7 +43,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($carts as $item)
-                                        
+
                                     <tr>
                                         <td>{{$item->name}}</td>
                                         <td> $ {{$item->price}}</td>
@@ -52,7 +52,7 @@
                                                 <input type="number" rowId={{$item->rowId}} value="{{$item->qty}}" class="qty" name="demo_vertical">
                                                 {{-- <span class="input-group-btn-vertical"><button class="btn btn-primary bootstrap-touchspin-up " type="button">+</button><button class="btn btn-primary bootstrap-touchspin-down " type="button">-</button></span> --}}
                                             </div>
-                                            
+
                                         </td>
                                         <td>
                                             $ {{$item->price*$item->qty}}
@@ -62,7 +62,7 @@
                                         </td>
                                     </tr>
                                     @endforeach
-                               
+
                                 </tbody>
                             </table>
                         </div>
@@ -85,14 +85,14 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title mb-4">Card Details</h5>
-                        
+
                         <div class="card bg-primary text-white visa-card mb-0">
                             <div class="card-body">
                                 <div>
-                                    <i class="bx bxl-visa visa-pattern"></i>
-                                
+{{--                                    <i class="bx bxl-visa visa-pattern"></i>--}}
+
                                     <div class="float-end">
-                                        <i class="bx bxl-visa visa-logo display-3"></i>
+                                        <i class="bx bxl-card card-logo display-3"></i>
                                     </div>
 
                                     <div>
@@ -101,32 +101,40 @@
                                 </div>
 
                                 <div class="row mt-5">
-                                    <div class="col-4">
+                                    <div class="col-3">
                                         <p>
                                             <i class="fas fa-star-of-life m-1"></i>
                                             <i class="fas fa-star-of-life m-1"></i>
                                             <i class="fas fa-star-of-life m-1"></i>
                                         </p>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-3">
                                         <p>
                                             <i class="fas fa-star-of-life m-1"></i>
                                             <i class="fas fa-star-of-life m-1"></i>
                                             <i class="fas fa-star-of-life m-1"></i>
                                         </p>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-3">
                                         <p>
                                             <i class="fas fa-star-of-life m-1"></i>
                                             <i class="fas fa-star-of-life m-1"></i>
                                             <i class="fas fa-star-of-life m-1"></i>
                                         </p>
+                                    </div>
+                                    <div class="col-3">
+                                        <h5 class="text-white text-center mb-0">
+                                            <?php
+                                            $ccNum= auth()->user()->bank_detail('card_number');
+                                                ?>
+                                            {{substr($ccNum,-4)}}
+                                        </h5>
                                     </div>
                                 </div>
 
                                 <div class="mt-5">
-                                    <h5 class="text-white float-end mb-0">12/22</h5>
-                                    <h5 class="text-white mb-0">Fredrick Taylor</h5>
+                                    <h5 class="text-white float-end mb-0">{{\Auth::user()->bank_detail('card_expiry')}}</h5>
+                                    <h5 class="text-white mb-0">{{\Auth::user()->bank_detail('card_holder_name')}}</h5>
                                 </div>
                             </div>
                         </div>
@@ -192,7 +200,7 @@ $('.bootstrap-touchspin-up').on('click',function(){
 		url: '{{ url('qty-update') }}',
 			method: "post",
 			data: {
-					_token: '{{ csrf_token() }}', 
+					_token: '{{ csrf_token() }}',
                     CartId:id,
                     buttonId:'add',
                     qty:qty,
@@ -211,7 +219,7 @@ $('.bootstrap-touchspin-down').on('click',function(){
 		url: '{{ url('qty-update') }}',
 			method: "post",
 			data: {
-					_token: '{{ csrf_token() }}', 
+					_token: '{{ csrf_token() }}',
                     CartId:id,
                     buttonId:'add',
                     qty:qty,
@@ -221,7 +229,7 @@ $('.bootstrap-touchspin-down').on('click',function(){
 	    	}
 	});
 });
-    
+
 // }
 </script>
 

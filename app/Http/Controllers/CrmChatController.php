@@ -58,8 +58,8 @@ class CrmChatController extends Controller
         if($request->hasFile('file_mms') || $request->hasFile('file_mms2'))
         {
           $this->validate($request,[
-            'file_mms' => 'mimes:jpg,bmp,png,doc,docx,txt',
-            'file_mms2' => 'mimes:jpg,bmp,png,doc,docx,txt'
+            'file_mms' => 'mimes:jpg,bmp,png,doc,docx,txt,pdf',
+            'file_mms2' => 'mimes:jpg,bmp,png,doc,docx,txt,pdf'
           ]);
 
           $image = $request->file('file_mms') ?? $request->file('file_mms2');
