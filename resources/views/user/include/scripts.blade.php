@@ -26,6 +26,7 @@ $.ajaxSetup({
 
 });
 
+
 function loadingStart() {
     Swal.fire({
         title: 'Please wait !',
