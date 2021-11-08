@@ -72,10 +72,10 @@ class CommunicationController extends Controller
   {
     $this->validate($request,[
       'user_type' => 'required',
-      'sms_recipient_contact' => 'required',
       'message' => 'required'
     ]);
-
+    
+    $contact_arr = array();
 
     if($request->user_type == 'To new number')
     {
@@ -83,26 +83,38 @@ class CommunicationController extends Controller
         'sms_recipient_number' => 'required',
       ]);
 
-      $contact = UserContact::where([['user_id',Auth::id()],['contact_phone','like','%'.$request->sms_recipient_number.'%']])->first();
-      if($contact)
-        $number = $contact->contact_phone;
-      else
+      $number_arr = array();
+      $numbers = explode(",",$request->sms_recipient_number);
+
+      for($i=0;$i<count($numbers);$i++)
       {
-        $number = $request->sms_recipient_number;
+      
+        $contact = UserContact::where([['user_id',Auth::id()],['contact_phone','like','%'.$numbers[$i].'%']])->first();
+        if($contact)
+          $number = $contact->contact_phone;
+        else
+        {
+          $number = $numbers[$i];
 
-        $contact = new UserContact;
-        $contact->user_id = Auth::id();
-        $contact->contact_name = 'No name';
-        $contact->contact_phone = $number;
-        $contact->save();
+          $contact = new UserContact;
+          $contact->user_id = Auth::id();
+          $contact->contact_name = 'No name';
+          $contact->contact_phone = $number;
+          $contact->save();
 
+        }
+
+        $number = $this->us_number_format($number);
+        if(strlen($number) == $this->number_len_US)
+          $number_arr[] = '+1'.$number;
+
+        $contact_arr[] = $contact->id;
       }
+      // $number = $this->us_number_format($number);
+      // if(strlen($number) != $this->number_len_US)
+      //   return redirect()->back()->with('error','Number is not correct format.');
 
-      $number = $this->us_number_format($number);
-      if(strlen($number) != $this->number_len_US)
-        return redirect()->back()->with('error','Number is not correct format.');
-
-      $number = '+1'.$number;
+      // $number = '+1'.$number;
 
 
     }
@@ -112,6 +124,7 @@ class CommunicationController extends Controller
         'sms_recipient_contact' => 'required',
       ]);
       $number_arr = array();
+      
 
       $sms_recipient_contact = $request->sms_recipient_contact;
 
@@ -128,6 +141,7 @@ class CommunicationController extends Controller
           return redirect()->back()->with('error','Number is not correct format.');
 
         $number_arr[] = '+1'.$number;
+        $contact_arr[] = $contact->id;
 
       }
 
@@ -157,7 +171,7 @@ class CommunicationController extends Controller
       {
         $history = new UserSmsHistory;
         $history->user_id = Auth::id();
-        $history->contact_id = $contact->id;
+        $history->contact_id = (count($contact_arr) > 0) ? $contact_arr[$i] : 0;
         $history->contact_phone_number = $number_arr[$i];
         $history->message_to = $number_arr[$i];
         $history->message_from = Auth::user()->signal_wire_phone_number->phone_number;

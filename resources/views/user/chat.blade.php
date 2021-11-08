@@ -566,7 +566,7 @@
         handle(rcvr_id,name);
 
         $.ajax({
-            url:'{{route('get-messages')}}',
+            url:"{{route('get-messages')}}",
             data:{conversation_id},
             success:function (list){
                 $('#msg_list').append(list);
