@@ -1,26 +1,26 @@
 @extends('layouts.user')
 
 @section('custom-css')
-    <link href="{{asset('assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 
 @section('page-content')
 <div id="newMessage" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+	<div class="modal-dialog">
 
-    <div class="modal-content">
-      <form method="post" action="{{route('send_chat')}}" enctype="multipart/form-data">
-	      <div class="modal-body">
+		<div class="modal-content">
+			<form method="post" action="{{route('send_chat')}}" enctype="multipart/form-data">
+				<div class="modal-body">
 
 					@csrf
 					<input type="hidden" name="receiver_id" id="receiver_id">
-				 	<div class="mb-3 row">
-				 		<label for="example-text-input" class="col-md-2 col-form-label">Recipient</label>
-				 		<div class="col-md-10">
-				 			<input type="text" disabled name="username" class="form-control" id="receiver_username">
-				 		</div>
-				 	</div>
+					<div class="mb-3 row">
+						<label for="example-text-input" class="col-md-2 col-form-label">Recipient</label>
+						<div class="col-md-10">
+							<input type="text" disabled name="username" class="form-control" id="receiver_username">
+						</div>
+					</div>
 					<div class="mb-3 row">
 						<label for="example-text-input" class="col-md-2 col-form-label">Message</label>
 						<div class="col-md-10">
@@ -35,95 +35,95 @@
 						</div>
 					</div>
 
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-	        <button type="submit" class="btn btn-primary w-md">Send</button>
-	      </div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary w-md">Send</button>
+				</div>
 
-      </form>
-    </div>
-  </div>
+			</form>
+		</div>
+	</div>
 </div>
 
 <div id="createGroup" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form method="post" action="{{route('create-group')}}" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form method="post" action="{{route('create-group')}}" enctype="multipart/form-data">
+				@csrf
+				<div class="modal-body">
 
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Group Name</label>
-                        <div class="col-md-10">
-                            <input type="text"required name="group_name" id="group_name" class="form-control">
-                        </div>
-                    </div>
+					<div class="mb-3 row">
+						<label for="example-text-input" class="col-md-2 col-form-label">Group Name</label>
+						<div class="col-md-10">
+							<input type="text"required name="group_name" id="group_name" class="form-control">
+						</div>
+					</div>
 
-                    <div class="mb-3 row">
+					<div class="mb-3 row">
 
-                        <label for="example-text-input" class="col-md-2 col-form-label">Members</label>
-                        <div class="col-md-10">
-                            <select name="members[]" id="members"
-                                    required multiple
-                                    class="select2 form-control select2-multiple"
-                                    style="width: 100%!important;">
+						<label for="example-text-input" class="col-md-2 col-form-label">Members</label>
+						<div class="col-md-10">
+							<select name="members[]" id="members"
+							required multiple
+							class="select2 form-control select2-multiple"
+							style="width: 100%!important;">
 
-                                @foreach($users as $user)
-                                    <option value="{{$user->id}}">{{$user->full_name}}</option>
-                                @endforeach
+							@foreach($users as $user)
+							<option value="{{$user->id}}">{{$user->full_name}}</option>
+							@endforeach
 
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary w-md">Save</button>
-                </div>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-primary w-md">Save</button>
+			</div>
 
-            </form>
-        </div>
-    </div>
+		</form>
+	</div>
+</div>
 </div>
 
 <div id="addRemoveMembers" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form method="post" action="{{route('update-group')}}" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body">
-                    <input type="hidden" name="update_group_id" id="update_group_id" class="form-control">
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Group Name</label>
-                        <div class="col-md-10">
-                            <input type="text"required name="update_group_name" id="update_group_name" class="form-control">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Members</label>
-                        <div class="col-md-10">
-                            <select name="update_members[]" id="update_members"
-                                    required multiple
-                                    class="select2 form-control select2-multiple"
-                                    style="width: 100%!important;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form method="post" action="{{route('update-group')}}" enctype="multipart/form-data">
+				@csrf
+				<div class="modal-body">
+					<input type="hidden" name="update_group_id" id="update_group_id" class="form-control">
+					<div class="mb-3 row">
+						<label for="example-text-input" class="col-md-2 col-form-label">Group Name</label>
+						<div class="col-md-10">
+							<input type="text"required name="update_group_name" id="update_group_name" class="form-control">
+						</div>
+					</div>
+					<div class="mb-3 row">
+						<label for="example-text-input" class="col-md-2 col-form-label">Members</label>
+						<div class="col-md-10">
+							<select name="update_members[]" id="update_members"
+							required multiple
+							class="select2 form-control select2-multiple"
+							style="width: 100%!important;">
 
-                                @foreach($users as $user)
-                                    <option value="{{$user->id}}">{{$user->full_name}}</option>
-                                @endforeach
+							@foreach($users as $user)
+							<option value="{{$user->id}}">{{$user->full_name}}</option>
+							@endforeach
 
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary w-md">Update</button>
-                </div>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-primary w-md">Update</button>
+			</div>
 
-            </form>
-        </div>
-    </div>
+		</form>
+	</div>
+</div>
 </div>
 
 
@@ -202,48 +202,48 @@
 							<div>
 								<h5 class="font-size-14 mb-3">Recent</h5>
 								<ul class="list-unstyled chat-list all-chatters" data-simplebar style="max-height: 410px;">
-                                    @forelse($conversations as $conversation)
-                                        <?php
-                                        $person = false;
-                                            if($conversation->receiver()->exists() && $conversation->sender()->exists()){
+									@forelse($conversations as $conversation)
+									<?php
+									$person = false;
+									if($conversation->receiver()->exists() && $conversation->sender()->exists()){
 
-                                                if($conversation->receiver->id === auth()->id()){
-                                                    $person = $conversation->sender;
-                                                }else{
-                                                    $person = $conversation->receiver;
-                                                }
+										if($conversation->receiver->id === auth()->id()){
+											$person = $conversation->sender;
+										}else{
+											$person = $conversation->receiver;
+										}
 
-                                                $msg = \App\Message::where('rcvr_id',$person->id)->orWhere('sender_id',$person->id)->latest()->first();
+										$msg = \App\Message::where('rcvr_id',$person->id)->orWhere('sender_id',$person->id)->latest()->first();
 
-                                            }
-                                        ?>
+									}
+									?>
 
-                                        @if($person)
+									@if($person)
 
-                                            <li onclick="getMessages({{$conversation->id}} , {{$person->id}}, '{{$person->first_name.' '.$person->last_name }}')">
-                                                <a href="#">
-                                                    <div class="media">
-                                                        <div class="align-self-center me-3">
-                                                            <i class="mdi mdi-circle font-size-10"></i>
-                                                        </div>
-                                                        <div class="align-self-center me-3">
-                                                            <img src="{{asset('assets/images/users/'.$person->profile_image)}}" class="rounded-circle avatar-xs" alt="">
-                                                        </div>
+									<li onclick="getMessages({{$conversation->id}} , {{$person->id}}, '{{$person->first_name.' '.$person->last_name }}')">
+										<a href="#">
+											<div class="media">
+												<div class="align-self-center me-3">
+													<i class="mdi mdi-circle font-size-10"></i>
+												</div>
+												<div class="align-self-center me-3">
+													<img src="{{asset('assets/images/users/'.$person->profile_image)}}" class="rounded-circle avatar-xs" alt="">
+												</div>
 
-                                                        <div class="media-body overflow-hidden">
-                                                            <h5 class="text-truncate font-size-14 mb-1">{{$person->full_name}}</h5>
-                                                            <p class="text-truncate mb-0">{{$msg->body}}</p>
-                                                        </div>
-{{--                                                            <div class="font-size-11">{{$conversation->created_at->diffForHumans()}}</div>--}}
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        @endif
-                                    @empty
-                                    <li class="text-center">
-                                        <p>No Chat History</p>
-                                    </li>
-                                    @endforelse
+												<div class="media-body overflow-hidden">
+													<h5 class="text-truncate font-size-14 mb-1">{{$person->full_name}}</h5>
+													<p class="text-truncate mb-0">{{$msg->body}}</p>
+												</div>
+												{{--                                                            <div class="font-size-11">{{$conversation->created_at->diffForHumans()}}</div>--}}
+											</div>
+										</a>
+									</li>
+									@endif
+									@empty
+									<li class="text-center">
+										<p>No Chat History</p>
+									</li>
+									@endforelse
 								</ul>
 							</div>
 						</div>
@@ -252,68 +252,68 @@
 
 							<ul class="list-unstyled chat-list all-group-chatters" data-simplebar style="max-height: 410px;">
 								<li id="create_group_li">
-                                    <a >
-                                        <div class="media align-items-center">
-                                            <div class="avatar-xs me-3">
+									<a >
+										<div class="media align-items-center">
+											<div class="avatar-xs me-3">
 												<span class="avatar-title rounded-circle bg-primary bg-soft text-primary">
 													<i class="mdi mdi-account-search"></i>
 												</span>
-                                            </div>
+											</div>
 
-                                            <div class="media-body">
-                                                <h5 class="font-size-14 mb-0">Create Group</h5>
-                                            </div>
-                                        </div>
-                                    </a>
+											<div class="media-body">
+												<h5 class="font-size-14 mb-0">Create Group</h5>
+											</div>
+										</div>
+									</a>
 								</li>
 
-                                <?php
-                                    $group_count = count($my_groups) + count($member_of_groups);
-                                ?>
-                                @if($group_count > 0)
+								<?php
+								$group_count = count($my_groups) + count($member_of_groups);
+								?>
+								@if($group_count > 0)
 
-                                    @foreach($my_groups as $group)
-                                        <li onclick="getGroupMessages({{$group->id}})">
-                                            <a href="#">
-                                                <div class="media align-items-center">
-                                                    <div class="avatar-xs me-3">
-                                                        <span class="avatar-title rounded-circle bg-primary bg-soft text-primary">
-                                                            {{ucfirst($group->name[0])}}
-                                                        </span>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h5 class="font-size-14 mb-0">{{$group->name}}</h5>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    @endforeach
+								@foreach($my_groups as $group)
+								<li onclick="getGroupMessages({{$group->id}})">
+									<a href="#">
+										<div class="media align-items-center">
+											<div class="avatar-xs me-3">
+												<span class="avatar-title rounded-circle bg-primary bg-soft text-primary">
+													{{ucfirst($group->name[0])}}
+												</span>
+											</div>
+											<div class="media-body">
+												<h5 class="font-size-14 mb-0">{{$group->name}}</h5>
+											</div>
+										</div>
+									</a>
+								</li>
+								@endforeach
 
-                                    @foreach($member_of_groups as $g)
-                                    @if($g->group()->exists())
-                                        <li onclick="getGroupMessages({{$g->group->id}})">
-                                            <a href="#">
-                                                <div class="media align-items-center">
-                                                    <div class="avatar-xs me-3">
-                                                        <span class="avatar-title rounded-circle bg-primary bg-soft text-primary">
-                                                            {{ucfirst($g->group->name[0])}}
-                                                        </span>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h5 class="font-size-14 mb-0">{{$g->group->name}}</h5>
-                                                    </div>
+								@foreach($member_of_groups as $g)
+								@if($g->group()->exists())
+								<li onclick="getGroupMessages({{$g->group->id}})">
+									<a href="#">
+										<div class="media align-items-center">
+											<div class="avatar-xs me-3">
+												<span class="avatar-title rounded-circle bg-primary bg-soft text-primary">
+													{{ucfirst($g->group->name[0])}}
+												</span>
+											</div>
+											<div class="media-body">
+												<h5 class="font-size-14 mb-0">{{$g->group->name}}</h5>
+											</div>
 
-                                                </div>
-                                            </a>
-                                        </li>
-                                    @endif
-                                @endforeach
-                                @else
-                                    <li class="text-center">
-                                        <p>No Recent Group</p>
-                                    </li>
+										</div>
+									</a>
+								</li>
+								@endif
+								@endforeach
+								@else
+								<li class="text-center">
+									<p>No Recent Group</p>
+								</li>
 
-                                @endif
+								@endif
 							</ul>
 						</div>
 						<div class="tab-pane" id="contacts">
@@ -367,270 +367,273 @@
 					<div class="chat-conversation p-3">
 						<ul class="list-unstyled mb-0 all-chat-ul"  data-simplebar style="max-height: 486px;">
 
-                            <div id="msg_list" style="min-height: 15rem" >
-                                <li>
+							<div id="msg_list" style="min-height: 15rem" >
+								<!-- <li>
 
-                                </li>
-                            </div>
+								</li> -->
+							</div>
 
 						</ul>
 					</div>
 
 
 					<div class="p-3 chat-input-section">
-                        <form id="chat_form" action="{{route('send_chat')}}" action="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="row">
-                                <div class="col-12 collapse mb-2" id="collapseExample">
-                                    <input class="form-control form-control-sm" id="file_mms2" type="file" name="file_mms2" accept="image/*,.pdf,.txt,.doc,.docx">
-                                </div>
-                                <div class="col">
-                                    <div class="position-relative">
-                                        <input type="hidden" name="form_receiver_id" id="form_receiver_id">
-                                        <input type="hidden" name="send_message_form" id="send_message_form" value="1">
-                                        <input type="text" class="form-control chat-input" name="message" id="message" placeholder="Enter Message...">
-                                        <div class="chat-input-links" id="tooltip-container">
-                                            <ul class="list-inline mb-0">
-                                                <li class="list-inline-item">
-                                                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" href="javascript: void(0);" title="Add Files"><i class="mdi mdi-file-document-outline"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+						<form id="chat_form" action="{{route('send_chat')}}" action="POST" enctype="multipart/form-data">
+							@csrf
+							<div class="row">
+								<div class="col-12 collapse mb-2" id="collapseExample">
+									<input class="form-control form-control-sm" id="file_mms2" type="file" name="file_mms2" accept="image/*,.pdf,.txt,.doc,.docx">
+								</div>
+								<div class="col">
+									<div class="position-relative">
+										<input type="hidden" name="form_receiver_id" id="form_receiver_id">
+										<input type="hidden" name="send_message_form" id="send_message_form" value="1">
+										<textarea class="form-control chat-input" name="message" id="message" placeholder="Enter Message..." rows="2"></textarea>
+										<!-- <input type="text" class="form-control chat-input" name="message" id="message" placeholder="Enter Message..."> -->
+										<div class="chat-input-links" id="tooltip-container">
+											<ul class="list-inline mb-0">
+												<li class="list-inline-item">
+													<a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" href="javascript: void(0);" title="Add Files"><i class="mdi mdi-file-document-outline"></i></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
 
-                                <div class="col-auto">
-                                    <button type="submit" class="btn btn-primary btn-rounded chat-send w-md waves-effect waves-light">
-                                        <span class="d-none d-sm-inline-block me-2" >Send</span><i class="mdi mdi-send"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+								<div class="col-auto">
+									<button type="submit" class="btn btn-primary btn-rounded chat-send w-md waves-effect waves-light">
+										<span class="d-none d-sm-inline-block me-2" >Send</span><i class="mdi mdi-send"></i></button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
+
+			<div class="w-100 user-chat" id="full_group_chat">
+				<div class="card">
+					<div id="group_chat_div">
+
+					</div>
+
+					<div class="p-3 chat-input-section">
+						<form id="group_chat_form" action="{{route('send-group-chat')}}" method="POST"
+						enctype="multipart/form-data">
+						@csrf
+						<div class="row">
+							<div class="col-12 collapse mb-2" id="gcollapseExample">
+								<input class="form-control form-control-sm" id="group_file_mms" type="file" name="group_file_mms" accept="image/*,.pdf,.txt,.doc,.docx">
+							</div>
+							<div class="col">
+								<div class="position-relative">
+									<input type="hidden" name="group_id" id="group_id" value="">
+									<input type="text" class="form-control chat-input" name="group_msg" id="group_msg" placeholder="Enter Message...">
+									<div class="chat-input-links" id="tooltip-container">
+										<ul class="list-inline mb-0">
+											<li class="list-inline-item" >
+												<a id="gcollapse" class="collapsed" data-bs-toggle="collapse" href="#gcollapseExample" aria-expanded="false"
+												aria-controls="collapseExample" href="javascript: void(0);" title="Add Files">
+												<i class="mdi mdi-file-document-outline"></i></a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-auto">
+								<button type="submit" class="btn btn-primary btn-rounded chat-send w-md waves-effect waves-light">
+									<span class="d-none d-sm-inline-block me-2" >Send</span><i class="mdi mdi-send"></i></button>
+								</div>
+							</div>
+						</form>
+					</div>
+
+				</div>
+
+
+			</div>
 		</div>
+		<!-- end row -->
+	</div>
+	@endsection
 
-        <div class="w-100 user-chat" id="full_group_chat">
-            <div class="card">
-                <div id="group_chat_div">
-
-                </div>
-
-                <div class="p-3 chat-input-section">
-                    <form id="group_chat_form" action="{{route('send-group-chat')}}" method="POST"
-                          enctype="multipart/form-data">
-                        @csrf
-                        <div class="row">
-                            <div class="col-12 collapse mb-2" id="gcollapseExample">
-                                <input class="form-control form-control-sm" id="group_file_mms" type="file" name="group_file_mms" accept="image/*,.pdf,.txt,.doc,.docx">
-                            </div>
-                            <div class="col">
-                                <div class="position-relative">
-                                    <input type="hidden" name="group_id" id="group_id" value="">
-                                    <input type="text" class="form-control chat-input" name="group_msg" id="group_msg" placeholder="Enter Message...">
-                                    <div class="chat-input-links" id="tooltip-container">
-                                        <ul class="list-inline mb-0">
-                                            <li class="list-inline-item" >
-                                                <a id="gcollapse" class="collapsed" data-bs-toggle="collapse" href="#gcollapseExample" aria-expanded="false"
-                                                   aria-controls="collapseExample" href="javascript: void(0);" title="Add Files">
-                                                    <i class="mdi mdi-file-document-outline"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-primary btn-rounded chat-send w-md waves-effect waves-light">
-                                    <span class="d-none d-sm-inline-block me-2" >Send</span><i class="mdi mdi-send"></i></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-
-
-        </div>
-    </div>
-	<!-- end row -->
-</div>
-@endsection
-
-@section('scripts')
-    <script src="{{asset('assets/libs/select2/js/select2.min.js')}}"></script>
-    <script type="text/javascript">
+	@section('scripts')
+	<script src="{{asset('assets/libs/select2/js/select2.min.js')}}"></script>
+	<script type="text/javascript">
 
 
 
-	$(document).ready(function(){
+		$(document).ready(function(){
 
-	    $('.select2').select2({
-            placeholder:'Select Members'
-        });
-		$('.new_message').click(function(){
-			$('#message_body').val('');
-			var id = $(this).data('id');
-			var username = $(this).data('username');
+			$('.select2').select2({
+				placeholder:'Select Members'
+			});
+			$('.new_message').click(function(){
+				$('#message_body').val('');
+				var id = $(this).data('id');
+				var username = $(this).data('username');
 
-			$('#receiver_id').val(id);
-			$('#receiver_username').val(username);
-			$('#newMessage').modal('show');
+				$('#receiver_id').val(id);
+				$('#receiver_username').val(username);
+				$('#newMessage').modal('show');
+			});
+
+			$('#create_group_li').click(function(){
+				$('#members').val('').trigger('change');
+				$('#group_name').val('');
+
+				$('#createGroup').modal('show');
+			});
+
+			$('.all-chatters').on('click', 'li', function() {
+				$('.all-chatters li.active').removeClass('active');
+				$(this).addClass('active');
+			});
+			$('.all-group-chatters').on('click', 'li', function() {
+				$('.all-group-chatters li.active').removeClass('active');
+				$(this).addClass('active');
+			});
+
+			$(".all-chatters li:nth-child(1)").addClass('active');
+			$(".all-chatters li:nth-child(1)").click();
+
+			$('#full_group_chat').hide();
+
+			$('#chat_form').submit(function(e){
+				e.preventDefault();
+				if($('#message').val().trim().length === 0){
+					alert('Please type a message');
+					return;
+				}
+				let formData = new FormData(this);
+
+				$.ajax({
+					url:'{{route('send_chat')}}',
+					type: 'POST',
+					data: formData,
+					contentType: false,
+					processData: false,
+					success: function (message) {
+
+						$('#message').val('');
+						$("#msg_list").append(message);
+						$('#file_mms2').val('');
+						$('#collapseExample').trigger('click');
+
+					}
+				});
+			});
+			$('#group_chat_form').submit(function(e) {
+				e.preventDefault();
+				if($('#group_msg').val().trim().length === 0){
+					alert('Please type a message');
+					return;
+				}
+				let formData = new FormData(e.target);
+				$.ajax({
+					url:'{{route('send-group-chat')}}',
+					type: 'POST',
+					data: formData,
+					contentType: false,
+					processData: false,
+					success: function (message) {
+						$('.no-g-msg').hide();
+						$('#group_msg').val('');
+						$("#group_msg_list").append(message);
+						$('#group_file_mms').val('');
+						$('#gcollapse').trigger('click');
+					}
+				});
+			});
+
 		});
 
-        $('#create_group_li').click(function(){
-            $('#members').val('').trigger('change');
-            $('#group_name').val('');
 
-            $('#createGroup').modal('show');
-        });
+		function addRemoveMembers(id,name,members){
+			$('#update_group_id').val(id);
+			$('#update_group_name').val(name);
+			var members_array = [];
 
-        $('.all-chatters').on('click', 'li', function() {
-            $('.all-chatters li.active').removeClass('active');
-            $(this).addClass('active');
-        });
-        $('.all-group-chatters').on('click', 'li', function() {
-            $('.all-group-chatters li.active').removeClass('active');
-            $(this).addClass('active');
-        });
+			for (var arrayIndex in members) {
+				members_array.push(members[arrayIndex].user.id);
+			}
+			$('#update_members').val(members_array).change();
+			$('#addRemoveMembers').modal('show');
+		}
 
-        $(".all-chatters li:nth-child(1)").addClass('active');
-        $(".all-chatters li:nth-child(1)").click();
+		function getMessages(conversation_id,rcvr_id, name){
+			loadingStart();
 
-        $('#full_group_chat').hide();
+			handle(rcvr_id,name);
 
-        $('#chat_form').submit(function(e) {
-            e.preventDefault();
-            if($('#message').val().trim().length === 0){
-                alert('Please type a message');
-                return;
-            }
-            let formData = new FormData(this);
+			$.ajax({
+				url:"{{route('get-messages')}}",
+				data:{conversation_id},
+				success:function (list){
+					$('#msg_list').append(list);
+					
+					loadingStop();
+					
+				}
+			});
 
-            $.ajax({
-                url:'{{route('send_chat')}}',
-                type: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (message) {
+		}
 
-                    $('#message').val('');
-                    $("#msg_list").append(message);
-                    $('#file_mms2').val('');
-                    $('#collapseExample').trigger('click');
-                }
-            });
-        });
-        $('#group_chat_form').submit(function(e) {
-            e.preventDefault();
-            if($('#group_msg').val().trim().length === 0){
-                alert('Please type a message');
-                return;
-            }
-            let formData = new FormData(e.target);
-            $.ajax({
-                url:'{{route('send-group-chat')}}',
-                type: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (message) {
-                    $('.no-g-msg').hide();
-                    $('#group_msg').val('');
-                    $("#group_msg_list").append(message);
-                    $('#group_file_mms').val('');
-                    $('#gcollapse').trigger('click');
-                }
-            });
-        });
+		function handle(rcvr_id,name){
+			$('#form_receiver_id').val(rcvr_id);
+			$('#msg_list').html('');
 
-    });
+			if(name.trim().length > 0){
+				$('#inbox_name').text(name);
+			}else{
+				$('#inbox_name').text('No name');
+			}
+		}
 
+		function showChat(){
 
-	function addRemoveMembers(id,name,members){
-	    $('#update_group_id').val(id);
-	    $('#update_group_name').val(name);
-	    var members_array = [];
+			$('#chat_div').show();
+			$('#full_group_chat').hide();
 
-        for (var arrayIndex in members) {
-            members_array.push(members[arrayIndex].user.id);
-        }
-        $('#update_members').val(members_array).change();
-        $('#addRemoveMembers').modal('show');
-    }
+		}
 
-    function getMessages(conversation_id,rcvr_id, name){
-        loadingStart();
+		function showGroupChat(){
+			$(".all-group-chatters li:nth-child(2)").addClass('active');
+			$(".all-group-chatters li:nth-child(2)").click();
 
-        handle(rcvr_id,name);
+			$('#chat_div').hide();
+			$('#full_group_chat').show();
+		}
 
-        $.ajax({
-            url:"{{route('get-messages')}}",
-            data:{conversation_id},
-            success:function (list){
-                $('#msg_list').append(list);
-                loadingStop();
+		function getGroupMessages(group_id){
+			loadingStart();
+			$('#group_chat_div').html('');
+			$('#group_id').val(group_id);
 
-            }
-        });
+			$.ajax({
+				url:'{{route('get-group-messages')}}',
+				data:{group_id},
+				success:function (div){
+					loadingStop();
+					$('#group_chat_div').append(div);
+				}
+			});
 
-    }
+		}
 
-    function handle(rcvr_id,name){
-        $('#form_receiver_id').val(rcvr_id);
-        $('#msg_list').html('');
+		function removeGroup(group_id){
+			if(confirm('Are you sure you want to delete this group')){
+				$.ajax({
+					url:'{{route('remove-group')}}',
+					method:'DELETE',
+					data:{group_id,'_token':'{{csrf_token()}}'},
+					success:function (){
+						window.location.reload();
+					}
+				});
+			}
+		}
 
-        if(name.trim().length > 0){
-            $('#inbox_name').text(name);
-        }else{
-            $('#inbox_name').text('No name');
-        }
-    }
-
-    function showChat(){
-
-        $('#chat_div').show();
-        $('#full_group_chat').hide();
-
-    }
-
-    function showGroupChat(){
-        $(".all-group-chatters li:nth-child(2)").addClass('active');
-        $(".all-group-chatters li:nth-child(2)").click();
-
-        $('#chat_div').hide();
-        $('#full_group_chat').show();
-    }
-
-    function getGroupMessages(group_id){
-        loadingStart();
-        $('#group_chat_div').html('');
-        $('#group_id').val(group_id);
-
-        $.ajax({
-            url:'{{route('get-group-messages')}}',
-            data:{group_id},
-            success:function (div){
-                loadingStop();
-                $('#group_chat_div').append(div);
-            }
-        });
-
-    }
-
-    function removeGroup(group_id){
-	    if(confirm('Are you sure you want to delete this group')){
-	        $.ajax({
-               url:'{{route('remove-group')}}',
-                method:'DELETE',
-               data:{group_id,'_token':'{{csrf_token()}}'},
-               success:function (){
-                   window.location.reload();
-               }
-            });
-        }
-    }
-
-    </script>
-@endsection
+	</script>
+	@endsection
