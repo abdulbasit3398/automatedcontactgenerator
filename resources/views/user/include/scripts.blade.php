@@ -19,32 +19,32 @@
             autoplay:true
         });
     });
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+
+    });
+
+    function loadingStart() {
+        Swal.fire({
+            title: 'Please wait !',
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        })
     }
 
-});
+    function loadingStop() {
+        $(".swal2-container ").remove();
+        $('body').removeClass('swal2-shown swal2-height-auto')
+    }
 
-
-function loadingStart() {
-    Swal.fire({
-        title: 'Please wait !',
-        allowEscapeKey: false,
-        allowOutsideClick: false,
-        showConfirmButton: false,
-        didOpen: () => {
-            Swal.showLoading();
-        }
-    })
-}
-
-function loadingStop() {
-    $(".swal2-container ").remove();
-    $('body').removeClass('swal2-shown swal2-height-auto')
-}
-
-function success(){
+    function success(){
     Swal.fire({
         position: 'center',
         type: 'success',
@@ -53,6 +53,10 @@ function success(){
         timer: 1000
     });
 }
+
+
 </script>
+
+
 @section('scripts')
 	@show
