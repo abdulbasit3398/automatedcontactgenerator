@@ -364,18 +364,15 @@
 				</div>
 				<div>
 
-					<div class="chat-conversation p-3">
+					<div class="chat-conversation p-3" >
 						<ul class="list-unstyled mb-0 all-chat-ul"  data-simplebar style="max-height: 486px;">
-
-							<div id="msg_list" style="min-height: 15rem" >
+							<div id="msg_list" style="min-height: 15rem;  overflow: auto; " >
 								<!-- <li>
-
 								</li> -->
 							</div>
 
 						</ul>
 					</div>
-
 
 					<div class="p-3 chat-input-section">
 						<form id="chat_form" action="{{route('send_chat')}}" action="POST" enctype="multipart/form-data">
@@ -466,7 +463,8 @@
 
 		$(document).ready(function(){
 
-			$('.select2').select2({
+
+                $('.select2').select2({
 				placeholder:'Select Members'
 			});
 			$('.new_message').click(function(){
@@ -520,8 +518,10 @@
 						$("#msg_list").append(message);
 						$('#file_mms2').val('');
 						$('#collapseExample').trigger('click');
+                        $('#msg_list li:last-child' )[0].scrollIntoView();
 
-					}
+
+                    }
 				});
 			});
 			$('#group_chat_form').submit(function(e) {
@@ -543,12 +543,18 @@
 						$("#group_msg_list").append(message);
 						$('#group_file_mms').val('');
 						$('#gcollapse').trigger('click');
-					}
+                        $('#group_msg_list li:last-child' )[0].scrollIntoView();
+
+                    }
 				});
 			});
 
 		});
 
+
+		function openFile(file){
+            window.open(file, '_blank');
+		}
 
 		function addRemoveMembers(id,name,members){
 			$('#update_group_id').val(id);
@@ -571,13 +577,14 @@
 				url:"{{route('get-messages')}}",
 				data:{conversation_id},
 				success:function (list){
-					$('#msg_list').append(list);
-					
-					loadingStop();
-					
+
+                    $('#msg_list').append(list).ready(()=>{
+                        $('#msg_list li:last-child')[0].scrollIntoView();
+                    });
+
+                    loadingStop();
 				}
 			});
-
 		}
 
 		function handle(rcvr_id,name){
@@ -615,12 +622,16 @@
 				url:'{{route('get-group-messages')}}',
 				data:{group_id},
 				success:function (div){
-					loadingStop();
-					$('#group_chat_div').append(div);
-				}
+                    $('#group_chat_div').append(div).ready(function () {
+                        $('#group_msg_list li:last-child' )[0].scrollIntoView();
+                    });
+                    loadingStop();
+                }
 			});
 
 		}
+
+
 
 		function removeGroup(group_id){
 			if(confirm('Are you sure you want to delete this group')){

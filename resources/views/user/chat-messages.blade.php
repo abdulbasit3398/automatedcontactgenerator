@@ -27,9 +27,10 @@
                 <div class="conversation-name">{{$name}}</div> <p> {{$message->body}} </p>
                 @if($message->media)
                     <div class="mb-3">
-                        <embed src="{{asset('/assets/mms_files/'.$message->media)}}" width="100%" height="100px" />
+{{--                        <iframe src="{{asset('/assets/mms_files/'.$message->media)}}" width="100%" height="100px" ></iframe>--}}
+                        <a onclick="openFile('{{url('/assets/mms_files/'.$message->media)}}')"> View File</a>
 
-                        <a href="{{asset('/assets/mms_files/'.$message->media)}}" target="_blank"> Open</a>
+{{--                        <a href="{{asset('/assets/mms_files/'.$message->media)}}" target="_blank"> Open</a>--}}
                     </div>
                 @endif
                 <p class="chat-time mb-0"><i class="bx bx-time-five align-middle me-1"></i>{{$message->created_at}}</p>

@@ -6,7 +6,10 @@
 <script src="{{asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
 
 <script src="{{asset('assets/js/app.js')}}"></script>
-<script src="{{asset('assets/owl-crousal/dist')}}/owl.carousel.min.js"></script>
+
+<script src="{{asset('assets/plugins/owl-crousal/dist')}}/owl.carousel.min.js"></script>
+{{--<script src="{{asset('assets/plugins/magnific/dist')}}/jquery.magnific-popup.js"></script>--}}
+{{--<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>--}}
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -16,8 +19,33 @@
             center: true,
             items:1,
             loop:true,
-            autoplay:true
+            autoplay:false
         });
+
+
+    //     var $carousel = $('.carousel');
+    //
+    //     $carousel
+    //         .slick({
+    //             dots: true,
+    //             zoomPower   : 1,    //Default
+    //             glassSize   : 180,
+    //         }).magnificPopup({
+    //             type: 'image',
+    //             delegate: 'a:not(.slick-cloned)',
+    //             gallery: {
+    //                 enabled: true
+    //             },
+    //             callbacks: {
+    //                 open: function() {
+    //                     var current = $carousel.slick('slickCurrentSlide');
+    //                     $carousel.magnificPopup('goTo', current);
+    //                 },
+    //                 beforeClose: function() {
+    //                     $carousel.slick('slickGoTo', parseInt(this.index));
+    //                 }
+    //             },
+    //         });
     });
 
     $.ajaxSetup({
