@@ -19,9 +19,13 @@
   <link href="{{asset('assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
   <link href="{{asset('assets/css/main.css')}}" id="app-style" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="{{asset('assets/owl-crousal/dist/assets')}}/owl.carousel.min.css">
-    <link rel="stylesheet" href="{{asset('assets/owl-crousal/dist/assets')}}/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{asset('assets/plugins/owl-crousal/dist/assets')}}/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{asset('assets/plugins/owl-crousal/dist/assets')}}/owl.theme.default.min.css">
+    <!-- Magnific Popup core CSS file -->
+{{--    <link rel="stylesheet" href="{{asset('assets/plugins/magnific/dist/')}}/magnific-popup.css">--}}
 
+{{--    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>--}}
+{{--    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>--}}
   @section('custom-css')
     @show
 <script src='https://www.google.com/recaptcha/api.js'></script>

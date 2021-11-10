@@ -21,6 +21,10 @@
             </div>
         </div>
 
+        <?php
+        $all = \Illuminate\Support\Facades\File::glob(public_path('assets/images/sales_funnels/*'))
+
+        ?>
         <div class="row">
             <div class="col-xl-4 col-md-6">
                 <div class="card plan-box">
@@ -35,26 +39,28 @@
                                 </i> -->
                             </div>
                         </div>
-                        <div class="carousel-wrap">
-                            <div class="owl-carousel owl-theme">
-                                <div class="item">
-                                    <a href="{{asset('assets/images/sales_funnels/Screenshot_141.png')}}">
-                                        <img src="{{asset('assets/images/sales_funnels/Screenshot_141.png')}}" class="sale-funnel-img">
 
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="{{asset('assets/images/sales_funnels/Screenshot_142.png')}}">
-                                        <img src="{{asset('assets/images/sales_funnels/Screenshot_142.png')}}" class="sale-funnel-img">
-
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="{{asset('assets/images/sales_funnels/Screenshot_143.png')}}">
-                                        <img src="{{asset('assets/images/sales_funnels/Screenshot_143.png')}}" class="sale-funnel-img">
-                                    </a>
-                                </div>
+                        <div class="owl-carousel owl-theme">
+                            <div class="">
+                                <a  href="{{url('/image')}}" target="_blank" title="">
+                                    <img class="img-fluid" src="{{asset('assets/images/sales_funnels/Screenshot_141.png')}}"
+                                         style="width:800px; height:600px;">
+                                </a>
                             </div>
+                            <div class="">
+                                <a href="{{url('/image')}}" target="_blank" title="">
+                                    <img class="img-fluid" src="{{asset('assets/images/sales_funnels/Screenshot_143.png')}}"
+                                         style="width:800px; height:600px;">
+                                </a>
+                            </div>
+                            <div class="">
+                                <a href="{{url('/image')}}" target="_blank" title="">
+                                    <img class="img-fluid" src="{{asset('assets/images/sales_funnels/Screenshot_142.png')}}"
+                                         style="width:800px; height:600px;">
+                                </a>
+                            </div>
+
+
 
                         </div>
                     </div>
@@ -62,6 +68,8 @@
             </div>
 
             <div class="col-xl-4 col-md-6">
+
+
                 <div class="card plan-box">
                     <div class="card-body p-4">
                         <div class="media">
@@ -75,29 +83,36 @@
                             </div>
                         </div>
                         <div class="owl-carousel owl-theme">
-                            <div>
-                                <a href="{{asset('assets/images/sales_funnels/Screenshot_142.png')}}">
-                                    <img src="{{asset('assets/images/sales_funnels/Screenshot_142.png')}}" class="sale-funnel-img">
-                                </a>
 
-                            </div>
-                            <div>
-                                <a href="{{asset('assets/images/sales_funnels/Screenshot_143.png')}}">
 
-                                    <img src="{{asset('assets/images/sales_funnels/Screenshot_143.png')}}" class="sale-funnel-img">
+                            <div class="">
+                                <a href="{{url('/image')}}" target="_blank" title="">
+                                    <img class="img-fluid" src="{{asset('assets/images/sales_funnels/Screenshot_142.png')}}"
+                                         style="width:800px; height:600px;">
                                 </a>
                             </div>
-                            <div>
-                                <a href="{{asset('assets/images/sales_funnels/Screenshot_141.png')}}">
-                                    <img src="{{asset('assets/images/sales_funnels/Screenshot_141.png')}}" class="sale-funnel-img">
+                            <div class="">
+                                <a href="{{url('/image')}}" target="_blank" title="">
+                                    <img class="img-fluid" src="{{asset('assets/images/sales_funnels/Screenshot_141.png')}}"
+                                         style="width:800px; height:600px;">
                                 </a>
                             </div>
+                            <div class="">
+                                <a href="{{url('/image')}}" target="_blank" title="">
+                                    <img class="img-fluid" src="{{asset('assets/images/sales_funnels/Screenshot_143.png')}}"
+                                         style="width:800px; height:600px;">
+                                </a>
+                            </div>
+
+
                         </div>
+
                     </div>
                 </div>
             </div>
-
             <div class="col-xl-4 col-md-6">
+
+
                 <div class="card plan-box">
                     <div class="card-body p-4">
                         <div class="media">
@@ -110,27 +125,38 @@
                                 </i> -->
                             </div>
                         </div>
-                        <div class="owl-carousel owl-theme">
-                            <div>
-                                <a href="{{asset('assets/images/sales_funnels/Screenshot_143.png')}}">
-                                    <img src="{{asset('assets/images/sales_funnels/Screenshot_143.png')}}" class="sale-funnel-img">
-                                </a>
 
-                            </div>
-                            <div>
-                                <a href="{{asset('assets/images/sales_funnels/Screenshot_142.png')}}">
-                                    <img src="{{asset('assets/images/sales_funnels/Screenshot_142.png')}}" class="sale-funnel-img">
+
+                        <div class="owl-carousel owl-theme">
+
+                            <div class="">
+                                <a href="{{url('/image')}}" target="_blank" title="">
+                                    <img class="img-fluid" src="{{asset('assets/images/sales_funnels/Screenshot_143.png')}}"
+                                         style="width:800px; height:600px;">
                                 </a>
                             </div>
-                            <div>
-                                <a href="{{asset('assets/images/sales_funnels/Screenshot_141.png')}}">
-                                    <img src="{{asset('assets/images/sales_funnels/Screenshot_141.png')}}" class="sale-funnel-img">
+                            <div class="">
+                                <a href="{{url('/image')}}" target="_blank" title="">
+                                    <img class="img-fluid" src="{{asset('assets/images/sales_funnels/Screenshot_142.png')}}"
+                                         style="width:800px; height:600px;">
                                 </a>
                             </div>
+
+                            <div class="">
+                                <a href="{{url('/image')}}" target="_blank" title="">
+                                    <img class="img-fluid" src="{{asset('assets/images/sales_funnels/Screenshot_141.png')}}"
+                                         style="width:800px; height:600px;">
+                                </a>
+                            </div>
+
+
                         </div>
+
+
                     </div>
                 </div>
             </div>
+
 
         </div>
         <!-- end row -->

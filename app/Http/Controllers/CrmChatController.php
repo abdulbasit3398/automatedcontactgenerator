@@ -8,6 +8,8 @@ use App\GroupMember;
 use App\GroupMessage;
 use App\Http\Requests\Chat\ChatRequest;
 use App\Message;
+use App\Notifications\ChatNotification;
+use App\Notifications\GroupChatNotification;
 use App\UserHasConversation;
 use Auth;
 use App\User;
@@ -73,6 +75,11 @@ class CrmChatController extends Controller
               'media'=>$name
           ]);
         }
+
+        $rcvr = User::find($rcvr_id);
+        if($rcvr)
+            $rcvr->notify(new ChatNotification($message));
+
 
         if($request->send_message_form){
             $msg = Message::where('conversation_id',$message->conversation_id)->with('sender','receiver')->latest()->first();
@@ -178,6 +185,12 @@ class CrmChatController extends Controller
             ]);
         }
 
+        if($msg->group->owner()->exists())
+            $msg->group->owner->notify(new GroupChatNotification($msg));
+        foreach ($msg->group->members as $member){
+            if($member->user()->exists())
+                $member->user->notify(new GroupChatNotification($msg));
+        }
 
         return view('user.group-single-message',compact('msg'));
 
