@@ -136,8 +136,11 @@ class UserController extends Controller
 
 
 
-      $drive_files = Storage::disk('google')->allFiles();
-    $directories = Storage::disk('google')->allDirectories();
+    // $drive_files = Storage::disk('google')->allFiles();
+    // $directories = Storage::disk('google')->allDirectories();
+
+    $drive_files = array();
+    $directories = array();
     return view('user.dashboard',compact('users','notes','data', 'column_count', 'row_count','drive_files','directories'));
   }
 

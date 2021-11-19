@@ -56,7 +56,7 @@ class RegisterController extends Controller
     }
 
     
-    public function showRegistrationForm() 
+    public function showRegistrationForm()
     {
         return redirect()->route('register_product',['website'=>'sC0+H0TnykPfYuTdcb9AeJHjAhZQAdybaQ==', 'product'=>'tyovFQ==']);
     }
@@ -217,4 +217,39 @@ class RegisterController extends Controller
             return 0;
         
     }
+
+    public function guest_register(Request $request)
+    {
+        $this->validate($request,[
+            'referal_user' => 'required'
+        ]);
+
+        $referal = $this->check_referal($request['referal_user'],$request['website']);
+            if($referal == '0')
+                return redirect()->back()->with('error','No referal user found with that record.');
+
+        $time = time();
+        $start = substr($time,0,5);
+        $end = substr($time,5);
+
+        $username = 'ID'.$start.'-'.$end;
+
+        $user =  User::create([
+            'first_name' => 'Guest',
+            'last_name' => $username,
+            'company_name' => '',
+            // 'username' => $data['username'],
+            'email' => 'Guest'.$username,
+            'password' => Hash::make('123456'),
+            'website' => $request['website'],
+            'referrer_id' => $referal,
+            'affiliate_account' => 0,
+            'guest' => 1,
+        ]);
+
+        Auth::login($user);
+        return redirect()->route('dashboard');
+        
+
+    }   
 }

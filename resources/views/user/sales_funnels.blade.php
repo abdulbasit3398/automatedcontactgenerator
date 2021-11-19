@@ -3,10 +3,10 @@
 @section('custom-css')
 <link href="{{asset('assets/css/tooltip.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
 <style type="text/css">
-.form-check-input-success:checked {
-	background-color: green !important;
-	border-color: green !important;
-}
+	.form-check-input-success:checked {
+		background-color: green !important;
+		border-color: green !important;
+	}
 </style>
 @endsection
 
@@ -59,11 +59,171 @@
 							</i> -->
 						</div>
 					</div>
-					<img src="{{asset('assets/images/sales_funnels/Screenshot_141.png')}}" class="sale-funnel-img">
+					<div class="owl-carousel owl-theme sale-funnel-img1">
+						<div class="">
+							<a  href="{{route('image-index','army_capture.png')}}" target="_blank" title="">
+								<img class="img-fluid sale-funnel-img" src="{{asset('assets/images/sales_funnels/army_capture.png')}}">
+							</a>
+						</div>
+						<div class="">
+							<a href="{{route('image-index','army_landing.png')}}" target="_blank" title="">
+								<img class="img-fluid sale-funnel-img" src="{{asset('assets/images/sales_funnels/army_landing.png')}}">
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		
+		<div class="col-xl-4 col-md-6">
+			<div class="card plan-box">
+				<div class="card-body p-4">
+					<div class="media">
+						<div class="media-body">
+							<h4 class="h4-blue">2</h4>
+							<p class="text-muted"></p>
+						</div>
+						<div class="ms-3">
+							<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+							</i> -->
+						</div>
+					</div>
+					<div class="owl-carousel owl-theme sale-funnel-img1">
+						<div class="">
+							<a  href="{{route('image-index','interior_capture.png')}}" target="_blank" title="">
+								<img class="img-fluid sale-funnel-img" src="{{asset('assets/images/sales_funnels/interior_capture.png')}}">
+							</a>
+						</div>
+						<div class="">
+							<a href="{{route('image-index','interior_landing.png')}}" target="_blank" title="">
+								<img class="img-fluid sale-funnel-img" src="{{asset('assets/images/sales_funnels/interior_landing.png')}}">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xl-4 col-md-6">
+			<div class="card plan-box">
+				<div class="card-body p-4">
+					<div class="media">
+						<div class="media-body">
+							<h4 class="h4-blue">3</h4>
+							<p class="text-muted"></p>
+						</div>
+						<div class="ms-3">
+							<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+							</i> -->
+						</div>
+					</div>
+					<div class="owl-carousel owl-theme sale-funnel-img1">
+						<div class="">
+							<a  href="{{route('image-index','marketing-and-productivity-capture-software.png')}}" target="_blank" title="">
+								<img class="img-fluid sale-funnel-img" src="{{asset('assets/images/sales_funnels/marketing-and-productivity-capture-software.png')}}">
+							</a>
+						</div>
+						<div class="">
+							<a href="{{route('image-index','marketing-and-productivity-software-landing.png')}}" target="_blank" title="">
+								<img class="img-fluid sale-funnel-img" src="{{asset('assets/images/sales_funnels/marketing-and-productivity-software-landing.png')}}">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-xl-4 col-md-6">
+			<div class="card plan-box">
+				<div class="card-body p-4">
+					<div class="media">
+						<div class="media-body">
+							<h4 class="h4-blue">4</h4>
+							<p class="text-muted"></p>
+						</div>
+						<div class="ms-3">
+							<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+							</i> -->
+						</div>
+					</div>
+					<div class="owl-carousel owl-theme sale-funnel-img1">
+						<div class="">
+							<a  href="{{route('image-index','Pizza_capture.png')}}" target="_blank" title="">
+								<img class="img-fluid sale-funnel-img" src="{{asset('assets/images/sales_funnels/Pizza_capture.png')}}">
+							</a>
+						</div>
+						<div class="">
+							<a href="{{route('image-index','pizza_landing.png')}}" target="_blank" title="">
+								<img class="img-fluid sale-funnel-img" src="{{asset('assets/images/sales_funnels/pizza_landing.png')}}">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xl-4 col-md-6">
+			<div class="card plan-box">
+				<div class="card-body p-4">
+					<div class="media">
+						<div class="media-body">
+							<h4 class="h4-blue">5</h4>
+							<p class="text-muted"></p>
+						</div>
+						<div class="ms-3">
+							<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+							</i> -->
+						</div>
+					</div>
+					<div class="owl-carousel owl-theme sale-funnel-img1">
+						<div class="">
+							<a  href="{{route('image-index','productivity-software-capture.png')}}" target="_blank" title="">
+								<img class="img-fluid sale-funnel-img" src="{{asset('assets/images/sales_funnels/productivity-software-capture.png')}}">
+							</a>
+						</div>
+						<div class="">
+							<a href="{{route('image-index','productivity-software-landing.png')}}" target="_blank" title="">
+								<img class="img-fluid sale-funnel-img" src="{{asset('assets/images/sales_funnels/productivity-software-landing.png')}}">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xl-4 col-md-6">
+			<div class="card plan-box">
+				<div class="card-body p-4">
+					<div class="media">
+						<div class="media-body">
+							<h4 class="h4-blue">6</h4>
+							<p class="text-muted"></p>
+						</div>
+						<div class="ms-3">
+							<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+							</i> -->
+						</div>
+					</div>
+					<div class="owl-carousel owl-theme sale-funnel-img1">
+						<div class="">
+							<a  href="{{route('image-index','car-sales-capture.png')}}" target="_blank" title="">
+								<img class="img-fluid sale-funnel-img" src="{{asset('assets/images/sales_funnels/car-sales-capture.png')}}">
+							</a>
+						</div>
+						<div class="">
+							<a href="{{route('image-index','car-sales-landing.png')}}" target="_blank" title="">
+								<img class="img-fluid sale-funnel-img" src="{{asset('assets/images/sales_funnels/car-sales-landing.png')}}">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<br/>
+		<br/>
+		<br/>
 		<div class="col-xl-4 col-md-6">
 			<div class="card plan-box">
 				<div class="card-body p-4">
@@ -223,16 +383,16 @@
 				</div>
 			</div>
 		</div>
-		</div>
-		<!-- end row -->
+	</div>
+	<!-- end row -->
 
-	</div> <!-- container-fluid -->
+</div> <!-- container-fluid -->
 
-	@endsection
-
-
-	@section('scripts')
+@endsection
 
 
+@section('scripts')
 
-	@endsection
+
+
+@endsection

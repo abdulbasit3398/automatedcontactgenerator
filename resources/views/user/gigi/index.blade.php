@@ -9,15 +9,15 @@
 
         <!-- start page title -->
         <div class="row">
-            <div class="col-12">
+            <div class="col-6">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0 font-size-18">GIGI</h4>
-
+                    <h4 class="mb-sm-0 font-size-18">GIGY</h4>
                     <div class="page-title-right">
-{{--                        <a href="{{route('custom-sales-funnels')}}" class="btn btn-success">Custom Funnel</a>--}}
                     </div>
-
                 </div>
+            </div>
+            <div class="col-6">
+                <a href="{{route('create-gigy')}}" class="btn btn-success" style="float:right;">Create</a>
             </div>
         </div>
 
@@ -42,7 +42,7 @@
 
                         <div class="owl-carousel owl-theme">
                             <div class="">
-                                <a  href="{{url('/image')}}" target="_blank" title="">
+                                <a  href="{{route('image-index','Screenshot_141.png')}}" target="_blank" title="">
                                     <img class="img-fluid" src="{{asset('assets/images/sales_funnels/Screenshot_141.png')}}"
                                          style="width:800px; height:600px;">
                                 </a>

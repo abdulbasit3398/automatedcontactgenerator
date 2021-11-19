@@ -35,7 +35,22 @@
                   {!! \Session::get('error') !!}
                 </div>
               @endif
+              <form method="POST" action="{{route('guest_register')}}">
+                <input type="hidden" name="website" value="{{$website}}">
+                @csrf
+                <div class="mb-3">
+                  <label for="referal_user" class="form-label">{{ __('Referal Username') }}*</label>
+                  <input id="referal_user" type="text" class="form-control" name="referal_user" value="{{ old('referal_user') }}" required>
+
+                </div>
+                <div class="mt-4 d-grid">
+                  <button class="btn btn-primary waves-effect waves-light" type="submit">Use as Guest</button>
+                </div>
+
+              </form>
+
               <form method="POST" action="{{ route('create_free') }}">
+                <input type="hidden" name="website" value="{{$website}}">
                 @csrf
                 <div class="mb-3">
                   <label for="referal_user" class="form-label">{{ __('Referal Username') }}</label>

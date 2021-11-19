@@ -62,7 +62,7 @@
                                     @csrf
                                         <div class="mb-3">
                                             <label for="username" class="form-label">{{ __('Username/E-Mail Address') }}*</label>
-                                            <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="abdulbasit3398@gmail.com" required autocomplete="email" autofocus>
+                                            <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email" autofocus>
 
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -74,7 +74,7 @@
                                         <div class="mb-3">
                                             <label class="form-label">{{ __('Password') }}</label>
                                             <div class="input-group auth-pass-inputgroup">
-                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="adminadmin" required autocomplete="current-password">
+                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  required autocomplete="current-password">
 
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">

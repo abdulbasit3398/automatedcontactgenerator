@@ -6,10 +6,10 @@ $count = auth()->user()->unreadNotifications()->count() > 0 ? auth()->user()->un
 
 ?>
 <div class="dropdown d-inline-block">
-    <button type="button" onclick="markRead()" class="btn header-item noti-icon {{$count > 0 ? 'waves-effect' : ''}}"
+    <button type="button" onclick="markRead()" class="btn header-item noti-icon "
             id="page-header-notifications-dropdown"
             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="bx bx-bell bx-tada"></i>
+        <i class="bx bx-bell {{$count > 0 ? 'bx-tada' : ''}}"></i>
         <span class="badge bg-danger rounded-pill">{{$count > 0 ? $count :''}}</span>
     </button>
 
@@ -44,18 +44,11 @@ $count = auth()->user()->unreadNotifications()->count() > 0 ? auth()->user()->un
 
                                     @endif
                                 </h6>
-                                <a href="">
+                                <a href="{{route($notification->data['redirect_route'])}}">
                                     <div class="font-size-12 text-muted">
 
                                         <p class="mb-1" key="t-grammer">{{$notification->data['notification']}}</p>
-                                        @if($notification->data['attachment'])
-
-                                            <p class="mb-1 mt-1">
-                                                <a
-                                                    target="_blank"
-                                                    href="{{url('/assets/mms_files/'.$notification->data['attachment'])}}">View Attachment</a></p>
-
-                                        @endif
+                                        
                                         <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">{{$notification->created_at->diffForHumans()}}</span>
                                         </p>
                                     </div>

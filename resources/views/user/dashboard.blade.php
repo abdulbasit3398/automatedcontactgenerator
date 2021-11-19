@@ -532,8 +532,9 @@
 </div>
 </div>
 
-
-@include('user.cloud.index',['directories'=>$directories,'drive_files'=>$drive_files]);
+{{--
+@include('user.cloud.index',['directories'=>$directories,'drive_files'=>$drive_files])
+--}}
 
 <!-- Create task -->
 <div class="row" id="CreateTask" name="CreateTask">
@@ -980,11 +981,14 @@ $(function (){
                 },
                 type: "POST",
                 success: function (response) {
-                    displayMessage("Event Updated Successfully");
+                  // location.reload();
+                  // console.log('sd');
+                    // displayMessage("Event Updated Successfully");
                 }
             });
         },
         eventClick: function (event) {
+          console.log(event);
             var deleteMsg = confirm("Do you really want to delete?");
             if (deleteMsg) {
                 $.ajax({
@@ -996,7 +1000,9 @@ $(function (){
                     },
                     success: function (response) {
                         calendar.fullCalendar('removeEvents', event.id);
-                        displayMessage("Event Deleted Successfully");
+                        // location.reload();
+                        // console.log('sd');
+                        // displayMessage("Event Deleted Successfully");
                     }
                 });
             }
@@ -1018,12 +1024,16 @@ $(function (){
                     },
                     type: "POST",
                     success: function (data) {
-                        displayMessage("Event Created Successfully");
+                        // displayMessage("Event Created Successfully");
+                        // location.reload();
+                        console.log(data);
+
                         calendar.fullCalendar('renderEvent',
                             {
                                 title: title,
                                 start: start,
                                 end: end,
+                                id: data.id,
                                 allDay: allDay
                             },true);
                     }

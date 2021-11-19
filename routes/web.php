@@ -41,7 +41,9 @@ Route::post('/send-chat', 'CrmChatController@send_chat')->name('send_chat');
 //GIGI
 Route::group(['namespace' => 'Gigi'], function() {
     Route::get('/gigy', 'GigiController@index')->name('gigi-index');
-    Route::get('/image', 'GigiController@image')->name('image-index');
+    Route::get('/image/{name}', 'GigiController@image')->name('image-index');
+    Route::get('/create-gigy', 'GigiController@create')->name('create-gigy');
+    Route::post('/save-gigy', 'GigiController@save')->name('save-gigy');
 });
 
 
@@ -89,6 +91,7 @@ Route::get('/checkout',function () {
 Auth::routes();
 // Route::get('/register/{website}/{product}', 'Auth\RegisterController@register_product')->name('register_product');
 Route::get('/register/{website}', 'Auth\RegisterController@register_product')->name('register_product');
+Route::post('/guest_register', 'Auth\RegisterController@guest_register')->name('guest_register');
 Route::post('/register/create_free', 'Auth\RegisterController@create_free')->name('create_free');
 Route::post('/register/create_product', 'Auth\RegisterController@create_product')->name('create_product');
 Route::get('/dashboard', 'UserController@index')->name('dashboard');
