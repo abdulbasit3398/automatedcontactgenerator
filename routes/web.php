@@ -38,6 +38,9 @@ Route::get('/chat', 'CrmChatController@index')->name('chat');
 Route::get('/get-messages', 'CrmChatController@getMessages')->name('get-messages');
 Route::post('/send-chat', 'CrmChatController@send_chat')->name('send_chat');
 
+Route::get('/search-message', 'CrmChatController@searchMessage')->name('search-message');
+Route::get('/search-group_message', 'CrmChatController@searchGroupMessage')->name('search-group-message');
+
 //GIGI
 Route::group(['namespace' => 'Gigi'], function() {
     Route::get('/gigy', 'GigiController@index')->name('gigi-index');

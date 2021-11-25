@@ -16,6 +16,7 @@ use App\User;
 //use App\CrmChatHistory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use function foo\func;
 
 class CrmChatController extends Controller
 {
@@ -151,8 +152,8 @@ class CrmChatController extends Controller
         ]);
 
         $group= Group::findOrFail($request->group_id);
-
-        return view('user.group-chat-messages',compact('group'));
+        $query =null;
+        return view('user.group-chat-messages',compact('group','query'));
     }
 
     public function sendGroupChat(Request $request){
@@ -203,5 +204,23 @@ class CrmChatController extends Controller
         Group::where('id',$request->group_id)->delete();
 
         return 1;
+    }
+
+
+    public function searchMessage(Request $request){
+        $conversation_id = $request['conversation_id'];
+        $query = $request['query'];
+
+        $messages = Message::where('conversation_id',$conversation_id)->where('body','like', '%' .$query . '%')->get();
+        return view('user.chat-messages',compact('messages'));
+    }
+
+
+    public function searchGroupMessage(Request $request){
+        $group_id = $request['group_id'];
+        $query = $request['query'];
+
+        $group= Group::findOrFail($request->group_id);
+        return view('user.group-chat-messages',compact('group','query'));
     }
 }

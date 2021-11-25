@@ -1,7 +1,12 @@
 
 
+<?php
+
+    $search = $query;
+?>
 <div class="p-4 border-bottom " >
     <div class="row">
+
         <div class="col-md-10 col-10">
             <h5 class="font-size-15 mb-1">{{$group->name}}</h5>
             <h6>
@@ -32,8 +37,35 @@
 
             </h6>
         </div>
+        <div class="col-md-1 col-1 align-content-end">
+            <ul class="list-inline user-chat-nav text-end mb-0">
+                <li class="list-inline-item d-none d-sm-inline-block">
+                    <div class="dropdown">
+                        <button id="group_search_msg_icon" class="btn nav-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bx bx-search-alt-2"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-md">
+                            <form class="p-3">
+                                <div class="form-group m-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control"
+                                               value="{{$search}}"
+                                               name="search_group_message" id="search_group_message"
+                                               placeholder="Search ..."
+                                               aria-label="Recipient's username">
+{{--                                        <button class="btn btn-primary" type="button" id="group_message_search_btn"><i class="mdi mdi-magnify"></i></button>--}}
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
         @if($group->owner_id == auth()->id())
-            <div class="col-md-2 col-2">
+            <div class="col-md-1 col-1">
                 <ul class="list-inline user-chat-nav text-end mb-0">
                     <li class="list-inline-item">
                         <div class="dropdown">
@@ -55,7 +87,7 @@
 </div>
 
 <div class="chat-conversation p-3">
-        <ul class="list-unstyled mb-0 all-chat-ul"  data-simplebar style="max-height: 486px;">
+        <ul class="list-unstyled mb-0 all-chat-ul group-messages-list"  data-simplebar style="max-height: 486px;">
 
             <div id="group_msg_list" style="min-height: 15rem">
 

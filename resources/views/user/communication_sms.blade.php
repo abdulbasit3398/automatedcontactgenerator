@@ -25,6 +25,13 @@
 
   <div class="d-lg-flex">
     <div class="chat-leftsidebar me-lg-4">
+        <div class="search-box chat-search-box py-4">
+            <div class="position-relative">
+                <input type="text" name="contact_name" id="contact_name" class="form-control" placeholder="Search...">
+                <i class="bx bx-search-alt search-icon"></i>
+            </div>
+        </div>
+
       <div class="">
 
         <div class="chat-leftsidebar-nav">
@@ -46,27 +53,30 @@
             <div class="tab-pane show active" id="chat">
               <div>
                 <h5 class="font-size-14 mb-3">Recent</h5>
-                <ul class="list-unstyled chat-list" data-simplebar style="max-height: 410px;">
+                <ul class="list-unstyled chat-list  all-contacts" data-simplebar style="max-height: 410px;">
                   @if(count($data['numbers']) > 0)
                   @foreach($data['numbers'] as $number)
                   @php $image = isset($number->contact)?$number->contact->contact_avatar:'avatar-1.png'; @endphp
 
-                  <li class="{{(isset($_GET['n']) && $_GET['n'] == $number->contact_phone_number) ? 'active' : ''}}">
-                    <a href="?n={{$number->contact_phone_number}}">
-                      <div class="media">
-                        <div class="align-self-center me-3">
-                          <i class="mdi mdi-circle font-size-10"></i>
-                        </div>
-                        <div class="align-self-center me-3">
-                          <img src="{{asset('assets/images/users'.'/'.$image)}}" class="rounded-circle avatar-xs" alt="">
-                        </div>
+                  <li class="{{(isset($_GET['n']) && $_GET['n'] == $number->contact_phone_number) ? 'active' : ''}} contact-li">
+                    <div class="contact-info-div">
+                        <a href="?n={{$number->contact_phone_number}}">
+                            <div class="media">
+                                <div class="align-self-center me-3">
+                                    <i class="mdi mdi-circle font-size-10"></i>
+                                </div>
+                                <div class="align-self-center me-3">
+                                    <img src="{{asset('assets/images/users'.'/'.$image)}}" class="rounded-circle avatar-xs" alt="">
+                                </div>
 
-                        <div class="media-body overflow-hidden">
-                          <h5 class="text-truncate font-size-14 mb-1">{{$number->contact->contact_name}}</h5>
-                          <p class="text-truncate mb-0">{{$number->contact_phone_number}}</p>
-                        </div>
-                      </div>
-                    </a>
+                                <div class="media-body overflow-hidden">
+                                    <h5 class="text-truncate font-size-14 mb-1">{{$number->contact->contact_name}}</h5>
+                                    <p class="text-truncate mb-0">{{$number->contact_phone_number}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
                   </li>
                   @endforeach
                   @endif
@@ -87,13 +97,16 @@
                       <div class="simplebar-content" style="padding: 0px;">
                         <div>
 
-                          <ul class="list-unstyled chat-list">
+                          <ul class="list-unstyled chat-list all-contacts">
                             @foreach($data['contacts'] as $contact)
-                              <li>
-                                <a href="{{route('new-send-communication-sms')}}?num={{$contact->id}}">
-                                    <h5 class="font-size-14 mb-0">{{$contact->contact_name}}</h5>
-                                    <p>{{$contact->contact_phone}}</p>
-                                </a>
+                              <li class="contact-li">
+                                  <div class="contact-info-div">
+                                      <a href="{{route('new-send-communication-sms')}}?num={{$contact->id}}">
+                                            <h5>{{$contact->contact_name}}</h5>
+                                          <p>{{$contact->contact_phone}}</p>
+                                      </a>
+                                  </div>
+
                               </li>
                             @endforeach
 
@@ -126,19 +139,41 @@
       <div class="card">
         <div class="p-4 border-bottom ">
           <div class="row">
-            <div class="col-md-4 col-9">
+            <div class="col-md-9 col-9">
               <h5 class="font-size-15 mb-1">{{$data['contact_name']}}</h5>
             </div>
-            <div class="col-md-8 col-3">
+              <div class="col-md-3 col-3 align-content-end">
+                  <ul class="list-inline user-chat-nav text-end mb-0">
+                      <li class="list-inline-item d-none d-sm-inline-block">
+                          <div class="dropdown">
+                              <button id="group_search_msg_icon" class="btn nav-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="bx bx-search-alt-2"></i>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-end dropdown-menu-md">
+                                  <form class="p-3">
+                                      <div class="form-group m-0">
+                                          <div class="input-group">
+                                              <input type="text" class="form-control"
+                                                     name="search_sms_message" id="search_sms_message"
+                                                     placeholder="Search ..."
+                                                     aria-label="Recipient's username">
+                                              {{--                                        <button class="btn btn-primary" type="button" id="group_message_search_btn"><i class="mdi mdi-magnify"></i></button>--}}
+                                          </div>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                      </li>
 
-            </div>
+                  </ul>
+              </div>
           </div>
         </div>
 
 
         <div>
           <div class="chat-conversation p-3">
-            <ul class="list-unstyled mb-0" data-simplebar style="max-height: 486px;">
+            <ul class="list-unstyled mb-0 ul-all-sms" data-simplebar style="max-height: 486px;">
               <!-- <li>
                 <div class="chat-day-title">
                   <span class="title">Today</span>
@@ -151,9 +186,8 @@
                 else
                   $class = '';
               @endphp
-              <li class="{{$class}}">
+              <li class="{{$class}} all-sms">
                 <div class="conversation-list">
-
                   <div class="ctext-wrap">
                     <p>
                       {{$sms->message}}
@@ -209,4 +243,34 @@
 
 </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+        $(function (){
+            jQuery("#contact_name").keyup(function () {
+                var filter = jQuery(this).val();
+                jQuery("ul.all-contacts li.contact-li div.contact-info-div a").each(function () {
+
+                    if (jQuery(this).text().search(new RegExp(filter, "i")) < 0) {
+                        jQuery(this).hide();
+                    } else {
+                        jQuery(this).show()
+                    }
+                });
+            });
+
+            jQuery("#search_sms_message").keyup(function () {
+                var filter = jQuery(this).val();
+                jQuery("ul.ul-all-sms  li div.conversation-list div.ctext-wrap").each(function () {
+
+                    if (jQuery(this).text().search(new RegExp(filter, "i")) < 0) {
+                        jQuery(this).hide();
+                    } else {
+                        jQuery(this).show()
+                    }
+                });
+            });
+        })
+    </script>
 @endsection

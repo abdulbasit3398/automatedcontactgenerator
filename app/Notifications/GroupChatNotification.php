@@ -39,6 +39,7 @@ class GroupChatNotification extends Notification
 
         return[
             'group_id'=>$this->message->id,
+            'redirect_route'=> 'chat',
             'notification'=>$notif_body,
             'msg'=>$this->message->body,
             'type'=>'group',

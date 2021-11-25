@@ -44,11 +44,12 @@ $count = auth()->user()->unreadNotifications()->count() > 0 ? auth()->user()->un
 
                                     @endif
                                 </h6>
+                                @dd($notification->data['redirect_route'])
                                 <a href="{{route($notification->data['redirect_route'])}}">
                                     <div class="font-size-12 text-muted">
 
                                         <p class="mb-1" key="t-grammer">{{$notification->data['notification']}}</p>
-                                        
+
                                         <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">{{$notification->created_at->diffForHumans()}}</span>
                                         </p>
                                     </div>

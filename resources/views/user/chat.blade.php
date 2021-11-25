@@ -175,6 +175,12 @@
 				</div>
 
 				<div class="chat-leftsidebar-nav mt-5">
+                    <div class="search-box chat-search-box py-4">
+                        <div class="position-relative">
+                            <input type="text" name="contact_name" id="contact_name" class="form-control" placeholder="Search...">
+                            <i class="bx bx-search-alt search-icon"></i>
+                        </div>
+                    </div>
 					<ul class="nav nav-pills nav-justified">
 						<li class="nav-item" onclick="showChat()">
 							<a href="#chat" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
@@ -220,7 +226,7 @@
 
 									@if($person)
 
-									<li onclick="getMessages({{$conversation->id}} , {{$person->id}}, '{{$person->first_name.' '.$person->last_name }}')">
+									    <li data-conversation="{{$conversation->id}}" onclick="getMessages({{$conversation->id}} , {{$person->id}}, '{{$person->first_name.' '.$person->last_name }}')">
 										<a href="#">
 											<div class="media">
 												<div class="align-self-center me-3">
@@ -273,7 +279,7 @@
 								@if($group_count > 0)
 
 								@foreach($my_groups as $group)
-								<li onclick="getGroupMessages({{$group->id}})">
+								<li onclick="getGroupMessages({{$group->id}})" data-groupid="{{$group->id}}">
 									<a href="#">
 										<div class="media align-items-center">
 											<div class="avatar-xs me-3">
@@ -350,6 +356,7 @@
 			</div>
 		</div>
 
+
 		<div class="w-100 user-chat" id="chat_div">
 			<div class="card">
 				<div class="p-4 border-bottom ">
@@ -358,19 +365,44 @@
 							<h5 class="font-size-15 mb-1" id="inbox_name"></h5>
 						</div>
 						<div class="col-md-8 col-3">
+                            <ul class="list-inline user-chat-nav text-end mb-0">
+                                <li class="list-inline-item d-none d-sm-inline-block">
+                                    <div class="dropdown">
+                                        <button id="search_msg_icon" class="btn nav-btn dropdown-toggle"
+                                                type="button" data-bs-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
+                                            <i class="bx bx-search-alt-2"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-md">
+                                            <div class="form-group m-0">
+                                                <div class="input-group">
+                                                    <input type="text"
+                                                           id="search_message"
+                                                           name="search_message"
+                                                           class="form-control"
+                                                           placeholder="Search ..."
+                                                           aria-label="Recipient's username">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
 
-						</div>
+                            </ul>
+
+                        </div>
 					</div>
 				</div>
 				<div>
 
 					<div class="chat-conversation p-3" >
-						<ul class="list-unstyled mb-0 all-chat-ul"  data-simplebar style="max-height: 486px;">
+						<ul class="list-unstyled mb-0 all-chat-ul messages-list"  data-simplebar style="max-height: 486px;">
 							<div id="msg_list" style="min-height: 15rem;  overflow: auto; " >
+
 								<!-- <li>
 								</li> -->
-							</div>
 
+							</div>
 						</ul>
 					</div>
 
@@ -459,14 +491,14 @@
 	<script src="{{asset('assets/libs/select2/js/select2.min.js')}}"></script>
 	<script type="text/javascript">
 
-
-
 		$(document).ready(function(){
 
 
                 $('.select2').select2({
 				placeholder:'Select Members'
 			});
+
+
 			$('.new_message').click(function(){
 				$('#message_body').val('');
 				var id = $(this).data('id');
@@ -488,6 +520,7 @@
 				$('.all-chatters li.active').removeClass('active');
 				$(this).addClass('active');
 			});
+
 			$('.all-group-chatters').on('click', 'li', function() {
 				$('.all-group-chatters li.active').removeClass('active');
 				$(this).addClass('active');
@@ -549,10 +582,51 @@
 				});
 			});
 
+            jQuery("#contact_name").keyup(function () {
+                var filter = jQuery(this).val();
+                jQuery("ul li").each(function () {
+                    if (jQuery(this).text().search(new RegExp(filter, "i")) < 0) {
+                        jQuery(this).hide();
+                    } else {
+                        jQuery(this).show()
+                    }
+                });
+
+            });
+
+            jQuery("#search_message").keyup(function () {
+                var filter = jQuery(this).val();
+                jQuery("ul.messages-list li").each(function () {
+                    if (jQuery(this).text().search(new RegExp(filter, "i")) < 0) {
+                        jQuery(this).hide();
+                    } else {
+                        jQuery(this).show()
+                    }
+                });
+            });
 		});
 
 
-		function openFile(file){
+        function searchGroupMessages(){
+            var group_id = $('ul.all-group-chatters').find('li.active').data('groupid');
+            console.log(group_id);
+            var query = $('#search_message').val();
+
+            $('#group_chat_div').html('');
+            $.ajax({
+                url:'{{route('search-group-message')}}',
+                method:'GET',
+                data:{query,group_id},
+                success:function (list){
+                    $('#group_chat_div').append(list).ready(function () {
+                        $('#group_search_msg_icon').trigger('click');
+                    });
+                }
+
+            });
+        }
+
+        function openFile(file){
             window.open(file, '_blank');
 		}
 
@@ -624,14 +698,22 @@
 				success:function (div){
                     $('#group_chat_div').append(div).ready(function () {
                         $('#group_msg_list li:last-child' )[0].scrollIntoView();
+                        jQuery("#search_group_message").keyup(function () {
+                            var filter = jQuery(this).val();
+                            jQuery("ul.group-messages-list li").each(function () {
+                                if (jQuery(this).text().search(new RegExp(filter, "i")) < 0) {
+                                    jQuery(this).hide();
+                                } else {
+                                    jQuery(this).show()
+                                }
+                            });
+                        });
                     });
+
                     loadingStop();
                 }
 			});
-
 		}
-
-
 
 		function removeGroup(group_id){
 			if(confirm('Are you sure you want to delete this group')){

@@ -40,7 +40,7 @@
 @empty
 
     <li class="text-center">
-        <p>No Chat History</p>
+        <p>No Chat Found</p>
     </li>
 
 @endforelse
