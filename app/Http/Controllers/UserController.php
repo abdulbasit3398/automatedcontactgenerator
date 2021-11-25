@@ -271,6 +271,7 @@ class UserController extends Controller
   }
   public function subscribe_package(Request $request)
   {
+      dd($request->package_id);
 
     $this->validate($request,[
       'package_id' => 'required'

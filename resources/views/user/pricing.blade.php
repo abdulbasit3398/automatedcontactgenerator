@@ -190,7 +190,7 @@
 					</div>
 					<div class="text-center plan-btn">
 						<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="20 usd package" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy</a>
-						<a href="#" onclick="cart(event.preventDefault())" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
+						<a href="#" onclick="cart(event.preventDefault(),'20 usd package','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 					</div>
 
 					<div class="plan-features mt-5">
@@ -235,7 +235,9 @@
 									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 										<h2><sup><small>$</small></sup> 300/<span class="font-size-13">Per month</span></h2>
 										<div class="text-center plan-btn">
-											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="unlimited_contacts" data-time="year" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy yearly</a>
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="unlimited_contacts"
+											 data-time="year" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy yearly</a>
+											 <a href="#" onclick="cart(event.preventDefault(),'unlimited_contacts','year')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 										</div>
 											 
 									</div>
@@ -268,6 +270,7 @@
 										<h2><sup><small>$</small></sup> 300/<span class="font-size-13">Per month</span></h2>
 										<div class="text-center plan-btn">
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="unlimited_communication" data-time="month" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy monthly</a>
+											<a href="#" onclick="cart(event.preventDefault(),'unlimited_communication','month')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 										</div>
 											 
 									</div>
@@ -301,6 +304,7 @@
 										<h2><sup><small>$</small></sup> 550/<span class="font-size-13">Per month (26% Discount $407)</span></h2>
 										<div class="text-center plan-btn">
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="unlimited_both" data-time="month" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy monthly</a>
+											<a href="#" onclick="cart(event.preventDefault(),'unlimited_both','month')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 										</div>
 											 
 									</div>
@@ -353,17 +357,36 @@
 									</div>
 									
 									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-										<div class="text-center plan-btn">
+										<div class="text-center plan-btn ">
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_leads" data-time="30" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 30</a>
-											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_leads" data-time="130" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 130</a>
-											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_leads" data-time="800" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 400</a>
+											<a href="#" onclick="cart(event.preventDefault(),'biz_opp_leads','30')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 										</div>
 									</div>
 									
+									
 									<div class="plan-features mt-5">
 										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 30 Leads for $100</p>
+									</div>
+
+								</div>
+							</div>
+							<div class="carousel-item ">
+								<div class="card-body p-4 ">
+									<h4>BIZOPP LEADS</h4>
+									<div class="media pb-2">
+										<span>A bizopp lead is some who expressed interest in your online business by submitting their info on a (capture) page</span>
+									</div>
+									
+									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+										<div class="text-center plan-btn ">
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_leads" data-time="130" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 130</a>
+											<a href="#" onclick="cart(event.preventDefault(),'biz_opp_leads','130')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
+										</div>
+									</div>
+									
+									
+									<div class="plan-features mt-5">
 										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 130 Leads for $300</p>
-										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 400 Leads for $800</p>
 									</div>
 
 								</div>
@@ -379,6 +402,7 @@
 									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 										<div class="text-center plan-btn">
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_biz_opp_leads" data-label="PLEASE DESCRIBE YOUR BUSINESS AND LEAD REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy</a>
+											<a href="#" onclick="cart(event.preventDefault(),'custom_biz_opp_leads','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 										</div>
 									</div>
 									<div class="plan-features mt-5">
@@ -433,19 +457,49 @@
 									</div>
 									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 										<div class="text-center plan-btn">
-											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_prospects" data-time="50" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 50</a>
-											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_prospects" data-time="100" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 100</a>
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_prospects" data-time="15" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 15</a>
+											<a href="#" onclick="cart(event.preventDefault(),'biz_opp_prospects','15')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 										</div>
 									</div>
 									
 									<div class="plan-features mt-5">
 										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 15 Prospects for $105</p>
-										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 50 Leads for $300</p>
-										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 100 Leads for $500</p>
+										{{-- <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 50 Leads for $300</p> --}}
+										{{-- <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 100 Leads for $500</p> --}}
 									</div>
 
 								</div>
 							</div>
+							<div class="carousel-item ">
+								<div class="card-body p-4 ">
+									<div class="media">
+										<div class="media-body">
+											<h5></h5>
+											<p class="text-muted"></p>
+										</div>
+										<div class="ms-3">
+											
+										</div>
+									</div>
+									<div class="py-4">
+										<h4>INHOUSE PROSPECTS</h4>
+									</div>
+									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+										<div class="text-center plan-btn">
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_prospects" data-time="50" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 50</a>
+											<a href="#" onclick="cart(event.preventDefault(),'biz_opp_prospects','50')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
+										</div>
+									</div>
+									
+									<div class="plan-features mt-5">
+										{{-- <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 15 Prospects for $105</p> --}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 50 Leads for $300</p>
+										{{-- <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 100 Leads for $500</p> --}}
+									</div>
+
+								</div>
+							</div>
+							
 
 							<div class="carousel-item">
 								<div class="card-body p-4 ">
@@ -465,6 +519,7 @@
 									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 										<div class="text-center plan-btn">
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy</a>
+											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 										</div>
 									</div>
 									<div class="plan-features mt-5">
@@ -525,6 +580,7 @@
 										<div class="text-center plan-btn">
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>
+											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 										</div>
 											 
 									</div>
@@ -559,6 +615,7 @@
 										<div class="text-center plan-btn">
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>
+											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 										</div>
 											 
 									</div>
@@ -593,6 +650,7 @@
 										<div class="text-center plan-btn">
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>
+											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 										</div>
 											 
 									</div>
@@ -654,6 +712,7 @@
 										<div class="text-center plan-btn">
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>
+											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 										</div>
 									</div>
 									
@@ -685,6 +744,7 @@
 										<div class="text-center plan-btn">
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>
+											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 										</div>
 									</div>
 									<div class="plan-features mt-5">
@@ -1240,6 +1300,7 @@
 			<div class="text-center plan-btn">
 				<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 				<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>
+				<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 			</div>
 
 			 
@@ -1304,6 +1365,7 @@
 							<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">$200 / Week</a>
 							<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">$600 / Month</a>
 							<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">$4000 / Year</a>
+							<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 						</div>
 						<div class="plan-features mt-5">
 							<p><i class="bx bx-checkbox-square text-primary mr-2"></i> $200 / Week &nbsp;&nbsp;</p>
@@ -1334,6 +1396,7 @@
 					<div class="text-center plan-btn">
 						<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 						<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a> 
+						<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 					</div>
 
 					<div class="plan-features mt-5">
@@ -1363,7 +1426,7 @@
 					</div>
 					<div class="text-center plan-btn">
 						<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy</a>
-
+						<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" >Cart</a>
 					</div>
 
 					<div class="plan-features mt-5">
@@ -1491,12 +1554,16 @@
 
 	</script>
 		<script type="text/javascript">
-			function cart(){
+			function cart(e,id,time){
+				// let package_id=$(this).attr('package_name')
+				
 				$.ajax({
 				url: '{{ url('cart') }}',
 				method: "post",
 				data: {
 					_token: '{{ csrf_token() }}', 
+					package_id:id,
+					time:time,
 				},
 				success: function (response) {
 					$(".cartCount").fadeOut(400, function () {

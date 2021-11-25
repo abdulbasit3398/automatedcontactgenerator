@@ -170,6 +170,7 @@
           <div class="p-3 chat-input-section">
             <form method="post" action="{{route('send-communication-sms')}}" enctype="multipart/form-data">
               @csrf
+              <input type="hidden" name="user_type" value="contact">
               <div class="row">
 
                 <div class="col-12 collapse mb-2" id="collapseExample">
@@ -179,7 +180,7 @@
                 <div class="col">
                   <div class="position-relative">
 
-                    <input type="hidden" name="sms_recipient_contact" value="{{$data['contact_id']}}">
+                    <input type="hidden" name="sms_recipient_contact[]" value="{{$data['contact_id']}}">
                     <input type="text" class="form-control chat-input" name="message" placeholder="Enter Message...">
 
                     <div class="chat-input-links" id="tooltip-container">
