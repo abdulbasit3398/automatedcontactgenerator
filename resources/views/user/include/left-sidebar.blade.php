@@ -52,12 +52,24 @@
              
           </ul>
         </li> -->
-        <li>
+
+        <li class="{{Request::route()->getName() == 'dashboard' || Request::route()->getName() == 'contacts' ? 'mm-active' : ''}}">
+          <a href="{{route('dashboard')}}" class="has-arrow waves-effect">
+            <i class="bx bx-home-circle"></i>
+            <span key="t-multi-level">Dashboard</span>
+          </a>
+          <ul class="sub-menu" aria-expanded="true">
+            <li><a href="{{route('contacts')}}" key="t-level-1-1">Contacts</a></li>
+            
+          </ul>
+        </li>
+
+        <!-- <li>
           <a href="{{route('dashboard')}}" class="waves-effect">
             <i class="bx bx-home-circle"></i>
             <span key="t-starter-page">Dashboard</span>
           </a>
-        </li>
+        </li> -->
 
          
         <li>

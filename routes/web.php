@@ -92,6 +92,8 @@ Route::get('/checkout',function () {
 })->name('checkout');
 
 Auth::routes();
+Route::get('/contacts', 'UserController@contacts')->name('contacts');
+
 // Route::get('/register/{website}/{product}', 'Auth\RegisterController@register_product')->name('register_product');
 Route::get('/register/{website}', 'Auth\RegisterController@register_product')->name('register_product');
 Route::post('/guest_register', 'Auth\RegisterController@guest_register')->name('guest_register');
