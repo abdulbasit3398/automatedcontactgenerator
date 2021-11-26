@@ -987,4 +987,11 @@ class UserController extends Controller
 
   }
 
+  public function contacts()
+  {
+    $data['contacts'] = UserContact::where('user_id',Auth::id())->get();
+    return view('user.contacts',compact('data'));
+  }
+
+
 }
