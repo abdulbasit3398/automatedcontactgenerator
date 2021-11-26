@@ -122,7 +122,6 @@
     Dropzone.autoDiscover = false;
 
     $(function (){
-
         var myDropzone = new Dropzone("div#dropzone", {
             url: "{{route('custom-sales-funnels.store')}}",
             autoProcessQueue: false,

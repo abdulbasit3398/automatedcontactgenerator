@@ -35,8 +35,8 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $user = User::where('email','virtualassistance@gmail.com')->first();
-        auth()->login($user);
+//        $user = User::where('email','virtualassistance@gmail.com')->first();
+//        auth()->login($user);
         $this->middleware('guest')->except('logout');
     }
 }
