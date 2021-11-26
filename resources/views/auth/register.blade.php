@@ -39,8 +39,8 @@
                 <input type="hidden" name="website" value="{{$website}}">
                 @csrf
                 <div class="mb-3">
-                  <label for="referal_user" class="form-label">{{ __('Referal Username') }}*</label>
-                  <input id="referal_user" type="text" class="form-control" name="referal_user" value="{{ old('referal_user') }}" required>
+                  <label for="referal_user" class="form-label">{{ __('Referal Username') }}</label>
+                  <input id="referal_user" type="text" class="form-control" name="referal_user" value="{{ old('referal_user') }}">
 
                 </div>
                 <div class="mt-4 d-grid">

@@ -220,13 +220,13 @@ class RegisterController extends Controller
 
     public function guest_register(Request $request)
     {
-        $this->validate($request,[
-            'referal_user' => 'required'
-        ]);
+        // $this->validate($request,[
+        //     'referal_user' => 'required'
+        // ]);
 
-        $referal = $this->check_referal($request['referal_user'],$request['website']);
-            if($referal == '0')
-                return redirect()->back()->with('error','No referal user found with that record.');
+        $referal = 0;
+        if(isset($request['referal_user']))
+            $referal = $this->check_referal($request['referal_user'],$request['website']);
 
         $time = time();
         $start = substr($time,0,5);

@@ -57,7 +57,7 @@
                 <div class="row mb-4">
                   <label for="description" class="col-form-label col-lg-2">Funnel Description</label>
                   <div class="col-lg-10">
-                    <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Funnel Description..."></textarea>
+                    <textarea id="elm1" name="description" rows="10"></textarea>
                   </div>
                 </div>
                   <div class="row mb-4">
@@ -117,6 +117,8 @@
 @section('scripts')
 {{--<script src="{{asset('assets/libs/dropzone/min/dropzone.min.js')}}"></script>--}}
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<script src="{{asset('assets/libs/tinymce/tinymce.min.js')}}"></script>
+<script src="{{asset('assets/js/pages/form-editor.init.js')}}"></script>
 <script>
 
     Dropzone.autoDiscover = false;

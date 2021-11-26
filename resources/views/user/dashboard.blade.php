@@ -5,7 +5,6 @@
 <link href="{{asset('assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
 
-<!-- Calender css -->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/libs/tui-time-picker/tui-time-picker.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('assets/libs/tui-date-picker/tui-date-picker.min.css')}}">
 {{--<link href="{{asset('assets/libs/tui-calendar/tui-calendar.min.css')}}" rel="stylesheet" type="text/css" />--}}
@@ -205,7 +204,7 @@
   </div>
 
 
-
+{{--
 <div class="row">
   <div class="col-12">
     <div class="card" style="height: 765px;">
@@ -222,8 +221,9 @@
 
       </div>
     </div>
-  </div> <!-- end col -->
+  </div>
 </div>
+--}}
 
 <div class="row">
   <div class="col-12">
@@ -697,8 +697,6 @@
 <script src="{{asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
 <script src="{{asset('assets/libs/dropzone/min/dropzone.min.js')}}"></script>
 
-<!-- Create task -->
-<script src="{{asset('assets/libs/tinymce/tinymce.min.js')}}"></script>
 <script src="{{asset('assets/libs/jquery.repeater/jquery.repeater.min.js')}}"></script>
 <script src="{{asset('assets/js/pages/task-create.init.js')}}"></script>
 
