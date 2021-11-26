@@ -20,6 +20,12 @@ use function foo\func;
 
 class CrmChatController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+    }
+
     public function index()
     {
 

@@ -132,6 +132,8 @@ Route::post('/update-user-contact', 'UserController@update_user_contact')->name(
 Route::get('/delete-user-contacts/{id}', 'UserController@delete_user_contacts')->name('delete-user-contacts');
 Route::get('/sales-funnels', 'UserController@sales_funnels')->name('sales-funnels');
 Route::get('/custom-sales-funnels', 'SalesFunnelController@custom_sales_funnels')->name('custom-sales-funnels');
+Route::post('/custom-sales-funnels', 'SalesFunnelController@custom_sales_funnels_store')->name('custom-sales-funnels.store');
+Route::post('/funnel-files', 'SalesFunnelController@files')->name('funnel-files.upload');
 Route::post('/create-referal-user', 'UserController@create_referal_user')->name('create-referal-user');
 
 Route::post('/save-time-track','UserController@save_time_track')->name('save-time-track');
@@ -168,6 +170,7 @@ Route::post('/withdraw-funds', 'UserWalletController@withdraw_funds')->name('wit
 
 Route::group(['middleware' => 'admin.staff.access'],function(){
     Route::get('/staff/dashboard', 'StaffController@index')->name('staff.dashboard');
+    Route::get('/staff/custom-funnels', 'StaffController@funnels')->name('staff.custom-funnels');
     Route::post('/save-contact-file', 'StaffController@save_contact_file')->name('staff.save-contact-file');
 });
 

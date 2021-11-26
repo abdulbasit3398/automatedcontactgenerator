@@ -89,7 +89,6 @@ class GoogleDriveController extends Controller
         if($s)
             return 1;
 
-
         return false;
     }
 }

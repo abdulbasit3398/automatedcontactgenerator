@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Funnel;
 use App\User;
 use App\ContactGenerator;
 use Illuminate\Http\Request;
@@ -56,12 +57,12 @@ class StaffController extends Controller
       $contact->contact_file = $name;
       $status = 1;
     }
-    
-    
+
+
     $contact->status = $status;
     $contact->is_file_complete = ($request->file_complete) ? $request->file_complete : 0;
     $contact->notes = $request->notes;
-    
+
     $contact->save();
 
     $user = User::findOrFail($contact->user_id);
@@ -69,8 +70,13 @@ class StaffController extends Controller
     $user->save();
 
     $user->notify(new UserContactNotification($contact));
-    
+
 
     return redirect()->back()->with('success','File save successfully.');
+  }
+
+  public function funnels(){
+      $funnels = Funnel::all();
+      return view('staff.custom-funnels',compact('funnels'));
   }
 }

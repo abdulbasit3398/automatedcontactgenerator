@@ -21,6 +21,8 @@
             <span key="t-starter-page">User contacts</span>
           </a>
         </li>
+
+
         <li>
           <a href="{{route('admin.user-withdrawal-request')}}" class="waves-effect">
             <i class="bx bx-card"></i>
@@ -40,6 +42,12 @@
             <span key="t-starter-page">User contacts</span>
           </a>
         </li>
+              <li>
+                  <a href="{{route('staff.custom-funnels')}}" class="waves-effect">
+                      <i class="bx bxs-institution"></i>
+                      <span key="t-starter-page">Custom Funnels</span>
+                  </a>
+              </li>
         @else
         <!-- <li>
           <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -49,7 +57,7 @@
           <ul class="sub-menu" aria-expanded="true">
             <li><a href="{{route('dashboard')}}" >Dashboard</a></li>
             <li><a href="{{route('user-contacts')}}" key="t-level-1-1">Contacts</a></li>
-             
+
           </ul>
         </li> -->
 
@@ -60,7 +68,7 @@
           </a>
           <ul class="sub-menu" aria-expanded="true">
             <li><a href="{{route('contacts')}}" key="t-level-1-1">Contacts</a></li>
-            
+
           </ul>
         </li>
 
@@ -71,7 +79,7 @@
           </a>
         </li> -->
 
-         
+
         <li>
           <a href="{{route('pricing')}}" class="waves-effect">
             <i class="bx bx-dollar"></i>
@@ -101,7 +109,7 @@
               </ul>
             </li>
             <li><a href="{{route('under-construction')}}" key="t-level-1-1">Auto-responder templates</a></li>
-             
+
           </ul>
         </li>
 
@@ -113,7 +121,7 @@
           <ul class="sub-menu" aria-expanded="true">
             <li><a href="{{route('contact-generator')}}" key="t-level-1-1">Contact Generator</a></li>
             <li><a href="{{route('list-cleaner')}}" key="t-level-1-1">List Cleaner</a></li>
-            
+
             <li>
               <a href="javascript: void(0);" class="has-arrow" key="t-level-1-2">Communication</a>
               <ul class="sub-menu" aria-expanded="true">
@@ -143,13 +151,13 @@
               <ul class="sub-menu" aria-expanded="true">
                 <li><a href="http://168.119.189.109/agc/vicidial.php" key="t-level-2-1">Calender</a></li>
                     <li><a href="https://135.181.195.194/index.php" key="t-level-1-1">Cloud Storage</a></li>
-                 
-                 
+
+
               </ul>
             </li>
             <li><a href="{{route('under-construction')}}" key="t-level-1-1">Logic Table</a></li>
             <!-- <li><a href="http://168.119.189.109/agc/vicidial.php" key="t-level-1-1">Phone 1</a></li> -->
-            
+
             <!-- <li>
               <a href="javascript: void(0);" class="has-arrow" key="t-level-1-2">Scripts</a>
               <ul class="sub-menu" aria-expanded="true">
@@ -158,7 +166,7 @@
               </ul>
             </li>
             <li><a href="{{route('under-construction')}}" key="t-level-1-1">Auto-responder templates</a></li> -->
-             
+
           </ul>
         </li>
 

@@ -44,7 +44,6 @@ $count = auth()->user()->unreadNotifications()->count() > 0 ? auth()->user()->un
 
                                     @endif
                                 </h6>
-                                
                                 <a href="{{route($notification->data['redirect_route'])}}">
                                     <div class="font-size-12 text-muted">
 
