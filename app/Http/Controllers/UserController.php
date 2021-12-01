@@ -24,6 +24,7 @@ use App\UserTaskManagement;
 use App\CustomPackageRequest;
 use App\TaskManagementMember;
 use App\Imports\ListCleanImport;
+use App\Imports\UserContactsImport;
 use App\Exports\ListCleanExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -993,5 +994,14 @@ class UserController extends Controller
     return view('user.contacts',compact('data'));
   }
 
+  public function import_contacts(Request $request)
+  {
+    $this->validate($request,[
+      'import_excel' => 'required|max:10240|mimes:txt,doc,docx,xlsx,xls,csv'
+    ]);
 
+    Excel::import(new UserContactsImport, request()->file('import_excel'));
+
+    return redirect()->back();
+  }
 }

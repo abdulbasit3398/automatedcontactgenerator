@@ -50,7 +50,6 @@ Route::group(['namespace' => 'Gigi'], function() {
 });
 
 
-
 Route::get('/test', 'HomeController@test')->name('test');
 
 
@@ -93,6 +92,7 @@ Route::get('/checkout',function () {
 
 Auth::routes();
 Route::get('/contacts', 'UserController@contacts')->name('contacts');
+Route::post('/import-contacts', 'UserController@import_contacts')->name('import-contacts');
 
 // Route::get('/register/{website}/{product}', 'Auth\RegisterController@register_product')->name('register_product');
 Route::get('/register/{website}', 'Auth\RegisterController@register_product')->name('register_product');

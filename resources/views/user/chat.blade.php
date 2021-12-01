@@ -149,7 +149,7 @@
 	<div class="d-lg-flex">
 		<div class="chat-leftsidebar me-lg-4">
 			<div class="">
-				<div class="py-4 border-bottom">
+				<div class="py-4 border-bottom1">
 					<div class="media">
 						<div class="align-self-center me-3">
 							<img src="{{asset('assets/images/users/'.\Auth::user()->profile_image)}}" class="avatar-xs rounded-circle" alt="">
@@ -174,13 +174,30 @@
 					</div>
 				</div>
 
-				<div class="chat-leftsidebar-nav mt-5">
-                    <div class="search-box chat-search-box py-4">
-                        <div class="position-relative">
-                            <input type="text" name="contact_name" id="contact_name" class="form-control" placeholder="Search...">
-                            <i class="bx bx-search-alt search-icon"></i>
-                        </div>
-                    </div>
+				<li data-conversation="" onclick="" style="list-style: none;">
+					<a href="#">
+						<div class="media">
+							<div class="align-self-center me-3">
+								<i class="mdi mdi-circle font-size-10"></i>
+							</div>
+							<div class="align-self-center me-3">
+								<img src="{{asset('assets/images/users/avatar-1.png')}}" class="rounded-circle avatar-xs" alt="">
+							</div>
+
+							<div class="media-body overflow-hidden">
+								<h5 class="text-truncate font-size-14 mb-1">Customer Support</h5>
+							</div>
+						</div>
+					</a>
+				</li>
+
+				<div class="chat-leftsidebar-nav">
+					<div class="search-box chat-search-box py-4">
+						<div class="position-relative">
+							<input type="text" name="contact_name" id="contact_name" class="form-control" placeholder="Search...">
+							<i class="bx bx-search-alt search-icon"></i>
+						</div>
+					</div>
 					<ul class="nav nav-pills nav-justified">
 						<li class="nav-item" onclick="showChat()">
 							<a href="#chat" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
@@ -226,7 +243,7 @@
 
 									@if($person)
 
-									    <li data-conversation="{{$conversation->id}}" onclick="getMessages({{$conversation->id}} , {{$person->id}}, '{{$person->first_name.' '.$person->last_name }}')">
+									<li data-conversation="{{$conversation->id}}" onclick="getMessages({{$conversation->id}} , {{$person->id}}, '{{$person->first_name.' '.$person->last_name }}')">
 										<a href="#">
 											<div class="media">
 												<div class="align-self-center me-3">
@@ -365,39 +382,39 @@
 							<h5 class="font-size-15 mb-1" id="inbox_name"></h5>
 						</div>
 						<div class="col-md-8 col-3">
-                            <ul class="list-inline user-chat-nav text-end mb-0">
-                                <li class="list-inline-item d-none d-sm-inline-block">
-                                    <div class="dropdown">
-                                        <button id="search_msg_icon" class="btn nav-btn dropdown-toggle"
-                                                type="button" data-bs-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                            <i class="bx bx-search-alt-2"></i>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-md">
-                                            <div class="form-group m-0">
-                                                <div class="input-group">
-                                                    <input type="text"
-                                                           id="search_message"
-                                                           name="search_message"
-                                                           class="form-control"
-                                                           placeholder="Search ..."
-                                                           aria-label="Recipient's username">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+							<ul class="list-inline user-chat-nav text-end mb-0">
+								<li class="list-inline-item d-none d-sm-inline-block">
+									<div class="dropdown">
+										<button id="search_msg_icon" class="btn nav-btn dropdown-toggle"
+										type="button" data-bs-toggle="dropdown"
+										aria-haspopup="true" aria-expanded="false">
+										<i class="bx bx-search-alt-2"></i>
+									</button>
+									<div class="dropdown-menu dropdown-menu-end dropdown-menu-md">
+										<div class="form-group m-0">
+											<div class="input-group">
+												<input type="text"
+												id="search_message"
+												name="search_message"
+												class="form-control"
+												placeholder="Search ..."
+												aria-label="Recipient's username">
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
 
-                            </ul>
+						</ul>
 
-                        </div>
 					</div>
 				</div>
-				<div>
+			</div>
+			<div>
 
-					<div class="chat-conversation p-3" >
-						<ul class="list-unstyled mb-0 all-chat-ul messages-list"  data-simplebar style="max-height: 486px;">
-							<div id="msg_list" style="min-height: 15rem;  overflow: auto; " >
+				<div class="chat-conversation p-3" >
+					<ul class="list-unstyled mb-0 all-chat-ul messages-list"  data-simplebar style="max-height: 486px;">
+						<div id="msg_list" style="min-height: 15rem;  overflow: auto; " >
 
 								<!-- <li>
 								</li> -->
@@ -494,7 +511,7 @@
 		$(document).ready(function(){
 
 
-                $('.select2').select2({
+			$('.select2').select2({
 				placeholder:'Select Members'
 			});
 
@@ -551,10 +568,10 @@
 						$("#msg_list").append(message);
 						$('#file_mms2').val('');
 						$('#collapseExample').trigger('click');
-                        $('#msg_list li:last-child' )[0].scrollIntoView();
+						$('#msg_list li:last-child' )[0].scrollIntoView();
 
 
-                    }
+					}
 				});
 			});
 			$('#group_chat_form').submit(function(e) {
@@ -576,58 +593,58 @@
 						$("#group_msg_list").append(message);
 						$('#group_file_mms').val('');
 						$('#gcollapse').trigger('click');
-                        $('#group_msg_list li:last-child' )[0].scrollIntoView();
+						$('#group_msg_list li:last-child' )[0].scrollIntoView();
 
-                    }
+					}
 				});
 			});
 
-            jQuery("#contact_name").keyup(function () {
-                var filter = jQuery(this).val();
-                jQuery("ul li").each(function () {
-                    if (jQuery(this).text().search(new RegExp(filter, "i")) < 0) {
-                        jQuery(this).hide();
-                    } else {
-                        jQuery(this).show()
-                    }
-                });
+			jQuery("#contact_name").keyup(function () {
+				var filter = jQuery(this).val();
+				jQuery("ul li").each(function () {
+					if (jQuery(this).text().search(new RegExp(filter, "i")) < 0) {
+						jQuery(this).hide();
+					} else {
+						jQuery(this).show()
+					}
+				});
 
-            });
+			});
 
-            jQuery("#search_message").keyup(function () {
-                var filter = jQuery(this).val();
-                jQuery("ul.messages-list li").each(function () {
-                    if (jQuery(this).text().search(new RegExp(filter, "i")) < 0) {
-                        jQuery(this).hide();
-                    } else {
-                        jQuery(this).show()
-                    }
-                });
-            });
+			jQuery("#search_message").keyup(function () {
+				var filter = jQuery(this).val();
+				jQuery("ul.messages-list li").each(function () {
+					if (jQuery(this).text().search(new RegExp(filter, "i")) < 0) {
+						jQuery(this).hide();
+					} else {
+						jQuery(this).show()
+					}
+				});
+			});
 		});
 
 
-        function searchGroupMessages(){
-            var group_id = $('ul.all-group-chatters').find('li.active').data('groupid');
-            console.log(group_id);
-            var query = $('#search_message').val();
+		function searchGroupMessages(){
+			var group_id = $('ul.all-group-chatters').find('li.active').data('groupid');
+			console.log(group_id);
+			var query = $('#search_message').val();
 
-            $('#group_chat_div').html('');
-            $.ajax({
-                url:'{{route('search-group-message')}}',
-                method:'GET',
-                data:{query,group_id},
-                success:function (list){
-                    $('#group_chat_div').append(list).ready(function () {
-                        $('#group_search_msg_icon').trigger('click');
-                    });
-                }
+			$('#group_chat_div').html('');
+			$.ajax({
+				url:'{{route('search-group-message')}}',
+				method:'GET',
+				data:{query,group_id},
+				success:function (list){
+					$('#group_chat_div').append(list).ready(function () {
+						$('#group_search_msg_icon').trigger('click');
+					});
+				}
 
-            });
-        }
+			});
+		}
 
-        function openFile(file){
-            window.open(file, '_blank');
+		function openFile(file){
+			window.open(file, '_blank');
 		}
 
 		function addRemoveMembers(id,name,members){
@@ -652,11 +669,11 @@
 				data:{conversation_id},
 				success:function (list){
 
-                    $('#msg_list').append(list).ready(()=>{
-                        $('#msg_list li:last-child')[0].scrollIntoView();
-                    });
+					$('#msg_list').append(list).ready(()=>{
+						$('#msg_list li:last-child')[0].scrollIntoView();
+					});
 
-                    loadingStop();
+					loadingStop();
 				}
 			});
 		}
@@ -696,22 +713,22 @@
 				url:'{{route('get-group-messages')}}',
 				data:{group_id},
 				success:function (div){
-                    $('#group_chat_div').append(div).ready(function () {
-                        $('#group_msg_list li:last-child' )[0].scrollIntoView();
-                        jQuery("#search_group_message").keyup(function () {
-                            var filter = jQuery(this).val();
-                            jQuery("ul.group-messages-list li").each(function () {
-                                if (jQuery(this).text().search(new RegExp(filter, "i")) < 0) {
-                                    jQuery(this).hide();
-                                } else {
-                                    jQuery(this).show()
-                                }
-                            });
-                        });
-                    });
+					$('#group_chat_div').append(div).ready(function () {
+						$('#group_msg_list li:last-child' )[0].scrollIntoView();
+						jQuery("#search_group_message").keyup(function () {
+							var filter = jQuery(this).val();
+							jQuery("ul.group-messages-list li").each(function () {
+								if (jQuery(this).text().search(new RegExp(filter, "i")) < 0) {
+									jQuery(this).hide();
+								} else {
+									jQuery(this).show()
+								}
+							});
+						});
+					});
 
-                    loadingStop();
-                }
+					loadingStop();
+				}
 			});
 		}
 

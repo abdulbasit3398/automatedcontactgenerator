@@ -15,9 +15,10 @@
         <a href="{{route('new-send-communication-sms')}}" class="btn btn-success btn-rounded">
           <i class="mdi mdi-plus"></i>
           <span class="d-none d-sm-inline-block me-2">Compose</span>
-
         </a>
-
+        <button type="button" class="btn btn-light waves-effect waves-light w-sm mx-2" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">
+            <i class="mdi mdi-upload d-block font-size-16"></i> Upload
+        </button>
 
       </div>
     </div>

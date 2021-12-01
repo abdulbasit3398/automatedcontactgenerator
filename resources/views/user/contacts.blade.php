@@ -15,13 +15,21 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body upload-modal-body">
-
+        <form method="POST" enctype="multipart/form-data" action="{{route('import-contacts')}}">
+          @csrf
           <div class="mb-3 row">
-            <div class="col-md-6">
-               <button></button>
+            <div class="col-md-12">
+              <label class="form-label">Select File <small>(Excel or CSV file)</small></label>
+              <input class="form-control" type="file" id="formFile" name="import_excel" accept=".xls,.xlsx,.csv">
             </div>
+            <div class="col-md-12 my-2">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <a class="btn btn-warning" href="{{asset('assets/samples/import_contacts_sample.csv')}}" download="import_contacts_sample.csv">Download Sample</a>
+            </div>
+            
 
           </div>
+        </form>
 
       </div>
     </div><!-- /.modal-content -->
