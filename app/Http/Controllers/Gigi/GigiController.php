@@ -10,7 +10,8 @@ use App\Http\Controllers\Controller;
 class GigiController extends Controller
 {
     public function index(){
-        return view('user.gigi.index');
+        $gigies = GigyProject::all();
+        return view('user.gigi.index',compact('gigies'));
     }
 
     public function image($name)
@@ -21,6 +22,7 @@ class GigiController extends Controller
     {
         return view('user.gigi.create');
     }
+
     public function save(Request $request)
     {
         $this->validate($request,[
@@ -33,6 +35,7 @@ class GigiController extends Controller
         ]);
 
         $images = array();
+
         if(isset($request->images) && count($request->images) > 0)
         {
             // $this->validate($request,[
@@ -48,16 +51,15 @@ class GigiController extends Controller
 
                 $images[] = $name;
             }
-            
-
         }
+
         $new = new GigyProject;
         $new->user_id = Auth::id();
         $new->project_name = $request->projectname;
         $new->project_description = $request->projectdesc;
         $new->start_date = ($request->start_date) ? $request->start_date : 0;
         $new->end_date = ($request->end_date) ? $request->end_date : 0;
-        $new->budget = ($request->end_date) ? $request->end_date : 0;
+        $new->budget = ($request->projectbudget) ? $request->projectbudget : 0;
         $new->images = json_encode($images);
         $new->save();
 

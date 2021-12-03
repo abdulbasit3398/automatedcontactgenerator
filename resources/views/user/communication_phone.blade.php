@@ -14,11 +14,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body upload-modal-body">
-      	 
+
          <div id="message-show">
-         	
+
          </div>
-        
+
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -26,7 +26,7 @@
 
 
 <div class="container-fluid">
-	
+
 	<div class="row justify-content-center">
 		<div class="col-lg-12">
 			<div class="text-center mb-5">
@@ -55,7 +55,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 
 
 	<div class="row">
@@ -74,9 +74,9 @@
 		<div class="col-12">
 			<div class="card">
 				<div class="card-body">
-					<form method="post" action="" >
-						@csrf   
-						<input type="hidden" id="call_sid" value="">     	
+					<form method="post" action="">
+						@csrf
+						<input type="hidden" id="call_sid" value="">
 						<input type="hidden" id="hangup_url" value="{{route('hangup-communication-phone')}}">
 						<input type="hidden" name="phone_number" id="phone_number">
 						<input type="hidden" name="phone_url" id="phone_url" value="{{route('send-communication-phone')}}">
@@ -116,9 +116,10 @@
 					    <div class="digit col-sm-4"data-id="#">#
 					    </div>
 					  </div>
+
 					  <div class="row my-4">
 					  	<div class="col-sm-4">
-					  		
+
 					  	</div>
 					  	<div class="col-sm-4 phone-dial">
 					  		<button type="button" class="btn btn-success btn-dial"><i class="fa fa-phone" aria-hidden="true"></i></button>
@@ -141,7 +142,7 @@
 				</div>
 			</div>
 		</div>
-	</div>                           
+	</div>
 
 	<!-- <div class="row">
 		<div class="col-lg-12" style="padding: 0;">
@@ -159,7 +160,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								 
+
 							</tbody>
 						</table>
 					</div>
@@ -167,14 +168,14 @@
 				</div>
 			</div>
 		</div>
-	</div>    -->                           
-
-
-	
+	</div>    -->
 
 
 
-	
+
+
+
+
 </div>
 @endsection
 
@@ -185,30 +186,34 @@
 
 	$(document).ready(function(){
 		$('.btn-dial').click(function(){
+
 			var phone_number = $('#phone_number').val();
 			var phone_url = $('#phone_url').val();
+
+			console.log(phone_number);
 			if(phone_number.length == 10)
 			{
-				$.ajax({
-					url : phone_url,
-					method: 'POST',
-					data: {phone_number:phone_number},
-					success:function(response){
-						if(response['response'] == '1')
-						{
-							$('#call_sid').val(response['sid']);
-							$('.phone-dial').addClass('d-none');
-							$('.phone-hangup').removeClass('d-none');
-							$('#output').html('<label>Calling...</label>');
-						}
-						
-					}
+                $.ajax({
+                    url : phone_url,
+                    method: 'POST',
+                    data: {phone_number:phone_number},
+                    success:function(response){
+                        if(response['response'] == '1')
+                        {
+                            $('#call_sid').val(response['sid']);
+                            $('.phone-dial').addClass('d-none');
+                            $('.phone-hangup').removeClass('d-none');
+                            $('#output').html('<label>Calling...</label>');
+                        }
 
-				});
+                    }
+
+                });
 
 			}
-
-
+            else{
+                alert('Phone Invalid');
+            }
 		});
 
 		$('.btn-hangup').click(function(){
@@ -236,11 +241,11 @@
 
 	});
 
-	
+
 
 	$(".digit").on('click', function() {
 	  var num = ($(this).clone().children().remove().end().text());
-	  
+
 	  if (count < 10) {
 	  	var phone_number = $('#phone_number').val();
 	  	phone_number += $(this).data('id');
@@ -254,7 +259,7 @@
 
 	$('.fa-arrow-left').on('click', function() {
 	  $('#output span:last-child').remove();
-	  
+
 	  var phone_number = $('#phone_number').val();
 	  phone_number = phone_number.slice(0, -1);
 	  $('#phone_number').val(phone_number);
