@@ -170,7 +170,7 @@
 	</div>
 
 	<div class="row">
-
+		{{--
 		<div class="col-xl-4 col-md-6">
 			<div class="card plan-box">
 				<div class="card-body p-4">
@@ -180,8 +180,7 @@
 							<p class="text-muted"></p>
 						</div>
 						<div class="ms-3">
-							<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-							</i> -->
+							
 						</div>
 					</div>
 					<div class="py-4">
@@ -194,9 +193,136 @@
 					</div>
 
 					<div class="plan-features mt-5">
-						<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 minutes</p>
-						<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 SMS/MMS</p>
-						<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 emails</p>
+						<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 Contacts</p>
+						<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 Minutes</p>
+						<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 SMS/MMS</p>
+						<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 Emails</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		--}}
+
+		<div class="col-xl-4 col-md-6">
+			<div class="card">
+				<div class="card-body">
+
+					<div id="carouselExampleFade" class="carousel slide carousel-fade1" data-ride="carousel">
+						<ol class="carousel-indicators">
+              <li data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active"></li>
+              <li data-bs-target="#carouselExampleFade" data-bs-slide-to="1"></li>
+              <li data-bs-target="#carouselExampleFade" data-bs-slide-to="2"></li>
+            </ol>
+
+						<div class="carousel-inner" role="listbox">
+							<div class="carousel-item active">
+
+								<div class="card-body p-4 ">
+									<div class="media">
+										<div class="media-body">
+											<h5></h5>
+											<p class="text-muted"></p>
+										</div>
+										<div class="ms-3">
+											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+											</i> -->
+										</div>
+									</div>
+									<div class="py-4">
+										<h4>STARTER 1</h4>
+										<h2><sup><small>$</small></sup> 20</h2>
+									</div>
+									<div class="text-center plan-btn">
+										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="20 usd package" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy</a>
+										<a href="#" onclick="cart(event.preventDefault(),'20 usd package','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
+									</div>
+
+									<div class="plan-features mt-5">
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 Contacts</p>
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 Minutes</p>
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 SMS/MMS</p>
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 Emails</p>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="carousel-item">
+
+								<div class="card-body p-4 ">
+									<div class="media">
+										<div class="media-body">
+											<h5></h5>
+											<p class="text-muted"></p>
+										</div>
+										<div class="ms-3">
+											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+											</i> -->
+										</div>
+									</div>
+									<div class="py-4">
+										<h4>STARTER 2</h4>
+										<h2><sup><small>$</small></sup> 50</h2>
+									</div>
+									<div class="text-center plan-btn">
+										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="20 usd package" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy</a>
+										<a href="#" onclick="cart(event.preventDefault(),'20 usd package','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
+									</div>
+
+									<div class="plan-features mt-5">
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 Contacts</p>
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 Minutes</p>
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 SMS/MMS</p>
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 Emails</p>
+									</div>
+									
+								</div>
+
+							</div>
+
+							<div class="carousel-item">
+
+								<div class="card-body p-4 ">
+									<div class="media">
+										<div class="media-body">
+											<h5></h5>
+											<p class="text-muted"></p>
+										</div>
+										<div class="ms-3">
+											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+											</i> -->
+										</div>
+									</div>
+									<div class="py-4">
+										<h4>STARTER 3</h4>
+										<h2><sup><small>$</small></sup> 130</h2>
+									</div>
+									<div class="text-center plan-btn">
+										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="20 usd package" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy</a>
+										<a href="#" onclick="cart(event.preventDefault(),'20 usd package','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
+									</div>
+
+									<div class="plan-features mt-5">
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 4,500 Contacts</p>
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 4,500 Minutes</p>
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 4,500 SMS/MMS</p>
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 4,500 Emails</p>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+						<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+
 					</div>
 				</div>
 			</div>
