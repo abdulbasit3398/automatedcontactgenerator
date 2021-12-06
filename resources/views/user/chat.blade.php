@@ -2,11 +2,60 @@
 
 @section('custom-css')
 <link href="{{asset('assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+<style>
+
+</style>
 @endsection
 
 
 @section('page-content')
-<div id="newMessage" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div id="customerSupport" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <form method="post" action="{{route('send_chat')}}" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        @csrf
+                        <input type="hidden" name="customer_support" id="customer_support" value="1">
+
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Recipient</label>
+                            <div class="col-md-10">
+                                <select name="receiver_id" id="creceiver_id" class=" select2" style="width: 100%!important;">
+                                    @foreach($allUsers as $user)
+                                        <option value="{{$user->id}}">{{$user->full_name}}</option>
+                                    @endforeach
+                                </select>
+{{--                                <input type="text" disabled name="username" class="form-control" id="creceiver_username">--}}
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Message</label>
+                            <div class="col-md-10">
+                                <textarea class="form-control" rows="5" name="message" required id="cmessage_body"></textarea>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="example-text-input" class="col-md-2 col-form-label">Media</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="file" id="cformFile" name="file_mms" accept="image/*,.pdf,.txt,.doc,.docx">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary w-md">Send</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="newMessage" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 
 		<div class="modal-content">
@@ -173,8 +222,10 @@
 						</div>
 					</div>
 				</div>
+                @if(auth()->user()->type != 'staff')
 
-				<li data-conversation="" onclick="" style="list-style: none;">
+
+                <li data-conversation="" onclick="customerSupportModal()" style="list-style: none;">
 					<a href="#">
 						<div class="media">
 							<div class="align-self-center me-3">
@@ -184,12 +235,14 @@
 								<img src="{{asset('assets/images/users/avatar-1.png')}}" class="rounded-circle avatar-xs" alt="">
 							</div>
 
-							<div class="media-body overflow-hidden">
+							<div class="media-body overflow-hidden" >
 								<h5 class="text-truncate font-size-14 mb-1">Customer Support</h5>
 							</div>
+
 						</div>
 					</a>
 				</li>
+                @endif
 
 				<div class="chat-leftsidebar-nav">
 					<div class="search-box chat-search-box py-4">
@@ -206,13 +259,14 @@
 							</a>
 						</li>
 
+                        @if(auth()->user()->type!=='staff')
 						<li class="nav-item" onclick="showGroupChat()">
 							<a href="#groups" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
 								<i class="bx bx-group font-size-20 d-sm-none"></i>
 								<span class="d-none d-sm-block">Groups</span>
 							</a>
 						</li>
-
+                        @endif
 						<li class="nav-item">
 							<a href="#contacts" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
 								<i class="bx bx-book-content font-size-20 d-sm-none"></i>
@@ -508,6 +562,8 @@
 	<script src="{{asset('assets/libs/select2/js/select2.min.js')}}"></script>
 	<script type="text/javascript">
 
+
+
 		$(document).ready(function(){
 
 
@@ -525,6 +581,7 @@
 				$('#receiver_username').val(username);
 				$('#newMessage').modal('show');
 			});
+
 
 			$('#create_group_li').click(function(){
 				$('#members').val('').trigger('change');
@@ -623,10 +680,12 @@
 			});
 		});
 
+        function customerSupportModal(){
+            $('#customerSupport').modal('show');
+        }
 
 		function searchGroupMessages(){
 			var group_id = $('ul.all-group-chatters').find('li.active').data('groupid');
-			console.log(group_id);
 			var query = $('#search_message').val();
 
 			$('#group_chat_div').html('');

@@ -30,6 +30,7 @@ class CrmChatController extends Controller
     {
 
         $users = User::where([['type','user'],['id','!=',Auth::id()]])->get();
+        $allUsers = User::where('id','!=',auth()->id())->get();
 
         $my_groups = Group::where('owner_id',auth()->id())->get();
         $member_of_groups = GroupMember::where('user_id',auth()->id())->with('group')->get();
@@ -38,7 +39,7 @@ class CrmChatController extends Controller
         $allConvos = Conversation::where('sender_id', $user_id)->orWhere('rcvr_id', $user_id)->latest()->get();
         $conversations = $allConvos->unique('id');
 
-        return view('user.chat',compact('users','conversations','my_groups','member_of_groups'));
+        return view('user.chat',compact('users','allUsers','conversations','my_groups','member_of_groups'));
     }
 
 
@@ -55,6 +56,13 @@ class CrmChatController extends Controller
                 'rcvr_id'=>$rcvr_id,
             ]);
         }
+
+        if($request->customer_support){
+            $conversation->update([
+                'customer_support'=>1
+            ]);
+        }
+
 
         $message = Message::create([
             'conversation_id'=> $conversation->id,
@@ -92,6 +100,7 @@ class CrmChatController extends Controller
             $msg = Message::where('conversation_id',$message->conversation_id)->with('sender','receiver')->latest()->first();
             return view('user.chat-single-message',compact('msg'));
         }
+
 
         return back();
     }

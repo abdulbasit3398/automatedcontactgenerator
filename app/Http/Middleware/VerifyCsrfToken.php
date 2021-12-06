@@ -21,6 +21,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/save-time-track',
         '/get-phone-status-callback',
-        'get-communication-reply'
+        'get-communication-reply',
+        '/send-communication-phone'
     ];
 }

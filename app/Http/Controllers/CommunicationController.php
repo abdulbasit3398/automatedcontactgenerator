@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Illuminate\Support\Facades\Log;
 use Mail;
 use Auth;
 use Helper;
@@ -14,16 +15,19 @@ use Illuminate\Http\Request;
 // use Twilio\Rest\Client as TClient;
 use Generator as Coroutine;
 use SignalWire\Relay\Consumer;
-use SignalWire\Rest\Client as SClient;
+
+//use SignalWire\Rest\Client as SClient;
+use SignalWire\Relay\Client as RelayClient;
+
 
 class CommunicationController extends Controller
 {
   protected $number_len_US = 10;
 
-  public function __construct()
-  {
-    $this->middleware('auth',['except' => 'get_communication_reply']);
-  }
+//  public function __construct()
+//  {
+//    $this->middleware('auth',['except' => 'get_communication_reply']);
+//  }
 
   public function communication_sms()
   {
@@ -58,10 +62,10 @@ class CommunicationController extends Controller
     }
 
     $data['contacts'] = UserContact::where([['user_id',Auth::id()],['contact_phone','!=','']])->get();
-    
+
     return view('user.communication_sms',compact('data'));
 
-    
+
   }
   public function new_send_communication_sms()
   {
@@ -74,7 +78,7 @@ class CommunicationController extends Controller
       'user_type' => 'required',
       'message' => 'required'
     ]);
-    
+
     $contact_arr = array();
 
     if($request->user_type == 'To new number')
@@ -88,7 +92,7 @@ class CommunicationController extends Controller
 
       for($i=0;$i<count($numbers);$i++)
       {
-      
+
         $contact = UserContact::where([['user_id',Auth::id()],['contact_phone','like','%'.$numbers[$i].'%']])->first();
         if($contact)
           $number = $contact->contact_phone;
@@ -124,7 +128,7 @@ class CommunicationController extends Controller
         'sms_recipient_contact' => 'required',
       ]);
       $number_arr = array();
-      
+
 
       $sms_recipient_contact = $request->sms_recipient_contact;
 
@@ -222,7 +226,7 @@ class CommunicationController extends Controller
     $from       = Auth::user()->signal_wire_phone_number->phone_number;
     if(!$from)
       return redirect()->back()->with('error','There is some error sending sms.');
-    
+
     $client = new SClient($project_id, $token, array("signalwireSpaceUrl" => $space_url));
 
     try{
@@ -285,7 +289,7 @@ class CommunicationController extends Controller
 
   }
 
-  
+
 
   public function communication_email()
   {
@@ -363,6 +367,47 @@ class CommunicationController extends Controller
   }
 
   public function send_communication_phone(Request $request)
+  {
+
+      $this->validate($request,[
+          'phone_number' => 'required'
+      ]);
+
+      $from ='+18508008212';
+      $to='+17188728161';
+
+      ini_set('max_execution_time', 240);
+
+
+      $client = new RelayClient([
+          'project' => env('SIGNAL_WIRE_PROJECT_ID'),
+          'token' => env('SIGNAL_WIRE_TOKEN'),
+      ]);
+
+      $client->on('signalwire.ready', function($client) use($to,$from){
+
+          $params = [ 'type' => 'phone', 'from' => $from, 'to' =>$to];
+          $client->calling->dial($params);
+//              ->done(function($result) {
+//              if ($result->isSuccessful()) {
+//                  // Active Call Here
+//                  $call = $result->getCall();
+//              }
+//          });
+
+      });
+//          ->on('signalwire.error', function(\Exception $error) {
+//          return response()->json($error);
+//
+//      });
+
+
+      $client->connect();
+
+  }
+
+
+  public function send_communication_phone_backup(Request $request)
   {
     $TWILIO_ACCOUNT_SID = $this->admin_setting('TWILIO_ACCOUNT_SID');
     $TWILIO_AUTH_TOKEN = $this->admin_setting('TWILIO_AUTH_TOKEN');
@@ -624,7 +669,7 @@ dd($message);
 
     if($response->data[0])
       $phone_number = $response->data[0]->e164;
-    
+
     return $phone_number;
 
   }
@@ -664,7 +709,7 @@ dd($message);
     $sms_history->sid = $request->SmsSid;
     $sms_history->message = $request->Body;
     $sms_history->save();
-     
+
   }
 
 

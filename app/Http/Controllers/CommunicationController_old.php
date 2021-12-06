@@ -11,7 +11,7 @@ use App\UserContact;
 use App\UserSmsHistory;
 use App\UserPhoneNumber;
 use Illuminate\Http\Request;
-// use Twilio\Rest\Client as TClient;
+ use Twilio\Rest\Client as TClient;
 use Generator as Coroutine;
 use SignalWire\Relay\Consumer;
 use SignalWire\Rest\Client as SClient;
@@ -58,10 +58,10 @@ class CommunicationController extends Controller
     }
 
     $data['contacts'] = UserContact::where([['user_id',Auth::id()],['contact_phone','!=','']])->get();
-    
+
     return view('user.communication_sms',compact('data'));
 
-    
+
   }
   public function new_send_communication_sms()
   {
@@ -86,7 +86,7 @@ class CommunicationController extends Controller
 
       for($i=0;$i<count($numbers);$i++)
       {
-      
+
         $contact = UserContact::where([['user_id',Auth::id()],['contact_phone','like','%'.$numbers[$i].'%']])->first();
         if($contact)
           $number = $contact->contact_phone;
@@ -220,7 +220,7 @@ class CommunicationController extends Controller
     $from       = Auth::user()->signal_wire_phone_number->phone_number;
     if(!$from)
       return redirect()->back()->with('error','There is some error sending sms.');
-    
+
     $client = new SClient($project_id, $token, array("signalwireSpaceUrl" => $space_url));
 
     try{
@@ -283,7 +283,7 @@ class CommunicationController extends Controller
 
   }
 
-  
+
 
   public function communication_email()
   {
@@ -358,49 +358,58 @@ class CommunicationController extends Controller
   {
     $data = [];
     return view('user.communication_phone',compact('data'));
+
   }
 
-  public function send_communication_phone(Request $request)
-  {
-    $TWILIO_ACCOUNT_SID = $this->admin_setting('TWILIO_ACCOUNT_SID');
-    $TWILIO_AUTH_TOKEN = $this->admin_setting('TWILIO_AUTH_TOKEN');
-    $TWILIO_NUMBER = $this->admin_setting('TWILIO_NUMBER');
-
-    $this->validate($request,[
-      'phone_number' => 'required'
-    ]);
-
-    $twilio = new TClient($TWILIO_ACCOUNT_SID, $TWILIO_AUTH_TOKEN);
-    // $twilio = $twilio->calls("AC6f5af7ae85d580716ee2d179e36ab84e")->fetch();
-    // dd($twilio);
-
-    $call = $twilio->account->calls->create(
-    '+1'.$request->phone_number,
-    $TWILIO_NUMBER,
-        [
-            "method" => "POST",
-            "statusCallback" => route('get-phone-status-callback'),
-            "statusCallbackEvent" => ["initiated",'ringing','completed',"answered"],
-            "statusCallbackMethod" => "POST",
-            "url" => "http://demo.twilio.com/docs/voice.xml"
-        ]
-    );
 
 
-    if($call->sid)
+
+    public function send_communication_phone(Request $request)
     {
-      $data['response'] = 1;
-      $data['sid'] = $call->sid;
+        $TWILIO_ACCOUNT_SID = $this->admin_setting('TWILIO_ACCOUNT_SID');
+        $TWILIO_AUTH_TOKEN = $this->admin_setting('TWILIO_AUTH_TOKEN');
+        $TWILIO_NUMBER = $this->admin_setting('TWILIO_NUMBER');
+
+
+
+        $this->validate($request,[
+            'phone_number' => 'required'
+        ]);
+
+        $twilio = new TClient($TWILIO_ACCOUNT_SID, $TWILIO_AUTH_TOKEN);
+        // $twilio = $twilio->calls("AC6f5af7ae85d580716ee2d179e36ab84e")->fetch();
+        // dd($twilio);
+
+        $call = $twilio->account->calls->create(
+            '+1'.$request->phone_number,
+            $TWILIO_NUMBER,
+            [
+                "method" => "POST",
+                "statusCallback" => route('get-phone-status-callback'),
+                "statusCallbackEvent" => ["initiated",'ringing','completed',"answered"],
+                "statusCallbackMethod" => "POST",
+                "url" => "http://demo.twilio.com/docs/voice.xml"
+            ]
+        );
+
+
+        if($call->sid)
+        {
+            $data['response'] = 1;
+            $data['sid'] = $call->sid;
+        }
+        else
+            $data['response'] = 0;
+
+
+        return $data;
+        // dd($twilio->httpClient->lastResponse);
+
     }
-    else
-      $data['response'] = 0;
 
 
-    return $data;
-    // dd($twilio->httpClient->lastResponse);
 
-  }
-  public function hangup_communication_phone(Request $request)
+    public function hangup_communication_phone(Request $request)
   {
 
     $this->validate($request,[
@@ -622,7 +631,7 @@ dd($message);
 
     if($response->data[0])
       $phone_number = $response->data[0]->e164;
-    
+
     return $phone_number;
 
   }
@@ -662,7 +671,7 @@ dd($message);
     $sms_history->sid = $request->SmsSid;
     $sms_history->message = $request->Body;
     $sms_history->save();
-     
+
   }
 
 
