@@ -86,9 +86,8 @@ Route::get('/tables',function () {
     return view('user.tables');
 })->name('tables');
 
-Route::get('/checkout',function () {
-    return view('user.checkout');
-})->name('checkout');
+Route::get('/checkout', 'UserController@checkout')->name('checkout');
+
 
 Auth::routes();
 Route::get('/contacts', 'UserController@contacts')->name('contacts');
@@ -148,6 +147,8 @@ Route::post('/send-communication-sms', 'CommunicationController@send_communicati
 Route::post('/get-conversation-history', 'CommunicationController@get_conversation_history')->name('get-conversation-history');
 Route::post('/get-communication-reply', 'CommunicationController@get_communication_reply')->name('get-communication-reply');
 
+Route::post('/bulk-sms-email-request', 'CommunicationController@bulk_sms_email_request')->name('bulk-sms-email-request');
+
 Route::get('/communication-email', 'CommunicationController@communication_email')->name('communication-email');
 Route::post('/send-communication-email', 'CommunicationController@send_communication_email')->name('send-communication-email');
 
@@ -172,6 +173,7 @@ Route::group(['middleware' => 'admin.staff.access'],function(){
     Route::get('/staff/dashboard', 'StaffController@index')->name('staff.dashboard');
     Route::get('/staff/custom-funnels', 'StaffController@funnels')->name('staff.custom-funnels');
     Route::post('/save-contact-file', 'StaffController@save_contact_file')->name('staff.save-contact-file');
+    Route::get('/sms-email-request', 'StaffController@sms_email_request')->name('staff.sms-email-request');
 });
 
 Route::group(['middleware' => 'admin.access'],function(){

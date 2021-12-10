@@ -55,6 +55,13 @@
                   <span key="t-chat">Support</span>
               </a>
           </li>
+
+          <li>
+              <a href="{{route('staff.sms-email-request')}}" class="waves-effect">
+                  <i class="bx bx-chat"></i>
+                  <span key="t-chat">Bulk SMS/Email Request</span>
+              </a>
+          </li>
         @else
         <!-- <li>
           <a href="javascript: void(0);" class="has-arrow waves-effect">

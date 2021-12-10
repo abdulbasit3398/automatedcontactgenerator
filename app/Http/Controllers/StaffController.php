@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Funnel;
 use App\User;
+use App\BulkSmsEmail;
 use App\ContactGenerator;
 use Illuminate\Http\Request;
 use App\Notifications\UserContactNotification;
@@ -79,4 +80,11 @@ class StaffController extends Controller
       $funnels = Funnel::all();
       return view('staff.custom-funnels',compact('funnels'));
   }
+
+  public function sms_email_request()
+  {
+    $bulk_sms_email = BulkSmsEmail::orderBy('id','DESC')->get();
+    return view('staff.sms_email_request',compact('bulk_sms_email'));
+  }
+
 }

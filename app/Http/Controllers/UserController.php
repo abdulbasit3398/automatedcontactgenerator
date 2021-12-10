@@ -272,10 +272,10 @@ class UserController extends Controller
   }
   public function subscribe_package(Request $request)
   {
-      dd($request->package_id);
 
     $this->validate($request,[
-      'package_id' => 'required'
+      'package_id' => 'required',
+      'g-recaptcha-response' => 'required|recaptcha'
     ]);
 
     $total_contacts = 0;
@@ -1003,5 +1003,10 @@ class UserController extends Controller
     Excel::import(new UserContactsImport, request()->file('import_excel'));
 
     return redirect()->back();
+  }
+  public function checkout()
+  {
+    $GOOGLE_RECAPTCHA_KEY = $this->admin_setting('GOOGLE_RECAPTCHA_KEY');
+    return view('user.checkout',compact('GOOGLE_RECAPTCHA_KEY'));
   }
 }

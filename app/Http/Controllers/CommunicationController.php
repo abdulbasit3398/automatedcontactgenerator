@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use Mail;
 use Auth;
 use Helper;
+use App\BulkSmsEmail;
 use App\AdminSetting;
 use App\UserContact;
 use App\UserSmsHistory;
@@ -16,7 +17,7 @@ use Illuminate\Http\Request;
 use Generator as Coroutine;
 use SignalWire\Relay\Consumer;
 
-//use SignalWire\Rest\Client as SClient;
+use SignalWire\Rest\Client as SClient;
 use SignalWire\Relay\Client as RelayClient;
 
 
@@ -384,6 +385,36 @@ class CommunicationController extends Controller
           'token' => env('SIGNAL_WIRE_TOKEN'),
       ]);
 
+      $client->connect();
+      $params = [ 'type' => 'phone', 'from' => '+12026777191', 'to' =>'+923247763398'];
+      $call = $client->calling->newCall($params);
+      $call->dial()->done(function($dialResult) {
+
+      });
+      // $client->calling->dial($params)->done(function($dialResult) {
+      //   if ($dialResult->isSuccessful()) {
+      //     // Your active $call..
+      //     $call = $dialResult->getCall();
+      //   }
+      // });
+
+      dd('sd');
+
+      $client->on('signalwire.ready', function($client) {
+
+        $params = [ 'type' => 'phone', 'from' => '+12026777191', 'to' =>'+923247763398'];
+        $client->calling->dial($params)->done(function($result) {
+          if ($result->isSuccessful()) {
+            // Your active $call..
+            $call = $result->getCall();
+          }
+        });
+
+      });
+
+      
+      dd('sd');
+
       $client->on('signalwire.ready', function($client) use($to,$from){
 
           $params = [ 'type' => 'phone', 'from' => $from, 'to' =>$to];
@@ -712,5 +743,31 @@ dd($message);
 
   }
 
+  public function bulk_sms_email_request(Request $request)
+  {
+    $this->validate($request,[
+      'type' => 'required',
+      'message' => 'required',
+      'contact_file' => 'required|file'
+    ]);
+
+    $image = $request->file('contact_file');
+    $name = time().'.'.$image->getClientOriginalExtension();
+    $destinationPath = public_path('/assets/bulk_sms');
+    $imagePath = $destinationPath. "/". $name;
+    $image->move($destinationPath, $name);
+
+
+    $bulksms = new BulkSmsEmail;
+    $bulksms->user_id = Auth::id();
+    $bulksms->subject = isset($request->subject) ? $request->subject : '';
+    $bulksms->message = $request->message;
+    $bulksms->contact_file = $name;
+    $bulksms->type = $request->type;
+    $bulksms->save();
+
+    return redirect()->back()->with('success','Request added successfully.');
+
+  }
 
 }

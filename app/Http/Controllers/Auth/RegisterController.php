@@ -58,7 +58,7 @@ class RegisterController extends Controller
     
     public function showRegistrationForm()
     {
-        return redirect()->route('register_product',['website'=>'sC0+H0TnykPfYuTdcb9AeJHjAhZQAdybaQ==', 'product'=>'tyovFQ==']);
+        return redirect()->route('register_product',['website'=>'kC0+H0TnykPfIcjca6pCb4KmKxZMBdqVbwOn', 'product'=>'tyovFQ==']);
     }
 
     protected function create(array $data)
@@ -175,6 +175,7 @@ class RegisterController extends Controller
 
     public function register_product($website)
     {
+        // dd($this->encrypt_string('Automated Contact Generator'));
         $website = $this->decrypt_string($website);
 
         return view('auth.register',compact('website'));

@@ -22,39 +22,50 @@
   </div><!-- /.modal-dialog -->
 </div>
 
+<div class="modal fade bs-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Bulk SMS</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body upload-modal-body">
+         
+        <form method="POST"  class="require-validation" action="{{route('bulk-sms-email-request')}}" enctype="multipart/form-data">
+          @csrf	
+
+          <input type="hidden" name="type" value="email">
+
+          <div class="mb-3 row">
+            <div class="col-md-12">
+              <label for="subject" class="form-label">Subject*</label>
+              <input type="text" name="subject" class="form-control" required>
+            <br/>
+            </div>
+            <div class="col-md-12">
+              <label for="first_name" class="form-label">Message*</label>
+              <textarea cols="7" class="form-control" name="message" required></textarea>
+            <br/>
+            </div>
+            <div class="col-md-12">
+              <label for="last_name" class="form-label">Contacts File*</label>
+              <input class="form-control" type="file" id="formFile" name="contact_file" accept=".txt,.doc,.docx,.xlsx,.csv,.xls" required>
+            </div>
+
+          </div>
+
+          <div class="mb-3" style="float: right;">
+            <button type="submit" class="btn btn-primary w-md">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+@include('user.validation_message')
 
 <div class="container-fluid">
-
-	
-	<div class="row justify-content-center">
-		<div class="col-lg-12">
-			<div class="text-center mb-5">
-				@if(\Session::has('success'))
-				<div class="alert alert-success alert-dismissible fade show" role="alert">
-					{!! \Session::get('success') !!}
-					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				</div>
-				@endif
-
-				@if ($errors->any())
-			     @foreach ($errors->all() as $error)
-			     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-							{{$error}}
-							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-						</div>
-			     @endforeach
-			 @endif
-
-				@if(\Session::has('error'))
-				<div class="alert alert-danger alert-dismissible fade show" role="alert">
-					{!! \Session::get('error') !!}
-					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				</div>
-				@endif
-			</div>
-		</div>
-	</div>
-	
 
 
 	<div class="row">
@@ -63,7 +74,9 @@
 				<h4 class="mb-sm-0 font-size-18">Send Email</h4>
 
 				<div class="page-title-right">
-					 
+					 <button type="button" class="btn btn-light waves-effect waves-light w-sm mx-2" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">
+	            <i class="mdi mdi-upload d-block font-size-16"></i> Upload
+	        </button>
 				</div>
 
 			</div>

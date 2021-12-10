@@ -10,8 +10,8 @@
             <div class="row">
               <div class="col-7">
                 <div class="text-primary p-4">
-                  <h5 class="text-primary">Free Register</h5>
-                  <p>Get your free {{$website}} account now.</p>
+                  <h5 class="text-primary">Free Registration</h5>
+                  <p>Get your {{$website}} account now.</p>
                 </div>
               </div>
               <div class="col-5 align-self-end">
@@ -38,13 +38,13 @@
               <form method="POST" action="{{route('guest_register')}}">
                 <input type="hidden" name="website" value="{{$website}}">
                 @csrf
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                   <label for="referal_user" class="form-label">{{ __('Referal Username') }}</label>
                   <input id="referal_user" type="text" class="form-control" name="referal_user" value="{{ old('referal_user') }}">
 
-                </div>
+                </div> -->
                 <div class="mt-4 d-grid">
-                  <button class="btn btn-primary waves-effect waves-light" type="submit">Use as Guest</button>
+                  <button class="btn btn-primary waves-effect waves-light" type="submit">Continue as Guest</button>
                 </div>
 
               </form>
@@ -174,44 +174,4 @@
                 <div class="mt-4 text-center">
                   <h5 class="font-size-14 mb-3">Sign up using</h5>
                   
-                  <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <a href="javascript::void()" class="social-list-item bg-primary text-white border-primary">
-                        <i class="mdi mdi-facebook"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a href="javascript::void()" class="social-list-item bg-info text-white border-info">
-                        <i class="mdi mdi-twitter"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a href="javascript::void()" class="social-list-item bg-danger text-white border-danger">
-                        <i class="mdi mdi-google"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div class="mt-4 text-center">
-                  <p class="mb-0">By registering you agree to the ACG <a href="#" class="text-primary">Terms of Use</a></p>
-                </div>
-              </form>
-            </div>
-            
-          </div>
-        </div>
-        <div class="mt-5 text-center">
-          
-          <div>
-            <p>Already have an account ? <a href="{{route('login')}}" class="fw-medium text-primary"> Login</a> </p>
-            
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-@endsection
+             
