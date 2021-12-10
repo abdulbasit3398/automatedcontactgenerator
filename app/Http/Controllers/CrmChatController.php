@@ -45,7 +45,13 @@ class CrmChatController extends Controller
 
     public function send_chat(ChatRequest $request)
     {
-        $rcvr_id = $request->receiver_id ?? $request->form_receiver_id;
+        if($request->customer_support == 1){
+            $staff = User::where('type','staff')->first();
+            $rcvr_id = $staff->id;
+
+        }else{
+            $rcvr_id = $request->receiver_id ?? $request->form_receiver_id;
+        }
 
         $conversation = Conversation::where([['sender_id',auth()->id()],['rcvr_id',$rcvr_id]])
             ->orWhere([['sender_id',$rcvr_id],['rcvr_id',auth()->id()]])->first();
@@ -62,7 +68,6 @@ class CrmChatController extends Controller
                 'customer_support'=>1
             ]);
         }
-
 
         $message = Message::create([
             'conversation_id'=> $conversation->id,
@@ -91,10 +96,10 @@ class CrmChatController extends Controller
           ]);
         }
 
+
         $rcvr = User::find($rcvr_id);
         if($rcvr)
             $rcvr->notify(new ChatNotification($message));
-
 
         if($request->send_message_form){
             $msg = Message::where('conversation_id',$message->conversation_id)->with('sender','receiver')->latest()->first();

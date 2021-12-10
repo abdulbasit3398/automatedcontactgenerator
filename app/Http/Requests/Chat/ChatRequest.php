@@ -23,17 +23,21 @@ class ChatRequest extends FormRequest
      */
     public function rules()
     {
-        if(request()->send_message_form){
+        if(request()->customer_support) {
+            return [
+                'message' => 'required',
+            ];
+        } elseif(request()->send_message_form ){
             return [
                 'form_receiver_id' => 'required',
                 'message' => 'required',
             ];
+        }else{
+            return [
+                'receiver_id' => 'required',
+                'message' => 'required',
+            ];
         }
-
-        return [
-            'receiver_id' => 'required',
-            'message' => 'required',
-        ];
 
     }
 }

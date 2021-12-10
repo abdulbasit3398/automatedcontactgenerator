@@ -1,8 +1,10 @@
 @extends('user.gigi.layout.outside-layout')
 
-
 @section('custom-css')
+
+
 @endsection
+
 @section('content')
     <div class="container-fluid">
 
@@ -25,11 +27,9 @@
         $all = \Illuminate\Support\Facades\File::glob(public_path('assets/images/sales_funnels/*'))
 
         ?>
-
-
-        <div class="row">
+        <div class="row" id="accordion">
             @foreach($gigies as $gigy)
-                <div class="col-xl-4 col-sm-6 ">
+                <div class="col-xl-4 col-sm-6 " >
                     <div class="card ">
                         <div class="card-body">
                             <div class="d-flex">
@@ -42,36 +42,11 @@
                                 </div>
                                 <div class="flex-grow-1 overflow-hidden">
                                     <h5 class="text-truncate font-size-15"
-                                        data-toggle="collapse" href="#collapse_{{$gigy->id}}" >
+                                        href="#collapse_{{$gigy->id}}"
+                                        data-toggle="collapse" data-parent="#accordion">
                                         {{$gigy->project_name}}
                                     </h5>
                                     <p class="text-muted mb-4">{{$gigy->project_description}}</p>
-                                    <div class="avatar-group">
-{{--                                        <div class="avatar-group-item">--}}
-{{--                                            <a href="javascript: void(0);" class="d-inline-block">--}}
-{{--                                                <img src="assets/images/users/avatar-4.jpg" alt="" class="rounded-circle avatar-xs">--}}
-{{--                                            </a>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="avatar-group-item">--}}
-{{--                                            <a href="javascript: void(0);" class="d-inline-block">--}}
-{{--                                                <img src="assets/images/users/avatar-5.jpg" alt="" class="rounded-circle avatar-xs">--}}
-{{--                                            </a>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="avatar-group-item">--}}
-{{--                                            <a href="javascript: void(0);" class="d-inline-block">--}}
-{{--                                                <div class="avatar-xs">--}}
-{{--                                                    <span class="avatar-title rounded-circle bg-success text-white font-size-16">--}}
-{{--                                                        A--}}
-{{--                                                    </span>--}}
-{{--                                                </div>--}}
-{{--                                            </a>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="avatar-group-item">--}}
-{{--                                            <a href="javascript: void(0);" class="d-inline-block">--}}
-{{--                                                <img src="assets/images/users/avatar-2.jpg" alt="" class="rounded-circle avatar-xs">--}}
-{{--                                            </a>--}}
-{{--                                        </div>--}}
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +65,7 @@
                         </div>
                     </div>
 
-                    <div  id="collapse_{{$gigy->id}}" class="">
+                    <div  class="collapse in" id="collapse_{{$gigy->id}}">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex">
@@ -149,7 +124,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             @endforeach
         </div>

@@ -19,17 +19,17 @@
                         @csrf
                         <input type="hidden" name="customer_support" id="customer_support" value="1">
 
-                        <div class="mb-3 row">
-                            <label for="example-text-input" class="col-md-2 col-form-label">Recipient</label>
-                            <div class="col-md-10">
-                                <select name="receiver_id" id="creceiver_id" class=" select2" style="width: 100%!important;">
-                                    @foreach($allUsers as $user)
-                                        <option value="{{$user->id}}">{{$user->full_name}}</option>
-                                    @endforeach
-                                </select>
+{{--                        <div class="mb-3 row">--}}
+{{--                            <label for="example-text-input" class="col-md-2 col-form-label">Recipient</label>--}}
+{{--                            <div class="col-md-10">--}}
+{{--                                <select name="receiver_id" id="creceiver_id" class=" select2" style="width: 100%!important;">--}}
+{{--                                    @foreach($allUsers as $user)--}}
+{{--                                        <option value="{{$user->id}}">{{$user->full_name}}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
 {{--                                <input type="text" disabled name="username" class="form-control" id="creceiver_username">--}}
-                            </div>
-                        </div>
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="mb-3 row">
                             <label for="example-text-input" class="col-md-2 col-form-label">Message</label>
                             <div class="col-md-10">
@@ -259,21 +259,22 @@
 							</a>
 						</li>
 
-                        @if(auth()->user()->type!=='staff')
-						<li class="nav-item" onclick="showGroupChat()">
-							<a href="#groups" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
-								<i class="bx bx-group font-size-20 d-sm-none"></i>
-								<span class="d-none d-sm-block">Groups</span>
-							</a>
-						</li>
+                        @if(auth()->user()->type !== 'staff')
+                            <li class="nav-item" onclick="showGroupChat()">
+                                <a href="#groups" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                    <i class="bx bx-group font-size-20 d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Groups</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#contacts" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                    <i class="bx bx-book-content font-size-20 d-sm-none"></i>
+                                    <span class="d-none d-sm-block">ACG Users</span>
+                                </a>
+                            </li>
                         @endif
-						<li class="nav-item">
-							<a href="#contacts" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
-								<i class="bx bx-book-content font-size-20 d-sm-none"></i>
-								<span class="d-none d-sm-block">ACG Users</span>
-							</a>
-						</li>
-					</ul>
+
+                    </ul>
 					<div class="tab-content py-4">
 						<div class="tab-pane show active" id="chat">
 							<div>
