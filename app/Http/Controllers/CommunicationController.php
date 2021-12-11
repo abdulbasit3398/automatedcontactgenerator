@@ -167,9 +167,11 @@ class CommunicationController extends Controller
 
     }
 
+    $from = Auth::user()->signal_wire_phone_number->phone_number;
+
     for($i=0;$i< count($number_arr);$i++)
     {
-      $id = $this->send_signalwire_sms($number_arr[$i],$request->message,$name);
+      $id = $this->send_signalwire_sms($from,$number_arr[$i],$request->message,$name);
 
 
       if($id != '0')
@@ -216,7 +218,7 @@ class CommunicationController extends Controller
 
   }
 
-  public function send_signalwire_sms($recipient,$message,$media = '')
+  public function send_signalwire_sms($from,$recipient,$message,$media = '')
   {
     if($media != '')
       $media = asset('public/assets/mms_files/'.$media);
@@ -224,7 +226,7 @@ class CommunicationController extends Controller
     $project_id = config('signal_wire_api.signal_wire.project_id');
     $token      = config('signal_wire_api.signal_wire.token');
     $space_url  = config('signal_wire_api.signal_wire.space_url');
-    $from       = Auth::user()->signal_wire_phone_number->phone_number;
+    // $from       = Auth::user()->signal_wire_phone_number->phone_number;
     if(!$from)
       return redirect()->back()->with('error','There is some error sending sms.');
 

@@ -174,6 +174,8 @@ Route::group(['middleware' => 'admin.staff.access'],function(){
     Route::get('/staff/custom-funnels', 'StaffController@funnels')->name('staff.custom-funnels');
     Route::post('/save-contact-file', 'StaffController@save_contact_file')->name('staff.save-contact-file');
     Route::get('/sms-email-request', 'StaffController@sms_email_request')->name('staff.sms-email-request');
+    Route::get('/send-bulk-sms-form', 'StaffController@send_bulk_sms_form')->name('staff.send-bulk-sms-form');
+    Route::post('/send-bulk-sms', 'StaffController@send_bulk_sms')->name('staff.send-bulk-sms');
 });
 
 Route::group(['middleware' => 'admin.access'],function(){
