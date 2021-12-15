@@ -42,6 +42,37 @@
 @endsection
 
 @section('page-content')
+
+<?php 
+$clock_status_checked = '';
+$hours = 0;
+$minutes = 0;
+$clock_status = 0;
+if($data['latest_user_clock'])
+{
+  if($data['latest_user_clock']->clock_status == 1){
+    $clock_status_checked = 'checked';
+    $clock_status = 1;
+
+    $clock_date = strtotime($data['latest_user_clock']->created_at);
+    $now = time();
+
+    // $start_date = new DateTime('2021-10-24 13:55:48');
+    // $since_start = $start_date->diff(new DateTime(date('Y-m-d H:i:s')));
+
+    $days = round(abs($clock_date - $now) / (60*60*24),0);
+    $minutes = $days * 24 *60;
+    if($minutes > 60)
+    {
+      $hours = $days * 24;
+      $minutes = 0;
+    }
+
+  }
+}
+
+
+?>
 <div class="modal fade bs-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -246,16 +277,17 @@
                   <!-- <div class="form-check form-switch form-switch-lg mb-3" dir="ltr">
                     <input class="form-check-input custom-radio" type="checkbox" value="1" name="clock" id="SwitchCheckSizelg">
                   </div> -->
-                  <input type="checkbox" class="custom-radio" name="clock" id="SwitchCheckSizelg" switch="none" value="1">
+                  <input type="checkbox" class="custom-radio" name="clock" id="SwitchCheckSizelg" switch="none" value="1" {{$clock_status_checked}}>
                   <label for="SwitchCheckSizelg" data-on-label="On" data-off-label="Off"></label>
                 </div>
+                  <input type="hidden" id="clock_status" value="{{$clock_status}}">
 
                 <div class="col-md-12 timer-div">
                   <div id="timer" class="col-12">
                     <div class="clock-wrapper">
-                      <span class="hours">00</span>
+                      <span class="hours">{{$hours}}</span>
                       <span class="dots">:</span>
-                      <span class="minutes">00</span>
+                      <span class="minutes">{{$minutes}}</span>
                       <span class="dots">:</span>
                       <span class="seconds">00</span>
                     </div>

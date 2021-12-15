@@ -122,6 +122,7 @@ class UserController extends Controller
     // }
     // dd('sd');
     $data['user_clock'] = UserClockStatus::where('user_id',Auth::id())->orderBy('id','DESC')->get();
+    $data['latest_user_clock'] = UserClockStatus::where('user_id',Auth::id())->orderBy('id','DESC')->first();
 
     if(Auth::user()->type == 'admin')
       return redirect()->route('admin.dashboard');

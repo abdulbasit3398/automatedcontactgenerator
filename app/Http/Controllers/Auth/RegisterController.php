@@ -7,6 +7,7 @@ use Session;
 use Stripe;
 use App\User;
 use App\BillingAddress;
+use App\UserCpanelEmailAddress;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -35,10 +36,11 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/dashboard';
     protected $packages = ['products','outsourced','unlimited'];
-
+    protected $cpanel;
 
     public function __construct()
     {
+        
         $this->middleware('guest');
 
     }
@@ -89,6 +91,30 @@ class RegisterController extends Controller
             'referrer_id' => $referrer_id,
             'affiliate_account' => isset($data['affiliate']) ? $data['affiliate'] : 0,
         ]);
+
+        if(strpos($data['email'], '@'))
+            $string = substr($data['email'], 0, strpos($data['email'], '@'));
+        
+        $cpanel = new \myPHPnotes\cPanel(env('CPANEL_USERNAME'),env('CPANEL_PASSWORD'), env('CPANEL_HOST'));
+
+        $response = $cpanel->uapi(
+            'Email',
+            'add_pop',
+            array (
+                'email' => $string.time(),
+                'password' => $data['password'],
+                'domain' => env('CPANEL_DOMAIN'),
+            )
+        );
+        if ($response->status) {
+            $email = str_replace("+","@",$response->data);
+
+            UserCpanelEmailAddress::create([
+                'user_id' => $user->id,
+                'email_address' => $email,
+                'password' => $data['password'],
+            ]);
+        }
 
         Auth::login($user);
         return redirect()->route('dashboard');
@@ -247,6 +273,28 @@ class RegisterController extends Controller
             'affiliate_account' => 0,
             'guest' => 1,
         ]);
+
+        $cpanel = new \myPHPnotes\cPanel(env('CPANEL_USERNAME'),env('CPANEL_PASSWORD'), env('CPANEL_HOST'));
+
+        $response = $cpanel->uapi(
+            'Email',
+            'add_pop',
+            array (
+                'email' => $username,
+                'password' => $username,
+                'domain' => env('CPANEL_DOMAIN'),
+            )
+        );
+        
+        if ($response->status) {
+            $email = str_replace("+","@",$response->data);
+
+            UserCpanelEmailAddress::create([
+                'user_id' => $user->id,
+                'email_address' => $email,
+                'password' => $username,
+            ]);
+        }
 
         Auth::login($user);
         return redirect()->route('dashboard');

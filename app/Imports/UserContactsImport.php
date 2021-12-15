@@ -22,8 +22,8 @@ class UserContactsImport implements ToModel , WithHeadingRow
             'contact_name' => $row['name'],
             'contact_phone' => $row['phone'],
             'contact_email' => $row['email'],
-            'company_name' => $row['company'],
-            'notes' => $row['notes'],
+            'company_name' => isset($row['company']) ? $row['company'] : '',
+            'notes' => isset($row['notes']) ? $row['notes'] : '',
         ]);
     }
 }

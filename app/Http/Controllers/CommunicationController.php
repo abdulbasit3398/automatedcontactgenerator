@@ -372,9 +372,9 @@ class CommunicationController extends Controller
   public function send_communication_phone(Request $request)
   {
 
-      $this->validate($request,[
-          'phone_number' => 'required'
-      ]);
+      // $this->validate($request,[
+      //     'phone_number' => 'required'
+      // ]);
 
       $from ='+18508008212';
       $to='+17188728161';
@@ -386,12 +386,28 @@ class CommunicationController extends Controller
           'project' => env('SIGNAL_WIRE_PROJECT_ID'),
           'token' => env('SIGNAL_WIRE_TOKEN'),
       ]);
+     // dd(env('SIGNAL_WIRE_TOKEN'));
+      // $client->connect();
+      $params = [ 'type' => 'phone', 'from' => '+12026777191', 'to' =>'+923057130761'];
+      // $call = $client->calling->newCall($params);
+      // $call->dial()->done(function($dialResult) {
 
-      $client->connect();
-      $params = [ 'type' => 'phone', 'from' => '+12026777191', 'to' =>'+923247763398'];
-      $call = $client->calling->newCall($params);
-      $call->dial()->done(function($dialResult) {
-
+      // });
+      $client->on('signalwire.ready', function($client) {
+  dd('Your client is ready!');
+})->on('signalwire.error', function(\Exception $error) {
+  // Got an error...
+  dd('Got an error...');
+});
+       // dd($client);
+      $client->calling->dial($params)->done(function($result) {
+        if ($result->isSuccessful()) {
+          $call = $result->getCall();
+          dd($call);
+          // Your active $call..
+        }else{
+          dd($result);
+        }
       });
       // $client->calling->dial($params)->done(function($dialResult) {
       //   if ($dialResult->isSuccessful()) {
@@ -764,6 +780,7 @@ dd($message);
     $bulksms->user_id = Auth::id();
     $bulksms->subject = isset($request->subject) ? $request->subject : '';
     $bulksms->message = $request->message;
+    $bulksms->project_code = $request->project_code ?? '';
     $bulksms->contact_file = $name;
     $bulksms->type = $request->type;
     $bulksms->save();

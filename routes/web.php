@@ -51,6 +51,7 @@ Route::group(['namespace' => 'Gigi'], function() {
 
 
 Route::get('/test', 'HomeController@test')->name('test');
+Route::post('/test-post', 'HomeController@test_post')->name('test-post');
 
 
 Route::get('/', function () {

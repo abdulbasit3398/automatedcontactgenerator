@@ -4,7 +4,11 @@
 @include('user.include.head')
 
 <body data-sidebar="dark">
-
+<style type="text/css">
+  .color-red{
+    color: red !important;
+  }
+</style>
   <!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
     <!-- Begin page -->
