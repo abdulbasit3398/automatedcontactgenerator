@@ -6,6 +6,9 @@ $(document).ready(function(){
     const m = $(timer).find('.minutes')
     const h = $(timer).find('.hours')
 
+    console.log(h.html());
+    var clock_status = $('#clock_status').val();
+    
     
     var route = $('#save_time').val();
 
@@ -15,22 +18,28 @@ $(document).ready(function(){
 
     var interval = null;
 
-    var clockType = undefined;
+    var clockType = 'cronometer';
 
-    $('button#start-countdown').on('click', function(){
-        if($(ammount).val() != '' && $(ammount).val() > 0 && $(measure).val() != 0) {
-            clockType = 'countdown'
-            startClock()
-        }
-        else if ($(ammount).val() == '') {
-            alert('Type in the Ammount')
-        }
-        else if ($(measure).val() == 0) {
-            alert('Select the Unit')
-        }
-    })
+    if(clock_status == 1)
+        startClock();
+
+    // $('button#start-countdown').on('click', function(){
+
+    //     if($(ammount).val() != '' && $(ammount).val() > 0 && $(measure).val() != 0) {
+            
+    //         clockType = 'countdown'
+    //         startClock()
+    //     }
+    //     else if ($(ammount).val() == '') {
+    //         alert('Type in the Ammount')
+    //     }
+    //     else if ($(measure).val() == 0) {
+    //         alert('Select the Unit')
+    //     }
+    // })
 
     $('#SwitchCheckSizelg').change(function(){
+        console.log('ammount.measure');
       if($(this).prop("checked") == true){
             clockType = 'cronometer'
             if ($(ammount).val() != '' && $(measure).val() == 0) {
@@ -79,21 +88,25 @@ $(document).ready(function(){
     function startClock() {
         var job_code = $('#job_code').val();
         var clock = 1;
-        
-        $.ajax({
-            method:'post',
-            url: route,
-            data: {clock:clock,job_code:job_code},
-            success: function(response){
+        console.log(clock_status);
+        if(clock_status != 1)
+        {
+            $.ajax({
+                method:'post',
+                url: route,
+                data: {clock:clock,job_code:job_code},
+                success: function(response){
 
-            }
-        });
+                }
+            });
+        }
+        
         hasStarted = false
         hasEnded = false
 
         seconds = 0
-        minutes = 0
-        hours = 0
+        minutes = m.html();
+        hours = h.html();
 
         switch ($(measure).val()) {
             case 's':

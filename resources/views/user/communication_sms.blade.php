@@ -26,6 +26,12 @@
             <br/>
             </div>
             <div class="col-md-12">
+              <label for="first_name" class="form-label">Project Code</label>
+              <input type="text" name="project_code" class="form-control">
+            <br/>
+            </div>
+
+            <div class="col-md-12">
               <label for="last_name" class="form-label">Contacts File*</label>
               <input class="form-control" type="file" id="formFile" name="contact_file" accept=".txt,.doc,.docx,.xlsx,.csv,.xls" required>
             </div>

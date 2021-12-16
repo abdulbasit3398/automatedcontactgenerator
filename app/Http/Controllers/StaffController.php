@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Funnel;
 use App\User;
 use App\BulkSmsEmail;
+use App\UserContact;
+use App\UserSmsHistory;
+use App\UserPhoneNumber;
 use App\ContactGenerator;
 use Illuminate\Http\Request;
 use App\Notifications\UserContactNotification;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class StaffController extends Controller
+class StaffController extends CommunicationController
 {
   public function __construct()
   {
@@ -87,4 +90,80 @@ class StaffController extends Controller
     return view('staff.sms_email_request',compact('bulk_sms_email'));
   }
 
+  public function send_bulk_sms_form()
+  {
+
+    return view('staff.send_bulk_sms_form');
+  }
+  public function send_bulk_sms(Request $request)
+  {
+    $this->validate($request,[
+      'sms_recipient_number' => 'required',
+      'sender' => 'required'
+    ]);
+
+    $user_phone_number = UserPhoneNumber::where('phone_number',$request->sender)->first();
+    if(!$user_phone_number)
+      return redirect()->back()->with('error','No user found with that phone number.');
+
+    $number_arr = array();
+    $numbers = explode(",",$request->sms_recipient_number);
+
+    for($i=0;$i<count($numbers);$i++)
+    {
+
+      $contact = UserContact::where([['user_id',$user_phone_number->user_id],['contact_phone','like','%'.$numbers[$i].'%']])->first();
+      if($contact)
+        $number = $contact->contact_phone;
+      else
+      {
+        $number = $numbers[$i];
+
+        $contact = new UserContact;
+        $contact->user_id = $user_phone_number->user_id;
+        $contact->contact_name = 'No name';
+        $contact->contact_phone = $number;
+        $contact->save();
+
+      }
+
+      $number = $this->us_number_format($number);
+      if(strlen($number) == $this->number_len_US)
+        $number_arr[] = '+1'.$number;
+
+      $contact_arr[] = $contact->id;
+    }
+
+    $name = '';
+    $from = $request->sender;
+
+    for($i=0;$i< count($number_arr);$i++)
+    {
+      $id = $this->send_signalwire_sms($from,$number_arr[$i],$request->message,$name);
+
+      if($id != '0')
+      {
+        $history = new UserSmsHistory;
+        $history->user_id = $user_phone_number->user_id;
+        $history->contact_id = (count($contact_arr) > 0) ? $contact_arr[$i] : 0;
+        $history->contact_phone_number = $number_arr[$i];
+        $history->message_to = $number_arr[$i];
+        $history->message_from = $request->sender;
+        $history->type = 'sms';
+        $history->sid = $id;
+        $history->message = $request->message;
+        $history->media = $name;
+        $history->save();
+
+      }
+
+    }
+
+    return redirect()->back()->with('success','Message send successfully.');
+
+  }
+
+
+
 }
+

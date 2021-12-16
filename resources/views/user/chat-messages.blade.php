@@ -28,7 +28,7 @@
                 @if($message->media)
                     <div class="mb-3">
 {{--                        <iframe src="{{asset('/assets/mms_files/'.$message->media)}}" width="100%" height="100px" ></iframe>--}}
-                        <a onclick="openFile('{{url('/assets/mms_files/'.$message->media)}}')"> View File</a>
+                        <a onclick="openFile('{{asset('/assets/mms_files/'.$message->media)}}')"> View File</a>
 
 {{--                        <a href="{{asset('/assets/mms_files/'.$message->media)}}" target="_blank"> Open</a>--}}
                     </div>
