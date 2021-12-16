@@ -33,42 +33,96 @@
                         <div class="table-responsive">
                             <table class="table align-middle mb-0 table-nowrap">
                                 <thead class="table-light">
-                                    <tr>
-
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th colspan="3">Total</th>
-                                    </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Price</th>
+{{--                                    <th colspan="3">Total</th>--}}
+{{--                                    <th>Action</th>--}}
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($carts as $item)
+                                <?php
+                                    $total = 0;
+                                ?>
 
-                                    <tr>
-                                        <td>{{$item->name}}</td>
-                                        <td> $ {{$item->price}}</td>
-                                        <td>
-                                            <div class="me-3" style="width: 120px;">
-                                                <input type="number" rowId={{$item->rowId}} value="{{$item->qty}}" class="qty" name="demo_vertical">
-                                                {{-- <span class="input-group-btn-vertical"><button class="btn btn-primary bootstrap-touchspin-up " type="button">+</button><button class="btn btn-primary bootstrap-touchspin-down " type="button">-</button></span> --}}
-                                            </div>
+                                @if(session()->has('packages'))
+                                    @foreach ($packages as $package_id)
+                                        <?php
+                                            $package = \App\Package::find($package_id);
+                                            $total += $package->price;
+                                        ?>
+                                        <tr>
+                                            <td>{{$package->title}}</td>
+                                            <td>${{$package->price}}</td>
 
-                                        </td>
-                                        <td>
-                                            $ {{$item->price*$item->qty}}
-                                        </td>
-                                        <td>
-                                            <a href="#" class="action-icon text-danger"> <i class="mdi mdi-trash-can font-size-18"></i></a>
-                                        </td>
-                                    </tr>
+    {{--                                        <td>--}}
+    {{--                                            <div class="me-3" style="width: 120px;">--}}
+    {{--                                                <input type="number" rowId={{$item->rowId}} value="{{$item->qty}}" class="qty" name="demo_vertical">--}}
+    {{--                                                --}}{{-- <span class="input-group-btn-vertical"><button class="btn btn-primary bootstrap-touchspin-up " type="button">+</button><button class="btn btn-primary bootstrap-touchspin-down " type="button">-</button></span> --}}
+    {{--                                            </div>--}}
+
+    {{--                                        </td>--}}
+    {{--                                        <td>--}}
+    {{--                                            $ {{$item->price*$item->qty}}--}}
+    {{--                                        </td>--}}
+    {{--                                        <td>--}}
+    {{--                                            <a href="#" class="action-icon text-danger"> <i class="mdi mdi-trash-can font-size-18"></i></a>--}}
+    {{--                                        </td>--}}
+                                        </tr>
+
+
                                     @endforeach
+
+
+                                @else
+                                    <tr>
+                                        <th colspan="2">No items in the cart</th>
+                                    </tr>
+                                @endif
 
                                 </tbody>
                             </table>
                         </div>
+
+                        {{--                        <div class="table-responsive">--}}
+{{--                            <table class="table align-middle mb-0 table-nowrap">--}}
+{{--                                <thead class="table-light">--}}
+{{--                                    <tr>--}}
+
+{{--                                        <th>Name</th>--}}
+{{--                                        <th>Price</th>--}}
+{{--                                        <th>Quantity</th>--}}
+{{--                                        <th colspan="3">Total</th>--}}
+{{--                                    </tr>--}}
+{{--                                </thead>--}}
+{{--                                <tbody>--}}
+{{--                                    @foreach ($carts as $item)--}}
+
+{{--                                    <tr>--}}
+{{--                                        <td>{{$item->name}}</td>--}}
+{{--                                        <td> $ {{$item->price}}</td>--}}
+{{--                                        <td>--}}
+{{--                                            <div class="me-3" style="width: 120px;">--}}
+{{--                                                <input type="number" rowId={{$item->rowId}} value="{{$item->qty}}" class="qty" name="demo_vertical">--}}
+{{--                                                --}}{{-- <span class="input-group-btn-vertical"><button class="btn btn-primary bootstrap-touchspin-up " type="button">+</button><button class="btn btn-primary bootstrap-touchspin-down " type="button">-</button></span> --}}
+{{--                                            </div>--}}
+
+{{--                                        </td>--}}
+{{--                                        <td>--}}
+{{--                                            $ {{$item->price*$item->qty}}--}}
+{{--                                        </td>--}}
+{{--                                        <td>--}}
+{{--                                            <a href="#" class="action-icon text-danger"> <i class="mdi mdi-trash-can font-size-18"></i></a>--}}
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
+{{--                                    @endforeach--}}
+
+{{--                                </tbody>--}}
+{{--                            </table>--}}
+{{--                        </div>--}}
                         <div class="row mt-4">
                             <div class="col-sm-6">
-                                <a href="ecommerce-products.html" class="btn btn-secondary">
+                                <a href="{{url('pricing')}}" class="btn btn-secondary">
                                     <i class="mdi mdi-arrow-left me-1"></i> Continue Shopping </a>
                             </div> <!-- end col -->
                             <div class="col-sm-6">
@@ -149,7 +203,7 @@
                                 <tbody>
                                     <tr>
                                         <td>Grand Total :</td>
-                                        <td>$ {{Cart::subtotal()}}</td>
+                                        <td>$ {{$total}}</td>
                                     </tr>
                                     <tr>
                                         <td>Discount : </td>
@@ -165,7 +219,7 @@
                                     </tr>
                                     <tr>
                                         <th>Total :</th>
-                                        <th>${{Cart::subtotal()}}</th>
+                                        <th>${{$total}}</th>
                                     </tr>
                                 </tbody>
                             </table>

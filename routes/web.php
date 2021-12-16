@@ -116,6 +116,7 @@ Route::post('/bulk-import-list-clean', 'UserController@bulk_import_list_clean')-
 Route::post('/search-contact', 'UserController@search_contact')->name('search-contact');
 Route::get('/pricing', 'UserController@pricing')->name('pricing');
 Route::resource('/cart', 'CartController');
+Route::resource('packages', 'Package\PackageController');
 Route::post('/qty-update', 'CartController@qtyUpdate');
 Route::post('/subscribe-package', 'UserController@subscribe_package')->name('subscribe-package');
 Route::post('/contact-price-pay', 'UserController@contact_price_pay')->name('contact-price-pay');

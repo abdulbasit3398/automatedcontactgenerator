@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Package;
+use App\PackageTag;
 use Excel;
 use Auth;
+use Google\Service\TagManager\Tag;
 use Illuminate\Support\Facades\Storage;
 use Stripe;
 use App\User;
@@ -231,7 +234,9 @@ class UserController extends Controller
   }
   public function pricing()
   {
-    return view('user.pricing');
+      $tags = PackageTag::where('id',1)->get();
+//      $packages = Package::where('package_tag_id',1)->get();
+      return view('user.pricing',compact('tags'));
   }
   public function contact_price_pay(Request $request)
   {
@@ -1007,6 +1012,7 @@ class UserController extends Controller
   public function checkout()
   {
     $GOOGLE_RECAPTCHA_KEY = $this->admin_setting('GOOGLE_RECAPTCHA_KEY');
-    return view('user.checkout',compact('GOOGLE_RECAPTCHA_KEY'));
+    $packages = session()->get('packages');
+    return view('user.checkout',compact('GOOGLE_RECAPTCHA_KEY','packages'));
   }
 }

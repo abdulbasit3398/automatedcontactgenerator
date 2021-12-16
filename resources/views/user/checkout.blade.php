@@ -35,7 +35,7 @@
         <p class="fw-bold mb-4">Shipping Info</p>
       </a> --}}
 
-      <a class="nav-link active " id="v-pills-payment-tab" data-bs-toggle="pill" href="#v-pills-payment" role="tab" aria-controls="v-pills-payment" aria-selected="false"> 
+      <a class="nav-link active " id="v-pills-payment-tab" data-bs-toggle="pill" href="#v-pills-payment" role="tab" aria-controls="v-pills-payment" aria-selected="false">
         <i class= "bx bx-money d-block check-nav-icon mt-4 mb-2"></i>
         <p class="fw-bold mb-4">Payment Info</p>
       </a>
@@ -88,7 +88,7 @@
                   @enderror
                   <div class="invalid-feedback">
                     Please Enter {{ __('Card Number') }}
-                  </div>  
+                  </div>
                 </div>
                 <div class="row">
                   <div class="col-lg-6">
@@ -102,7 +102,7 @@
                       @enderror
                       <div class="invalid-feedback">
                         Please Enter {{ __('Expiration Month') }}
-                      </div> 
+                      </div>
                     </div>
                   </div>
                   <div class="col-lg-3">
@@ -116,7 +116,7 @@
                       @enderror
                       <div class="invalid-feedback">
                         Please Enter {{ __('Expiration Year') }}
-                      </div> 
+                      </div>
                     </div>
                   </div>
                   <div class="col-lg-3">
@@ -130,7 +130,7 @@
                       @enderror
                       <div class="invalid-feedback">
                         Please Enter {{ __('CVC') }}
-                      </div>  
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -149,51 +149,109 @@
                 <h4 class="card-title mb-4">Order Summary</h4>
 
                 <div class="table-responsive">
-                  <table class="table align-middle mb-0 table-nowrap">
-                    <thead class="table-light">
-                      <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Product Desc</th>
-                        <th scope="col">Price</th>
-                      </tr>
-                    </thead>
-                    <tbody> 
-                      @foreach (Cart::content() as $item)
 
-                      <tr>
-                        <th scope="row">{{$item->name}}</th>
-                        <td>
-                          <p class="text-muted mb-0">$ {{$item->price}}x {{$item->qty}}</p>
-                        </td>
-                        <td>$ {{$item->price*$item->qty}}</td>
-                      </tr>
-                      @endforeach
+                    <table class="table align-middle mb-0 table-nowrap">
+                        <thead class="table-light">
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                            $total = 0;
+                        ?>
+                        @if(session()->has('packages'))
+                            @foreach ($packages as $package_id)
 
-                      {{-- <tr>
-                        <td colspan="2">
-                          <h6 class="m-0 text-end">Sub Total:</h6>
-                        </td>
-                        <td>
-                          $ {{Cart::subtotal()}}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td colspan="3">
-                          <div class="bg-primary bg-soft p-3 rounded">
-                            <h5 class="font-size-14 text-primary mb-0"><i class="fas fa-shipping-fast me-2"></i> Shipping <span class="float-end">Free</span></h5>
-                          </div>
-                        </td>
-                      </tr> --}}
-                      <tr>
-                        <td colspan="2">
-                          <h6 class="m-0 text-end">Total:</h6>
-                        </td>
-                        <td>
-                          $ {{Cart::subtotal()}}
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                                <?php
+                                    $package = \App\Package::find($package_id);
+                                    $total += $package->price;
+                                ?>
+                                <tr>
+                                    <th scope="row">{{$package->title}}</th>
+                                    <td>$ {{$package->price}}</td>
+                                </tr>
+                            @endforeach
+
+                        @else
+                            <tr>
+                                <th colspan="2">No items in the cart</th>
+                            </tr>
+                        @endif
+
+                        {{-- <tr>
+                          <td colspan="2">
+                            <h6 class="m-0 text-end">Sub Total:</h6>
+                          </td>
+                          <td>
+                            $ {{Cart::subtotal()}}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="3">
+                            <div class="bg-primary bg-soft p-3 rounded">
+                              <h5 class="font-size-14 text-primary mb-0"><i class="fas fa-shipping-fast me-2"></i> Shipping <span class="float-end">Free</span></h5>
+                            </div>
+                          </td>
+                        </tr> --}}
+                        <tr>
+                            <td colspan="1">
+                                <h6 class="m-0 text-end">Total:</h6>
+                            </td>
+                            <td>
+                                $ {{$total}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                    {{--                  <table class="table align-middle mb-0 table-nowrap">--}}
+{{--                    <thead class="table-light">--}}
+{{--                      <tr>--}}
+{{--                        <th scope="col">Name</th>--}}
+{{--                        <th scope="col">Product Desc</th>--}}
+{{--                        <th scope="col">Price</th>--}}
+{{--                      </tr>--}}
+{{--                    </thead>--}}
+{{--                    <tbody> --}}
+{{--                      @foreach (Cart::content() as $item)--}}
+
+{{--                      <tr>--}}
+{{--                        <th scope="row">{{$item->name}}</th>--}}
+{{--                        <td>--}}
+{{--                          <p class="text-muted mb-0">$ {{$item->price}}x {{$item->qty}}</p>--}}
+{{--                        </td>--}}
+{{--                        <td>$ {{$item->price*$item->qty}}</td>--}}
+{{--                      </tr>--}}
+{{--                      @endforeach--}}
+
+{{--                      --}}{{-- <tr>--}}
+{{--                        <td colspan="2">--}}
+{{--                          <h6 class="m-0 text-end">Sub Total:</h6>--}}
+{{--                        </td>--}}
+{{--                        <td>--}}
+{{--                          $ {{Cart::subtotal()}}--}}
+{{--                        </td>--}}
+{{--                      </tr>--}}
+{{--                      <tr>--}}
+{{--                        <td colspan="3">--}}
+{{--                          <div class="bg-primary bg-soft p-3 rounded">--}}
+{{--                            <h5 class="font-size-14 text-primary mb-0"><i class="fas fa-shipping-fast me-2"></i> Shipping <span class="float-end">Free</span></h5>--}}
+{{--                          </div>--}}
+{{--                        </td>--}}
+{{--                      </tr> --}}
+{{--                      <tr>--}}
+{{--                        <td colspan="2">--}}
+{{--                          <h6 class="m-0 text-end">Total:</h6>--}}
+{{--                        </td>--}}
+{{--                        <td>--}}
+{{--                          $ {{Cart::subtotal()}}--}}
+{{--                        </td>--}}
+{{--                      </tr>--}}
+{{--                    </tbody>--}}
+{{--                  </table>--}}
 
                 </div>
               </div>
@@ -203,7 +261,7 @@
           </div>
           <div class="row mt-4">
             <div class="col-sm-6">
-              <a href="ecommerce-cart.html" class="btn text-muted d-none d-sm-inline-block btn-link">
+              <a href="{{url('cart')}}" class="btn text-muted d-none d-sm-inline-block btn-link">
                 <i class="mdi mdi-arrow-left me-1"></i> Back to Shopping Cart </a>
               </div> <!-- end col -->
               <div class="col-sm-6">

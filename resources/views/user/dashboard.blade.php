@@ -395,9 +395,9 @@
 </div>
 </div>
 
-{{--
-@include('user.cloud.index',['directories'=>$directories,'drive_files'=>$drive_files])
---}}
+
+{{--@include('user.cloud.index',['directories'=>$directories,'drive_files'=>$drive_files])--}}
+
 
 <!-- Create task -->
 <div class="row" id="CreateTask" name="CreateTask">

@@ -391,7 +391,11 @@
 @else
 <span style="color: green;font-size: initial;">$ 0</span>
 @endif
-<a href="{{url('cart')}}"><i class="fas fa-shopping-cart"><sup class="cartCount">{{Cart::count()}}</sup></i></a>
+    <?php
+    $count = session()->get('packages');
+
+    ?>
+<a href="{{url('cart')}}"><i class="fas fa-shopping-cart"><sup class="cartCount">{{count($count)}}</sup></i></a>
 </div>
 
 <div class="dropdown d-inline-block">
