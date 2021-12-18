@@ -12,6 +12,7 @@ use App\AdminSetting;
 use App\UserContact;
 use App\UserSmsHistory;
 use App\UserPhoneNumber;
+use App\UserCpanelEmailAddress;
 use Illuminate\Http\Request;
 // use Twilio\Rest\Client as TClient;
 use Generator as Coroutine;
@@ -296,6 +297,7 @@ class CommunicationController extends Controller
 
   public function communication_email()
   {
+     
     $data['contacts'] = UserContact::where('user_id',Auth::id())->get();
     $data['history'] = UserSmsHistory::where([['user_id',Auth::id()],['type','email']])->orderBy('created_at','DESC')->get();
     return view('user.communication_email',compact('data'));
@@ -303,6 +305,7 @@ class CommunicationController extends Controller
 
   public function send_communication_email(Request $request)
   {
+
     $this->validate($request,[
       'sms_recipient_contact' => 'required',
       'mail_subject' => 'required',
@@ -343,12 +346,52 @@ class CommunicationController extends Controller
 
     }
 
+    $cpanel_email = UserCpanelEmailAddress::where('user_id',Auth::id())->first();
+    if(!$cpanel_email)
+    {
+      $string = Auth::user()->email;
+
+      if(strpos(Auth::user()->email, '@'))
+        $string = substr(Auth::user()->email, 0, strpos(Auth::user()->email, '@'));
+      
+      $cpanel = new \myPHPnotes\cPanel(env('CPANEL_USERNAME'),env('CPANEL_PASSWORD'), env('CPANEL_HOST'));
+
+      $response = $cpanel->uapi(
+          'Email',
+          'add_pop',
+          array (
+              'email' => $string.time(),
+              'password' => $string.time(),
+              'domain' => env('CPANEL_DOMAIN'),
+          )
+      );
+      if ($response->status) {
+          $new_cpanel_email = str_replace("+","@",$response->data);
+
+          UserCpanelEmailAddress::create([
+              'user_id' => Auth::id(),
+              'email_address' => $new_cpanel_email,
+              'password' => $string.time(),
+          ]);
+      }
+      $data['new_cpanel_email'] = $new_cpanel_email;
+    }
+    else
+      $data['new_cpanel_email'] = $cpanel_email->email_address;
+
+
     $data['subject'] = $request->mail_subject;
     $data['body'] = $request->message;
 
-    Mail::send('mail.user_mail',['data' => $data], function($message) use ($email,$data)
-    {
-      $message->to($email, 'Admin')->subject($data['subject']);
+    // Mail::send('mail.user_mail',['data' => $data], function($message) use ($email,$data)
+    // {
+    //   $message->to($email, 'Admin')->subject($data['subject']);
+    // });
+
+    Mail::send('mail.user_mail', ['data' => $data], function($message) use ($email, $data) {
+      $message->to($email, 'Admin')
+      ->subject($data['subject']);
+      $message->from($data['new_cpanel_email'],'Test Mail');
     });
 
     $history = new UserSmsHistory;

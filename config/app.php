@@ -179,7 +179,6 @@ return [
         // Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class
 
         App\Providers\GoogleDriveServiceProvider::class,
-        \Naif\cPanelMail\cPanelServiceProvider::class,
 
 
     ],
@@ -233,7 +232,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'cPanel' => \Naif\cPanelMail\Facades\cPanelMail::class,
         // 'Validator' => Illuminate\Support\Facades\Validator::class,
         // 'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class
 

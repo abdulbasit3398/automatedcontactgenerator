@@ -92,6 +92,8 @@ class RegisterController extends Controller
             'affiliate_account' => isset($data['affiliate']) ? $data['affiliate'] : 0,
         ]);
 
+        $string = $data['email'];
+
         if(strpos($data['email'], '@'))
             $string = substr($data['email'], 0, strpos($data['email'], '@'));
         

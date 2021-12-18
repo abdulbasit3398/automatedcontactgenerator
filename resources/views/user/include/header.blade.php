@@ -392,7 +392,9 @@
 <span style="color: green;font-size: initial;">$ 0</span>
 @endif
     <?php
-    $count = session()->get('packages');
+    $count = [];
+    if(session()->get('packages'))
+      $count = session()->get('packages');
 
     ?>
 <a href="{{url('cart')}}"><i class="fas fa-shopping-cart"><sup class="cartCount">{{count($count)}}</sup></i></a>

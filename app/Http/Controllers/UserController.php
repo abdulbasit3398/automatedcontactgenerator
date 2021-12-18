@@ -7,6 +7,7 @@ use App\Package;
 use App\PackageTag;
 use Excel;
 use Auth;
+use Mail;
 use Google\Service\TagManager\Tag;
 use Illuminate\Support\Facades\Storage;
 use Stripe;
@@ -18,6 +19,7 @@ use App\AdditionalNote;
 use App\UserContact;
 use App\UserInventory;
 use App\UserBankDetail;
+use Mailgun\Mailgun;
 use App\ContactGenerator;
 use App\UserClockStatus;
 use App\UserPackageDetail;
@@ -66,7 +68,8 @@ class UserController extends Controller
     dd($json);
   }
   public function index(Request $request)
-  {
+  { 
+ 
       if($request->ajax()) {
           $data = Event::where('user_id',auth()->id())->whereDate('start', '>=', $request->start)
               ->whereDate('end',   '<=', $request->end)
