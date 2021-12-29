@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 // use Twilio\Rest\Client as TClient;
 use Generator as Coroutine;
 use SignalWire\Relay\Consumer;
-
+// use App\CustomClass\SignalWireCall;
 use SignalWire\Rest\Client as SClient;
 use SignalWire\Relay\Client as RelayClient;
 
@@ -414,13 +414,30 @@ class CommunicationController extends Controller
 
   public function send_communication_phone(Request $request)
   {
+    $post = [
+    'from' => '+12029807462',
+    'to' => '+17188728161',
+];
+
+$ch = curl_init('http://signal.automatedcontactgenerator.com/');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+
+// execute!
+$response = curl_exec($ch);
+
+// close the connection, release resources used
+curl_close($ch);
+
+// do anything you want with your response
+dd($response);
 
       // $this->validate($request,[
       //     'phone_number' => 'required'
       // ]);
 
-      $from ='+18508008212';
-      $to='+17188728161';
+      // $from ='+18508008212';
+      // $to='+17188728161';
 
       ini_set('max_execution_time', 240);
 
@@ -429,19 +446,24 @@ class CommunicationController extends Controller
           'project' => env('SIGNAL_WIRE_PROJECT_ID'),
           'token' => env('SIGNAL_WIRE_TOKEN'),
       ]);
-     // dd(env('SIGNAL_WIRE_TOKEN'));
-      // $client->connect();
-      $params = [ 'type' => 'phone', 'from' => '+12026777191', 'to' =>'+923057130761'];
-      // $call = $client->calling->newCall($params);
-      // $call->dial()->done(function($dialResult) {
 
+     // dd(env('SIGNAL_WIRE_TOKEN'));
+      $client->connect();
+      $params = [ 'type' => 'phone', 'from' => '+12029807462', 'to' =>'+17188728161'];
+      $call = $client->calling->newCall($params);
+      $call->dial()->done(function($dialResult) {
+        dump($dialResult);
+      });
+      $client->disconnect();
+      dd('hi');
+
+
+      // $client->on('signalwire.ready', function($client) {
+      //   dd('Your client is ready!');
+      // })->on('signalwire.error', function(\Exception $error) {
+      //   // Got an error...
+      //   dd('Got an error...');
       // });
-      $client->on('signalwire.ready', function($client) {
-  dd('Your client is ready!');
-})->on('signalwire.error', function(\Exception $error) {
-  // Got an error...
-  dd('Got an error...');
-});
        // dd($client);
       $client->calling->dial($params)->done(function($result) {
         if ($result->isSuccessful()) {
