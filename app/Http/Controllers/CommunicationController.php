@@ -131,7 +131,6 @@ class CommunicationController extends Controller
       ]);
       $number_arr = array();
 
-
       $sms_recipient_contact = $request->sms_recipient_contact;
 
       for($i = 0; $i < count($sms_recipient_contact); $i++)

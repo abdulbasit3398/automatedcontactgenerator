@@ -425,1819 +425,1819 @@
 
         @endforeach
 
-{{--            <div class="col-xl-4 col-md-6">--}}
-{{--                <div class="card">--}}
-{{--                    <div class="card-body">--}}
-{{--                        <div id="carouselExampleFade54" class="carousel slide carousel-fade1" data-ride="carousel" data-bs-interval="false">--}}
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="carouselExampleFade54" class="carousel slide carousel-fade1" data-ride="carousel" data-bs-interval="false">
 
-{{--                            <ol class="carousel-indicators">--}}
+                            <ol class="carousel-indicators">
 
-{{--                                <li data-bs-target="#carouselExampleFade54" data-bs-slide-to="0" class="active"></li>--}}
+                                <li data-bs-target="#carouselExampleFade54" data-bs-slide-to="0" class="active"></li>
 
-{{--                                <li data-bs-target="#carouselExampleFade54" data-bs-slide-to="1"></li>--}}
+                                <li data-bs-target="#carouselExampleFade54" data-bs-slide-to="1"></li>
 
-{{--                                <li data-bs-target="#carouselExampleFade54" data-bs-slide-to="2"></li>--}}
+                                <li data-bs-target="#carouselExampleFade54" data-bs-slide-to="2"></li>
 
-{{--                            </ol>--}}
+                            </ol>
 
-{{--                            <div class="carousel-inner" role="listbox">--}}
+                            <div class="carousel-inner" role="listbox">
 
-{{--                                <div class="carousel-item active">--}}
+                                <div class="carousel-item active">
 
 
 
-{{--                                    <div class="card-body p-4 ">--}}
+                                    <div class="card-body p-4 ">
 
-{{--                                        <div class="media">--}}
+                                        <div class="media">
 
-{{--                                            <div class="media-body">--}}
+                                            <div class="media-body">
 
-{{--                                                <h5></h5>--}}
+                                                <h5></h5>
 
-{{--                                                <p class="text-muted"></p>--}}
+                                                <p class="text-muted"></p>
 
-{{--                                            </div>--}}
+                                            </div>
 
-{{--                                            <div class="ms-3">--}}
+                                            <div class="ms-3">
 
-{{--                                                <!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">--}}
-{{--    --}}
-{{--                                                </i> -->--}}
+                                                <!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+    
+                                                </i> -->
 
-{{--                                            </div>--}}
+                                            </div>
 
-{{--                                        </div>--}}
+                                        </div>
 
-{{--                                        <div class="py-4">--}}
+                                        <div class="py-4">
 
-{{--                                            <h4>STARTER 1</h4>--}}
+                                            <h4>STARTER 1</h4>
 
-{{--                                            <h2><sup><small>$</small></sup> 20</h2>--}}
+                                            <h2><sup><small>$</small></sup> 20</h2>
 
-{{--                                        </div>--}}
+                                        </div>
 
-{{--                                        <div class="text-center plan-btn">--}}
+                                        <div class="text-center plan-btn">
 
-{{--                                            <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="20 usd package" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy</a>--}}
+                                            <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="20 usd package" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy</a>
 
-{{--                                            <a href="#" onclick="cart(event.preventDefault(),'20 usd package','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+                                            <a href="#" onclick="cart(event.preventDefault(),'20 usd package','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--                                        </div>--}}
+                                        </div>
 
 
 
-{{--                                        <div class="plan-features mt-5">--}}
+                                        <div class="plan-features mt-5">
 
-{{--                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 Contacts</p>--}}
+                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 Contacts</p>
 
-{{--                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 Minutes</p>--}}
+                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 Minutes</p>
 
-{{--                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 SMS/MMS</p>--}}
+                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 SMS/MMS</p>
 
-{{--                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 Emails</p>--}}
+                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 500 Emails</p>
 
-{{--                                        </div>--}}
+                                        </div>
 
-{{--                                    </div>--}}
+                                    </div>
 
 
 
-{{--                                </div>--}}
+                                </div>
 
 
 
-{{--                                <div class="carousel-item">--}}
+                                <div class="carousel-item">
 
 
 
-{{--                                    <div class="card-body p-4 ">--}}
+                                    <div class="card-body p-4 ">
 
-{{--                                        <div class="media">--}}
+                                        <div class="media">
 
-{{--                                            <div class="media-body">--}}
+                                            <div class="media-body">
 
-{{--                                                <h5></h5>--}}
+                                                <h5></h5>
 
-{{--                                                <p class="text-muted"></p>--}}
+                                                <p class="text-muted"></p>
 
-{{--                                            </div>--}}
+                                            </div>
 
-{{--                                            <div class="ms-3">--}}
+                                            <div class="ms-3">
 
-{{--                                                <!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">--}}
-{{--    --}}
-{{--                                                </i> -->--}}
+                                                <!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+    
+                                                </i> -->
 
-{{--                                            </div>--}}
+                                            </div>
 
-{{--                                        </div>--}}
+                                        </div>
 
-{{--                                        <div class="py-4">--}}
+                                        <div class="py-4">
 
-{{--                                            <h4>STARTER 2</h4>--}}
+                                            <h4>STARTER 2</h4>
 
-{{--                                            <h2><sup><small>$</small></sup> 50</h2>--}}
+                                            <h2><sup><small>$</small></sup> 50</h2>
 
-{{--                                        </div>--}}
+                                        </div>
 
-{{--                                        <div class="text-center plan-btn">--}}
+                                        <div class="text-center plan-btn">
 
-{{--                                            <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="20 usd package" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy</a>--}}
+                                            <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="20 usd package" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy</a>
 
-{{--                                            <a href="#" onclick="cart(event.preventDefault(),'20 usd package','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+                                            <a href="#" onclick="cart(event.preventDefault(),'20 usd package','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--                                        </div>--}}
+                                        </div>
 
 
 
-{{--                                        <div class="plan-features mt-5">--}}
+                                        <div class="plan-features mt-5">
 
-{{--                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 Contacts</p>--}}
+                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 Contacts</p>
 
-{{--                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 Minutes</p>--}}
+                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 Minutes</p>
 
-{{--                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 SMS/MMS</p>--}}
+                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 SMS/MMS</p>
 
-{{--                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 Emails</p>--}}
+                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 1,500 Emails</p>
 
-{{--                                        </div>--}}
+                                        </div>
 
 
 
-{{--                                    </div>--}}
+                                    </div>
 
 
 
-{{--                                </div>--}}
+                                </div>
 
 
 
-{{--                                <div class="carousel-item">--}}
+                                <div class="carousel-item">
 
 
 
-{{--                                    <div class="card-body p-4 ">--}}
+                                    <div class="card-body p-4 ">
 
-{{--                                        <div class="media">--}}
+                                        <div class="media">
 
-{{--                                            <div class="media-body">--}}
+                                            <div class="media-body">
 
-{{--                                                <h5></h5>--}}
+                                                <h5></h5>
 
-{{--                                                <p class="text-muted"></p>--}}
+                                                <p class="text-muted"></p>
 
-{{--                                            </div>--}}
+                                            </div>
 
-{{--                                            <div class="ms-3">--}}
+                                            <div class="ms-3">
 
-{{--                                                <!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">--}}
-{{--    --}}
-{{--                                                </i> -->--}}
+                                                <!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+    
+                                                </i> -->
 
-{{--                                            </div>--}}
+                                            </div>
 
-{{--                                        </div>--}}
+                                        </div>
 
-{{--                                        <div class="py-4">--}}
+                                        <div class="py-4">
 
-{{--                                            <h4>STARTER 3</h4>--}}
+                                            <h4>STARTER 3</h4>
 
-{{--                                            <h2><sup><small>$</small></sup> 130</h2>--}}
+                                            <h2><sup><small>$</small></sup> 130</h2>
 
-{{--                                        </div>--}}
+                                        </div>
 
-{{--                                        <div class="text-center plan-btn">--}}
+                                        <div class="text-center plan-btn">
 
-{{--                                            <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="20 usd package" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy</a>--}}
+                                            <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="20 usd package" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy</a>
 
-{{--                                            <a href="#" onclick="cart(event.preventDefault(),'20 usd package','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+                                            <a href="#" onclick="cart(event.preventDefault(),'20 usd package','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--                                        </div>--}}
+                                        </div>
 
 
 
-{{--                                        <div class="plan-features mt-5">--}}
+                                        <div class="plan-features mt-5">
 
-{{--                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 4,500 Contacts</p>--}}
+                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 4,500 Contacts</p>
 
-{{--                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 4,500 Minutes</p>--}}
+                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 4,500 Minutes</p>
 
-{{--                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 4,500 SMS/MMS</p>--}}
+                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 4,500 SMS/MMS</p>
 
-{{--                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 4,500 Emails</p>--}}
+                                            <p><i class="bx bx-checkbox-square text-primary mr-2"></i> 4,500 Emails</p>
 
-{{--                                        </div>--}}
+                                        </div>
 
-{{--                                    </div>--}}
+                                    </div>
 
 
 
-{{--                                </div>--}}
+                                </div>
 
 
 
-{{--                            </div>--}}
+                            </div>
 
 
 
-{{--                            <a class="carousel-control-prev" href="#carouselExampleFade54" role="button" data-bs-slide="prev">--}}
+                            <a class="carousel-control-prev" href="#carouselExampleFade54" role="button" data-bs-slide="prev">
 
-{{--                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 
-{{--                                <span class="sr-only">Previous</span>--}}
+                                <span class="sr-only">Previous</span>
 
-{{--                            </a>--}}
+                            </a>
 
-{{--                            <a class="carousel-control-next" href="#carouselExampleFade54" role="button" data-bs-slide="next">--}}
+                            <a class="carousel-control-next" href="#carouselExampleFade54" role="button" data-bs-slide="next">
 
-{{--                                <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
 
-{{--                                <span class="sr-only">Next</span>--}}
+                                <span class="sr-only">Next</span>
 
-{{--                            </a>--}}
-{{--                        </div>--}}
+                            </a>
+                        </div>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                </div>--}}
+                </div>
 
-{{--            </div>--}}
-{{--		<div class="col-xl-4 col-md-6">--}}
+            </div>
+		<div class="col-xl-4 col-md-6">
 
-{{--			<div class="card">--}}
+			<div class="card">
 
-{{--				<div class="card-body">--}}
+				<div class="card-body">
 
 
 
-{{--					<h4 class="card-title">UNLIMITED</h4>--}}
+					<h4 class="card-title">UNLIMITED</h4>
 
-{{--					<p class="card-title-desc">Enjoy All You Can Use:</p>--}}
+					<p class="card-title-desc">Enjoy All You Can Use:</p>
 
 
 
-{{--					<div id="carouselExampleFade" class="carousel slide carousel-fade1" data-ride="carousel" data-bs-interval="false">--}}
+					<div id="carouselExampleFade" class="carousel slide carousel-fade1" data-ride="carousel" data-bs-interval="false">
 
-{{--						<ol class="carousel-indicators">--}}
+						<ol class="carousel-indicators">
 
-{{--              <li data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active"></li>--}}
+              <li data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active"></li>
 
-{{--              <li data-bs-target="#carouselExampleFade" data-bs-slide-to="1"></li>--}}
+              <li data-bs-target="#carouselExampleFade" data-bs-slide-to="1"></li>
 
-{{--              <li data-bs-target="#carouselExampleFade" data-bs-slide-to="2"></li>--}}
+              <li data-bs-target="#carouselExampleFade" data-bs-slide-to="2"></li>
 
-{{--            </ol>--}}
+            </ol>
 
 
 
-{{--						<div class="carousel-inner" role="listbox">--}}
+						<div class="carousel-inner" role="listbox">
 
-{{--							<div class="carousel-item active">--}}
+							<div class="carousel-item active">
 
 
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
 
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h4>UNLIMITED CONTACT GENERATION</h4>--}}
+										<h4>UNLIMITED CONTACT GENERATION</h4>
 
 
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" >--}}
+									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" >
 
-{{--										<h2><sup><small>$</small></sup> 300/<span class="font-size-13">Per month</span></h2>--}}
+										<h2><sup><small>$</small></sup> 300/<span class="font-size-13">Per month</span></h2>
 
-{{--										<div class="text-center plan-btn">--}}
+										<div class="text-center plan-btn">
 
-{{--											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="unlimited_contacts"--}}
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="unlimited_contacts"
 
-{{--											 data-time="year" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy yearly</a>--}}
+											 data-time="year" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy yearly</a>
 
-{{--											 <a href="#" onclick="cart(event.preventDefault(),'unlimited_contacts','year')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+											 <a href="#" onclick="cart(event.preventDefault(),'unlimited_contacts','year')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--										</div>--}}
+										</div>
 
 
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimted mobile #s</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimted mobile #s</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited B2B #s</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited B2B #s</p>
 
-{{--									</div>--}}
+									</div>
 
-{{--								</div>--}}
+								</div>
 
 
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--							<div class="carousel-item">--}}
+							<div class="carousel-item">
 
 
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
 
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h4>UNLIMITED BUSINESS COMMUNICATION</h4>--}}
+										<h4>UNLIMITED BUSINESS COMMUNICATION</h4>
 
 
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">--}}
+									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
 
-{{--										<h2><sup><small>$</small></sup> 300/<span class="font-size-13">Per month</span></h2>--}}
+										<h2><sup><small>$</small></sup> 300/<span class="font-size-13">Per month</span></h2>
 
-{{--										<div class="text-center plan-btn">--}}
+										<div class="text-center plan-btn">
 
-{{--											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="unlimited_communication" data-time="month" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy monthly</a>--}}
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="unlimited_communication" data-time="month" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy monthly</a>
 
-{{--											<a href="#" onclick="cart(event.preventDefault(),'unlimited_communication','month')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+											<a href="#" onclick="cart(event.preventDefault(),'unlimited_communication','month')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--										</div>--}}
+										</div>
 
 
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Minutes</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Minutes</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Text</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Text</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Email</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Email</p>
 
-{{--									</div>--}}
+									</div>
 
-{{--								</div>--}}
+								</div>
 
 
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--							<div class="carousel-item">--}}
+							<div class="carousel-item">
 
 
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
 
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h4>UNLIMITED CONTACT GENERATION AND COMMUNICATION</h4>--}}
+										<h4>UNLIMITED CONTACT GENERATION AND COMMUNICATION</h4>
 
 
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">--}}
+									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
 
-{{--										<h2><sup><small>$</small></sup> 550/<span class="font-size-13">Per month (26% Discount $407)</span></h2>--}}
+										<h2><sup><small>$</small></sup> 550/<span class="font-size-13">Per month (26% Discount $407)</span></h2>
 
-{{--										<div class="text-center plan-btn">--}}
+										<div class="text-center plan-btn">
 
-{{--											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="unlimited_both" data-time="month" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy monthly</a>--}}
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="unlimited_both" data-time="month" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy monthly</a>
 
-{{--											<a href="#" onclick="cart(event.preventDefault(),'unlimited_both','month')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+											<a href="#" onclick="cart(event.preventDefault(),'unlimited_both','month')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--										</div>--}}
+										</div>
 
 
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Contacts</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Contacts</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Minutes</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Minutes</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Text</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Text</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Email</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Unlimited Email</p>
 
-{{--									</div>--}}
+									</div>
 
-{{--								</div>--}}
+								</div>
 
 
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--						</div>--}}
+						</div>
 
 
 
-{{--						<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">--}}
+						<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">
 
-{{--              <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 
-{{--              <span class="sr-only">Previous</span>--}}
+              <span class="sr-only">Previous</span>
 
-{{--            </a>--}}
+            </a>
 
-{{--            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-bs-slide="next">--}}
+            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-bs-slide="next">
 
-{{--              <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
 
-{{--              <span class="sr-only">Next</span>--}}
+              <span class="sr-only">Next</span>
 
-{{--            </a>--}}
+            </a>
 
 
 
-{{--					</div>--}}
+					</div>
 
-{{--				</div>--}}
+				</div>
 
-{{--			</div>--}}
+			</div>
 
-{{--		</div>--}}
-{{--        --}}
-{{--		<div class="col-xl-4 col-md-6">--}}
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
 
-{{--			<div class="card">--}}
+			<div class="card">
 
-{{--				<div class="card-body">--}}
+				<div class="card-body">
 
-{{--					<h4 class="card-title">LEADS</h4>--}}
+					<h4 class="card-title">LEADS</h4>
 
-{{--					<p class="card-title-desc">All the Business You Can Handle</p>--}}
+					<p class="card-title-desc">All the Business You Can Handle</p>
 
-{{--					<div id="carouselExampleFade55" class="carousel slide carousel-fade1" data-ride="carousel" data-bs-interval="false">--}}
+					<div id="carouselExampleFade55" class="carousel slide carousel-fade1" data-ride="carousel" data-bs-interval="false">
 
-{{--						<ol class="carousel-indicators">--}}
+						<ol class="carousel-indicators">
 
-{{--              <li data-bs-target="#carouselExampleFade55" data-bs-slide-to="0" class="active"></li>--}}
+              <li data-bs-target="#carouselExampleFade55" data-bs-slide-to="0" class="active"></li>
 
-{{--              <li data-bs-target="#carouselExampleFade55" data-bs-slide-to="1"></li>--}}
+              <li data-bs-target="#carouselExampleFade55" data-bs-slide-to="1"></li>
 
-{{--              <li data-bs-target="#carouselExampleFade55" data-bs-slide-to="2"></li>--}}
+              <li data-bs-target="#carouselExampleFade55" data-bs-slide-to="2"></li>
 
-{{--            </ol>--}}
+            </ol>
 
 
 
-{{--						<div class="carousel-inner" role="listbox">--}}
+						<div class="carousel-inner" role="listbox">
 
-{{--							<div class="carousel-item active">--}}
+							<div class="carousel-item active">
 
 
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
-{{--											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">--}}
+											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
 
-{{--											</i> -->--}}
+											</i> -->
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h4>BIZOPP LEADS</h4>--}}
-{{--										<div class="media pb-2">--}}
+										<h4>BIZOPP LEADS</h4>
+										<div class="media pb-2">
 
-{{--											<span>A bizopp lead is some who expressed interest in your online business by submitting their info on a (capture) page</span>--}}
+											<span>A bizopp lead is some who expressed interest in your online business by submitting their info on a (capture) page</span>
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="text-center plan-btn">--}}
+									<div class="text-center plan-btn">
 
-{{--										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_leads" data-time="30" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 30</a>--}}
+										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_leads" data-time="30" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 30</a>
 
-{{--										<a href="#" onclick="cart(event.preventDefault(),'biz_opp_leads','30')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+										<a href="#" onclick="cart(event.preventDefault(),'biz_opp_leads','30')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 30 Leads for $100</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 30 Leads for $100</p>
 
-{{--									</div>--}}
+									</div>
 
-{{--								</div>--}}
+								</div>
 
 
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--							<div class="carousel-item">--}}
+							<div class="carousel-item">
 
 
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
-{{--											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">--}}
+											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
 
-{{--											</i> -->--}}
+											</i> -->
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h4>BIZOPP LEADS</h4>--}}
+										<h4>BIZOPP LEADS</h4>
 
-{{--										<div class="media pb-2">--}}
+										<div class="media pb-2">
 
-{{--											<span>A bizopp lead is some who expressed interest in your online business by submitting their info on a (capture) page</span>--}}
+											<span>A bizopp lead is some who expressed interest in your online business by submitting their info on a (capture) page</span>
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="text-center plan-btn">--}}
+									<div class="text-center plan-btn">
 
-{{--										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_leads" data-time="130" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 130</a>--}}
+										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_leads" data-time="130" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 130</a>
 
-{{--										<a href="#" onclick="cart(event.preventDefault(),'biz_opp_leads','130')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+										<a href="#" onclick="cart(event.preventDefault(),'biz_opp_leads','130')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 130 Leads for $300</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 130 Leads for $300</p>
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--								</div>--}}
+								</div>
 
 
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--							<div class="carousel-item">--}}
+							<div class="carousel-item">
 
 
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
-{{--											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">--}}
+											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
 
-{{--											</i> -->--}}
+											</i> -->
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h4>CUSTOM LEADS</h4>--}}
+										<h4>CUSTOM LEADS</h4>
 
-{{--										<div class="media pb-2">--}}
+										<div class="media pb-2">
 
-{{--											<span>A custom lead is someone who expressed interest in any business of choice by submitting their info on a (capture) page</span>--}}
+											<span>A custom lead is someone who expressed interest in any business of choice by submitting their info on a (capture) page</span>
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="text-center plan-btn">--}}
+									<div class="text-center plan-btn">
 
-{{--										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_biz_opp_leads" data-label="PLEASE DESCRIBE YOUR BUSINESS AND LEAD REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy</a>--}}
+										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_biz_opp_leads" data-label="PLEASE DESCRIBE YOUR BUSINESS AND LEAD REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy</a>
 
-{{--										<a href="#" onclick="cart(event.preventDefault(),'custom_biz_opp_leads','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+										<a href="#" onclick="cart(event.preventDefault(),'custom_biz_opp_leads','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Custom requirements</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Custom requirements</p>
 
-{{--									</div>--}}
+									</div>
 
-{{--								</div>--}}
+								</div>
 
 
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--						</div>--}}
+						</div>
 
 
 
-{{--						<a class="carousel-control-prev" href="#carouselExampleFade55" role="button" data-bs-slide="prev">--}}
+						<a class="carousel-control-prev" href="#carouselExampleFade55" role="button" data-bs-slide="prev">
 
-{{--              <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 
-{{--              <span class="sr-only">Previous</span>--}}
+              <span class="sr-only">Previous</span>
 
-{{--            </a>--}}
+            </a>
 
-{{--            <a class="carousel-control-next" href="#carouselExampleFade55" role="button" data-bs-slide="next">--}}
+            <a class="carousel-control-next" href="#carouselExampleFade55" role="button" data-bs-slide="next">
 
-{{--              <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
 
-{{--              <span class="sr-only">Next</span>--}}
+              <span class="sr-only">Next</span>
 
-{{--            </a>--}}
+            </a>
 
 
 
-{{--					</div>--}}
+					</div>
 
-{{--				</div>--}}
+				</div>
 
-{{--			</div>--}}
+			</div>
 
-{{--		</div>--}}
+		</div>
 
-{{--        <div class="col-xl-4 col-md-6">--}}
+        <div class="col-xl-4 col-md-6">
 
-{{--			<div class="card">--}}
+			<div class="card">
 
-{{--				<div class="card-body">--}}
+				<div class="card-body">
 
-{{--					<h4 class="card-title">PROSPECTS</h4>--}}
+					<h4 class="card-title">PROSPECTS</h4>
 
-{{--					<p class="card-title-desc">Engage Your Visitor and Increase Conversations</p>--}}
+					<p class="card-title-desc">Engage Your Visitor and Increase Conversations</p>
 
-{{--					<div id="carouselExampleFade56" class="carousel slide carousel-fade1" data-ride="carousel" data-bs-interval="false">--}}
+					<div id="carouselExampleFade56" class="carousel slide carousel-fade1" data-ride="carousel" data-bs-interval="false">
 
-{{--						<ol class="carousel-indicators">--}}
+						<ol class="carousel-indicators">
 
-{{--              <li data-bs-target="#carouselExampleFade56" data-bs-slide-to="0" class="active"></li>--}}
+              <li data-bs-target="#carouselExampleFade56" data-bs-slide-to="0" class="active"></li>
 
-{{--              <li data-bs-target="#carouselExampleFade56" data-bs-slide-to="1"></li>--}}
+              <li data-bs-target="#carouselExampleFade56" data-bs-slide-to="1"></li>
 
-{{--              <li data-bs-target="#carouselExampleFade56" data-bs-slide-to="2"></li>--}}
+              <li data-bs-target="#carouselExampleFade56" data-bs-slide-to="2"></li>
 
-{{--            </ol>--}}
+            </ol>
 
 
 
-{{--						<div class="carousel-inner" role="listbox">--}}
+						<div class="carousel-inner" role="listbox">
 
-{{--							<div class="carousel-item active">--}}
+							<div class="carousel-item active">
 
 
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
-{{--											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">--}}
+											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
 
-{{--											</i> -->--}}
+											</i> -->
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h4>INHOUSE PROSPECTS</h4>--}}
-{{--										<div class="media pb-2">--}}
+										<h4>INHOUSE PROSPECTS</h4>
+										<div class="media pb-2">
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="text-center plan-btn">--}}
+									<div class="text-center plan-btn">
 
-{{--										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_prospects" data-time="15" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 15</a>--}}
+										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_prospects" data-time="15" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 15</a>
 
-{{--										<a href="#" onclick="cart(event.preventDefault(),'biz_opp_prospects','15')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+										<a href="#" onclick="cart(event.preventDefault(),'biz_opp_prospects','15')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 15 Prospects for $105</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 15 Prospects for $105</p>
 
-{{--									</div>--}}
+									</div>
 
-{{--								</div>--}}
+								</div>
 
 
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--							<div class="carousel-item">--}}
+							<div class="carousel-item">
 
 
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
-{{--											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">--}}
+											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
 
-{{--											</i> -->--}}
+											</i> -->
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h4>INHOUSE PROSPECTS</h4>--}}
+										<h4>INHOUSE PROSPECTS</h4>
 
-{{--										<div class="media pb-2">--}}
+										<div class="media pb-2">
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="text-center plan-btn">--}}
+									<div class="text-center plan-btn">
 
-{{--										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_prospects" data-time="50" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 50</a>--}}
+										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="biz_opp_prospects" data-time="50" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy 50</a>
 
-{{--										<a href="#" onclick="cart(event.preventDefault(),'biz_opp_prospects','50')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+										<a href="#" onclick="cart(event.preventDefault(),'biz_opp_prospects','50')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 50 Prospects for $300</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> 50 Prospects for $300</p>
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--								</div>--}}
+								</div>
 
 
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--							<div class="carousel-item">--}}
+							<div class="carousel-item">
 
 
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
-{{--											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">--}}
+											<!-- <i class="bx bx-question-mark h1 text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
 
-{{--											</i> -->--}}
+											</i> -->
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h3>CUSTOM PROSPECTS</h3> <h6>Contact for pricing</h6>--}}
+										<h3>CUSTOM PROSPECTS</h3> <h6>Contact for pricing</h6>
 
-{{--										<div class="media pb-2">--}}
+										<div class="media pb-2">
 
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="text-center plan-btn">--}}
+									<div class="text-center plan-btn">
 
-{{--										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy</a>--}}
+										<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy</a>
 
-{{--										<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+										<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Custom requirements</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Custom requirements</p>
 
-{{--									</div>--}}
+									</div>
 
-{{--								</div>--}}
+								</div>
 
 
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--						</div>--}}
+						</div>
 
 
 
-{{--						<a class="carousel-control-prev" href="#carouselExampleFade56" role="button" data-bs-slide="prev">--}}
+						<a class="carousel-control-prev" href="#carouselExampleFade56" role="button" data-bs-slide="prev">
 
-{{--              <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 
-{{--              <span class="sr-only">Previous</span>--}}
+              <span class="sr-only">Previous</span>
 
-{{--            </a>--}}
+            </a>
 
-{{--            <a class="carousel-control-next" href="#carouselExampleFade56" role="button" data-bs-slide="next">--}}
+            <a class="carousel-control-next" href="#carouselExampleFade56" role="button" data-bs-slide="next">
 
-{{--              <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
 
-{{--              <span class="sr-only">Next</span>--}}
+              <span class="sr-only">Next</span>
 
-{{--            </a>--}}
+            </a>
 
 
 
-{{--					</div>--}}
+					</div>
 
-{{--				</div>--}}
+				</div>
 
-{{--			</div>--}}
+			</div>
 
-{{--		</div>--}}
-{{--        --}}
-{{--		<div class="col-xl-4 col-md-6">--}}
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
 
-{{--			<div class="card">--}}
+			<div class="card">
 
-{{--				<div class="card-body">--}}
+				<div class="card-body">
 
 
 
-{{--					<h4 class="card-title">SALES FUNNELS</h4>--}}
+					<h4 class="card-title">SALES FUNNELS</h4>
 
-{{--					<p class="card-title-desc">Enjoy All You Can Use:</p>--}}
+					<p class="card-title-desc">Enjoy All You Can Use:</p>
 
 
 
-{{--					<div id="carouselExampleFade3" class="carousel slide carousel-fade1" data-ride="carousel" data-bs-interval="false">--}}
+					<div id="carouselExampleFade3" class="carousel slide carousel-fade1" data-ride="carousel" data-bs-interval="false">
 
-{{--						<ol class="carousel-indicators">--}}
+						<ol class="carousel-indicators">
 
-{{--              <li data-bs-target="#carouselExampleFade3" data-bs-slide-to="0" class="active"></li>--}}
+              <li data-bs-target="#carouselExampleFade3" data-bs-slide-to="0" class="active"></li>
 
-{{--              <li data-bs-target="#carouselExampleFade3" data-bs-slide-to="1"></li>--}}
+              <li data-bs-target="#carouselExampleFade3" data-bs-slide-to="1"></li>
 
-{{--              <li data-bs-target="#carouselExampleFade3" data-bs-slide-to="2"></li>--}}
+              <li data-bs-target="#carouselExampleFade3" data-bs-slide-to="2"></li>
 
-{{--            </ol>--}}
+            </ol>
 
 
 
-{{--						<div class="carousel-inner" role="listbox">--}}
+						<div class="carousel-inner" role="listbox">
 
-{{--							<div class="carousel-item active">--}}
+							<div class="carousel-item active">
 
 
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
 
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h4>INHOUSE SALES FUNNELS</h4>--}}
+										<h4>INHOUSE SALES FUNNELS</h4>
 
 
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">--}}
+									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 
 
 
-{{--										<div class="text-center plan-btn">--}}
+										<div class="text-center plan-btn">
 
-{{--											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>--}}
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 
-{{--											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>--}}
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>
 
-{{--											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--										</div>--}}
+										</div>
 
 
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Monthly $10</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Monthly $10</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Quartly $30</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Quartly $30</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Yearly $120 (2 months FREE) $100</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Yearly $120 (2 months FREE) $100</p>
 
-{{--									</div>--}}
+									</div>
 
-{{--								</div>--}}
+								</div>
 
 
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--							<div class="carousel-item">--}}
+							<div class="carousel-item">
 
 
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
 
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h4>BIZOPP SALES FUNNELS</h4>--}}
+										<h4>BIZOPP SALES FUNNELS</h4>
 
 
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">--}}
+									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
 
 
 
-{{--										<div class="text-center plan-btn">--}}
+										<div class="text-center plan-btn">
 
-{{--											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>--}}
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 
-{{--											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>--}}
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>
 
-{{--											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--										</div>--}}
+										</div>
 
 
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Monthly $30</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Monthly $30</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Quartly $90</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Quartly $90</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Yearly $360 (2 months FREE) $300</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Yearly $360 (2 months FREE) $300</p>
 
-{{--									</div>--}}
+									</div>
 
-{{--								</div>--}}
+								</div>
 
 
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--							<div class="carousel-item">--}}
+							<div class="carousel-item">
 
 
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
 
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h4>CUSTOM SALES FUNNELS</h4>--}}
+										<h4>CUSTOM SALES FUNNELS</h4>
 
 
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">--}}
+									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
 
 
 
-{{--										<div class="text-center plan-btn">--}}
+										<div class="text-center plan-btn">
 
-{{--											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>--}}
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 
-{{--											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>--}}
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>
 
-{{--											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--										</div>--}}
+										</div>
 
 
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Monthly $90</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Monthly $90</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Quartly $270</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Quartly $270</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Yearly $1080 (2 months FREE) $900</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Yearly $1080 (2 months FREE) $900</p>
 
-{{--									</div>--}}
+									</div>
 
-{{--								</div>--}}
+								</div>
 
 
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--						</div>--}}
+						</div>
 
 
 
-{{--						<a class="carousel-control-prev" href="#carouselExampleFade3" role="button" data-bs-slide="prev">--}}
+						<a class="carousel-control-prev" href="#carouselExampleFade3" role="button" data-bs-slide="prev">
 
-{{--              <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 
-{{--              <span class="sr-only">Previous</span>--}}
+              <span class="sr-only">Previous</span>
 
-{{--            </a>--}}
+            </a>
 
-{{--            <a class="carousel-control-next" href="#carouselExampleFade3" role="button" data-bs-slide="next">--}}
+            <a class="carousel-control-next" href="#carouselExampleFade3" role="button" data-bs-slide="next">
 
-{{--              <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
 
-{{--              <span class="sr-only">Next</span>--}}
+              <span class="sr-only">Next</span>
 
-{{--            </a>--}}
+            </a>
 
 
 
-{{--					</div>--}}
+					</div>
 
-{{--				</div>--}}
+				</div>
 
-{{--			</div>--}}
+			</div>
 
-{{--		</div>--}}
+		</div>
 
-{{--		<div class="col-xl-4 col-md-6">--}}
+		<div class="col-xl-4 col-md-6">
 
-{{--			<div class="card">--}}
+			<div class="card">
 
-{{--				<div class="card-body">--}}
+				<div class="card-body">
 
 
 
-{{--					<h4 class="card-title">CAPTURE PAGES</h4>--}}
+					<h4 class="card-title">CAPTURE PAGES</h4>
 
-{{--					<p class="card-title-desc">Engage Your Visitor and Increase Conversations</p>--}}
+					<p class="card-title-desc">Engage Your Visitor and Increase Conversations</p>
 
 
 
-{{--					<div id="carouselExampleFade21" class="carousel slide carousel-fade1" data-bs-ride="carousel" data-bs-interval="false">--}}
+					<div id="carouselExampleFade21" class="carousel slide carousel-fade1" data-bs-ride="carousel" data-bs-interval="false">
 
-{{--						<ol class="carousel-indicators">--}}
+						<ol class="carousel-indicators">
 
-{{--              <li data-bs-target="#carouselExampleFade21" data-bs-slide-to="0" class="active"></li>--}}
+              <li data-bs-target="#carouselExampleFade21" data-bs-slide-to="0" class="active"></li>
 
-{{--              <li data-bs-target="#carouselExampleFade21" data-bs-slide-to="1"></li>--}}
+              <li data-bs-target="#carouselExampleFade21" data-bs-slide-to="1"></li>
 
-{{--            </ol>--}}
+            </ol>
 
 
 
-{{--						<div class="carousel-inner" role="listbox">--}}
+						<div class="carousel-inner" role="listbox">
 
-{{--							<div class="carousel-item active">--}}
+							<div class="carousel-item active">
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
 
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h4>BIZOPP CAPTURE PAGES</h4>--}}
+										<h4>BIZOPP CAPTURE PAGES</h4>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">--}}
+									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
 
-{{--										<div class="text-center plan-btn">--}}
+										<div class="text-center plan-btn">
 
-{{--											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>--}}
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 
-{{--											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>--}}
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>
 
-{{--											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Monthly $10</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Monthly $10</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Quartly $30</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Quartly $30</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Yearly $120 (2 months FREE) $100</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Yearly $120 (2 months FREE) $100</p>
 
-{{--									</div>--}}
+									</div>
 
 
 
-{{--								</div>--}}
+								</div>
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--							<div class="carousel-item">--}}
+							<div class="carousel-item">
 
-{{--								<div class="card-body p-4 ">--}}
+								<div class="card-body p-4 ">
 
-{{--									<div class="media">--}}
+									<div class="media">
 
-{{--										<div class="media-body">--}}
+										<div class="media-body">
 
-{{--											<h5></h5>--}}
+											<h5></h5>
 
-{{--											<p class="text-muted"></p>--}}
+											<p class="text-muted"></p>
 
-{{--										</div>--}}
+										</div>
 
-{{--										<div class="ms-3">--}}
+										<div class="ms-3">
 
 
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="py-4">--}}
+									<div class="py-4">
 
-{{--										<h3>CUSTOM CAPTURE PAGES</h3>--}}
+										<h3>CUSTOM CAPTURE PAGES</h3>
 
 
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">--}}
+									<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
 
-{{--										<div class="text-center plan-btn">--}}
+										<div class="text-center plan-btn">
 
-{{--											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>--}}
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 
-{{--											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>--}}
+											<a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>
 
-{{--											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+											<a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"  class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--										</div>--}}
+										</div>
 
-{{--									</div>--}}
+									</div>
 
-{{--									<div class="plan-features mt-5">--}}
+									<div class="plan-features mt-5">
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Monthly $20</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Monthly $20</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Quartly $60</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Quartly $60</p>
 
-{{--										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Yearly $240 (2 months FREE) $200</p>--}}
+										<p><i class="bx bx-checkbox-square text-primary mr-2"></i> Yearly $240 (2 months FREE) $200</p>
 
-{{--									</div>--}}
+									</div>
 
-{{--								</div>--}}
+								</div>
 
-{{--							</div>--}}
+							</div>
 
 
 
-{{--						</div>--}}
+						</div>
 
 
 
-{{--						<a class="carousel-control-prev" href="#carouselExampleFade21" role="button" data-bs-slide="prev">--}}
+						<a class="carousel-control-prev" href="#carouselExampleFade21" role="button" data-bs-slide="prev">
 
-{{--              <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 
-{{--              <span class="sr-only">Previous</span>--}}
+              <span class="sr-only">Previous</span>
 
-{{--            </a>--}}
+            </a>
 
-{{--            <a class="carousel-control-next" href="#carouselExampleFade21" role="button" data-bs-slide="next">--}}
+            <a class="carousel-control-next" href="#carouselExampleFade21" role="button" data-bs-slide="next">
 
-{{--              <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
 
-{{--              <span class="sr-only">Next</span>--}}
+              <span class="sr-only">Next</span>
 
-{{--            </a>--}}
+            </a>
 
 
 
-{{--					</div>--}}
+					</div>
 
-{{--				</div>--}}
+				</div>
 
-{{--			</div>--}}
+			</div>
 
-{{--		</div>--}}
+		</div>
 
-{{--        <div class="col-xl-4 col-md-6">--}}
+        <div class="col-xl-4 col-md-6">
 
-{{--            <div class="card plan-box">--}}
+            <div class="card plan-box">
 
-{{--                <div class="card-body p-4">--}}
+                <div class="card-body p-4">
 
-{{--                    <div class="media">--}}
+                    <div class="media">
 
-{{--                        <div class="media-body">--}}
+                        <div class="media-body">
 
-{{--                            <h5></h5>--}}
+                            <h5></h5>
 
-{{--                            <p class="text-muted"></p>--}}
+                            <p class="text-muted"></p>
 
-{{--                        </div>--}}
+                        </div>
 
-{{--                        <div class="ms-3">--}}
+                        <div class="ms-3">
 
-{{--                            <!-- <i class="bx bx-car h1 text-primary"></i> -->--}}
+                            <!-- <i class="bx bx-car h1 text-primary"></i> -->
 
-{{--                        </div>--}}
+                        </div>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                    <div class="py-4">--}}
+                    <div class="py-4">
 
-{{--                        <h3>PHONE NUMBERS</h3>--}}
+                        <h3>PHONE NUMBERS</h3>
 
-{{--                    </div>--}}
+                    </div>
 
 
-{{--                    <div class="text-center plan-btn">--}}
+                    <div class="text-center plan-btn">
 
-{{--                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"--}}
-{{--                           data-id="custom_prospects"--}}
-{{--                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"--}}
-{{--                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>--}}
+                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"
+                           data-id="custom_prospects"
+                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"
+                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 
-{{--                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"--}}
-{{--                           data-id="custom_prospects"--}}
-{{--                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"--}}
-{{--                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>--}}
+                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"
+                           data-id="custom_prospects"
+                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"
+                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>
 
-{{--                        <a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"--}}
-{{--                           class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button"--}}
-{{--                           style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+                        <a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"
+                           class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button"
+                           style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--                    </div>--}}
+                    </div>
 
 
-{{--                    <div class="plan-features mt-5">--}}
+                    <div class="plan-features mt-5">
 
-{{--                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> Monthly $1</p>--}}
+                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> Monthly $1</p>
 
-{{--                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> Quartly $3</p>--}}
+                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> Quartly $3</p>
 
-{{--                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> Yearly $12 (2 months FREE) $10</p>--}}
+                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> Yearly $12 (2 months FREE) $10</p>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                </div>--}}
+                </div>
 
-{{--            </div>--}}
+            </div>
 
-{{--        </div>--}}
+        </div>
 
 
-{{--        <div class="col-xl-4 col-md-6">--}}
+        <div class="col-xl-4 col-md-6">
 
-{{--            <div class="card plan-box">--}}
+            <div class="card plan-box">
 
-{{--                <div class="card-body p-4">--}}
+                <div class="card-body p-4">
 
-{{--                    <div class="media">--}}
+                    <div class="media">
 
-{{--                        <div class="media-body">--}}
+                        <div class="media-body">
 
-{{--                            <h5></h5>--}}
+                            <h5></h5>
 
-{{--                            <p class="text-muted"></p>--}}
+                            <p class="text-muted"></p>
 
-{{--                        </div>--}}
+                        </div>
 
-{{--                        <div class="ms-3">--}}
+                        <div class="ms-3">
 
-{{--                            <i class="bx bx-question-mark h1 text-primary tooltips" tooltip-position="top"--}}
-{{--                               tooltip="Ringless voicemail and interactive voice response" data-toggle="tooltip"--}}
-{{--                               data-placement="top" title="Tooltip on top">--}}
+                            <i class="bx bx-question-mark h1 text-primary tooltips" tooltip-position="top"
+                               tooltip="Ringless voicemail and interactive voice response" data-toggle="tooltip"
+                               data-placement="top" title="Tooltip on top">
 
-{{--                            </i>--}}
+                            </i>
 
-{{--                        </div>--}}
+                        </div>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                    <div class="py-4">--}}
+                    <div class="py-4">
 
-{{--                        <h3>RVM & IVR</h3>--}}
+                        <h3>RVM & IVR</h3>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                    <div class="text-center plan-btn">--}}
+                    <div class="text-center plan-btn">
 
-{{--                        <!-- <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>--}}
+                        <!-- <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 
-{{--                            <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a> -->--}}
+                            <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a> -->
 
-{{--                    </div>--}}
+                    </div>
 
 
-{{--                    <div class="plan-features mt-5">--}}
+                    <div class="plan-features mt-5">
 
-{{--                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> Coming Soon</p>--}}
+                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> Coming Soon</p>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                </div>--}}
+                </div>
 
-{{--            </div>--}}
+            </div>
 
-{{--        </div>--}}
-{{--        <div class="col-xl-4 col-md-6">--}}
+        </div>
+        <div class="col-xl-4 col-md-6">
 
-{{--            <div class="card plan-box">--}}
+            <div class="card plan-box">
 
-{{--                <div class="card-body p-4">--}}
+                <div class="card-body p-4">
 
-{{--                    <div class="media">--}}
+                    <div class="media">
 
-{{--                        <div class="media-body">--}}
+                        <div class="media-body">
 
-{{--                            <h5></h5>--}}
+                            <h5></h5>
 
-{{--                            <p class="text-muted"></p>--}}
+                            <p class="text-muted"></p>
 
-{{--                        </div>--}}
+                        </div>
 
-{{--                        <div class="ms-3">--}}
+                        <div class="ms-3">
 
-{{--                            <i class="bx bx-question-mark h1 text-primary tooltips" tooltip-position="top"--}}
-{{--                               tooltip="All tasks that take place within this (ACG) back-office" data-toggle="tooltip"--}}
-{{--                               data-placement="top" title="Tooltip on top">--}}
+                            <i class="bx bx-question-mark h1 text-primary tooltips" tooltip-position="top"
+                               tooltip="All tasks that take place within this (ACG) back-office" data-toggle="tooltip"
+                               data-placement="top" title="Tooltip on top">
 
-{{--                            </i>--}}
+                            </i>
 
-{{--                        </div>--}}
+                        </div>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                    <div class="py-4">--}}
+                    <div class="py-4">
 
-{{--                        <h3>ABSOLUTELY DONE FOR YOU</h3>--}}
+                        <h3>ABSOLUTELY DONE FOR YOU</h3>
 
-{{--                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> In-House Virtual Assistance</p>--}}
+                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> In-House Virtual Assistance</p>
 
-{{--                    </div>--}}
+                    </div>
 
 
-{{--                    <div class="text-center plan-btn">--}}
+                    <div class="text-center plan-btn">
 
-{{--                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"--}}
-{{--                           data-id="custom_prospects"--}}
-{{--                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"--}}
-{{--                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">$200 / Week</a>--}}
+                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"
+                           data-id="custom_prospects"
+                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"
+                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">$200 / Week</a>
 
-{{--                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"--}}
-{{--                           data-id="custom_prospects"--}}
-{{--                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"--}}
-{{--                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">$600 / Month</a>--}}
+                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"
+                           data-id="custom_prospects"
+                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"
+                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">$600 / Month</a>
 
-{{--                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"--}}
-{{--                           data-id="custom_prospects"--}}
-{{--                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"--}}
-{{--                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">$4000 / Year</a>--}}
+                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"
+                           data-id="custom_prospects"
+                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"
+                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">$4000 / Year</a>
 
-{{--                        <a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"--}}
-{{--                           class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button"--}}
-{{--                           style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+                        <a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"
+                           class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button"
+                           style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                    <div class="plan-features mt-5">--}}
+                    <div class="plan-features mt-5">
 
-{{--                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> $200 / Week &nbsp;&nbsp;</p>--}}
+                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> $200 / Week &nbsp;&nbsp;</p>
 
-{{--                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> $600 / Month&nbsp;&nbsp;</p>--}}
+                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> $600 / Month&nbsp;&nbsp;</p>
 
-{{--                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> $4000 / Year&nbsp;&nbsp;</p>--}}
+                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> $4000 / Year&nbsp;&nbsp;</p>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                </div>--}}
+                </div>
 
-{{--            </div>--}}
+            </div>
 
-{{--        </div>--}}
+        </div>
 
 
-{{--        <div class="col-xl-4 col-md-6">--}}
+        <div class="col-xl-4 col-md-6">
 
-{{--            <div class="card plan-box">--}}
+            <div class="card plan-box">
 
-{{--                <div class="card-body p-4">--}}
+                <div class="card-body p-4">
 
-{{--                    <div class="media">--}}
+                    <div class="media">
 
-{{--                        <div class="media-body">--}}
+                        <div class="media-body">
 
-{{--                            <h5></h5>--}}
+                            <h5></h5>
 
-{{--                            <p class="text-muted"></p>--}}
+                            <p class="text-muted"></p>
 
-{{--                        </div>--}}
+                        </div>
 
-{{--                        <div class="ms-3">--}}
+                        <div class="ms-3">
 
-{{--                            <!-- <i class="bx bx-car h1 text-primary"></i> -->--}}
+                            <!-- <i class="bx bx-car h1 text-primary"></i> -->
 
-{{--                        </div>--}}
+                        </div>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                    <div class="py-4">--}}
+                    <div class="py-4">
 
-{{--                        <h3>CUSTOM CUSTOMER SUPPORT</h3>--}}
+                        <h3>CUSTOM CUSTOMER SUPPORT</h3>
 
-{{--                    </div>--}}
+                    </div>
 
 
-{{--                    <div class="text-center plan-btn">--}}
+                    <div class="text-center plan-btn">
 
-{{--                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"--}}
-{{--                           data-id="custom_prospects"--}}
-{{--                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"--}}
-{{--                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>--}}
+                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"
+                           data-id="custom_prospects"
+                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"
+                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 
-{{--                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"--}}
-{{--                           data-id="custom_prospects"--}}
-{{--                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"--}}
-{{--                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>--}}
+                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"
+                           data-id="custom_prospects"
+                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"
+                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a>
 
-{{--                        <a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"--}}
-{{--                           class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button"--}}
-{{--                           style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+                        <a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"
+                           class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button"
+                           style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--                    </div>--}}
+                    </div>
 
 
-{{--                    <div class="plan-features mt-5">--}}
+                    <div class="plan-features mt-5">
 
-{{--                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> $180 / Week </p>--}}
+                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> $180 / Week </p>
 
-{{--                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> $700 / Month&nbsp;&nbsp;</p>--}}
+                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> $700 / Month&nbsp;&nbsp;</p>
 
 
-{{--                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> $8400 / Year (2 months FREE) $7000&nbsp;&nbsp;--}}
-{{--                        </p>--}}
+                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> $8400 / Year (2 months FREE) $7000&nbsp;&nbsp;
+                        </p>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                </div>--}}
+                </div>
 
-{{--            </div>--}}
+            </div>
 
-{{--        </div>--}}
+        </div>
 
 
-{{--        <div class="col-xl-4 col-md-6">--}}
+        <div class="col-xl-4 col-md-6">
 
-{{--            <div class="card plan-box">--}}
+            <div class="card plan-box">
 
-{{--                <div class="card-body p-4">--}}
+                <div class="card-body p-4">
 
-{{--                    <div class="media">--}}
+                    <div class="media">
 
-{{--                        <div class="media-body">--}}
+                        <div class="media-body">
 
-{{--                            <h5></h5>--}}
+                            <h5></h5>
 
-{{--                            <p class="text-muted"></p>--}}
+                            <p class="text-muted"></p>
 
-{{--                        </div>--}}
+                        </div>
 
-{{--                        <div class="ms-3">--}}
+                        <div class="ms-3">
 
-{{--                            <!-- <i class="bx bx-car h1 text-primary"></i> -->--}}
+                            <!-- <i class="bx bx-car h1 text-primary"></i> -->
 
-{{--                        </div>--}}
+                        </div>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                    <div class="py-4">--}}
+                    <div class="py-4">
 
-{{--                        <h3>AUTOMATION</h3>--}}
+                        <h3>AUTOMATION</h3>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                    <div class="text-center plan-btn">--}}
+                    <div class="text-center plan-btn">
 
-{{--                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"--}}
-{{--                           data-id="custom_prospects"--}}
-{{--                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"--}}
-{{--                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy</a>--}}
+                        <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1"
+                           data-id="custom_prospects"
+                           data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*"
+                           data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy</a>
 
-{{--                        <a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"--}}
-{{--                           class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button"--}}
-{{--                           style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>--}}
+                        <a href="#" onclick="cart(event.preventDefault(),'custom_prospects','')"
+                           class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button"
+                           style="padding: 0 10px"><i class="mdi mdi-cart-plus" style="font-size: 16px;"></i></a>
 
-{{--                    </div>--}}
+                    </div>
 
 
-{{--                    <div class="plan-features mt-5">--}}
+                    <div class="plan-features mt-5">
 
-{{--                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> Custom Automation </p>--}}
+                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> Custom Automation </p>
 
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                </div>--}}
+                </div>
 
-{{--            </div>--}}
+            </div>
 
-{{--        </div>--}}
+        </div>
 
 
-{{--        <div class="col-xl-4 col-md-6">--}}
+        <div class="col-xl-4 col-md-6">
 
-{{--            <div class="card plan-box">--}}
+            <div class="card plan-box">
 
-{{--                <div class="card-body p-4">--}}
+                <div class="card-body p-4">
 
-{{--                    <div class="media">--}}
+                    <div class="media">
 
-{{--                        <div class="media-body">--}}
+                        <div class="media-body">
 
-{{--                            <h5></h5>--}}
+                            <h5></h5>
 
-{{--                            <p class="text-muted"></p>--}}
+                            <p class="text-muted"></p>
 
-{{--                        </div>--}}
+                        </div>
 
-{{--                        <div class="ms-3">--}}
+                        <div class="ms-3">
 
-{{--                            <i class="bx bx-question-mark h1 text-primary tooltips" tooltip-position="top"--}}
-{{--                               tooltip="Ringless voicemail and interactive voice response" data-toggle="tooltip"--}}
-{{--                               data-placement="top" title="Tooltip on top">--}}
+                            <i class="bx bx-question-mark h1 text-primary tooltips" tooltip-position="top"
+                               tooltip="Ringless voicemail and interactive voice response" data-toggle="tooltip"
+                               data-placement="top" title="Tooltip on top">
 
-{{--                            </i>--}}
+                            </i>
 
-{{--                        </div>--}}
+                        </div>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                    <div class="py-4">--}}
+                    <div class="py-4">
 
-{{--                        <h3>List Cleaner</h3>--}}
+                        <h3>List Cleaner</h3>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                    <div class="text-center plan-btn">--}}
+                    <div class="text-center plan-btn">
 
-{{--                        <!-- <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>--}}
+                        <!-- <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 
-{{--                            <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a> -->--}}
+                            <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Yearly</a> -->
 
-{{--                    </div>--}}
+                    </div>
 
 
-{{--                    <div class="plan-features mt-5">--}}
+                    <div class="plan-features mt-5">
 
-{{--                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> Coming Soon</p>--}}
+                        <p><i class="bx bx-checkbox-square text-primary mr-2"></i> Coming Soon</p>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                </div>--}}
+                </div>
 
-{{--            </div>--}}
+            </div>
 
-{{--        </div>--}}
+        </div>
 
 
 
@@ -2308,9 +2308,9 @@
 
 
 
-                {{-- </div> --}}
+                 </div> --}}
 
-                {{-- <div class="text-center plan-btn">
+                 <div class="text-center plan-btn">
 
                     <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="unlimited_communication" data-time="month" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy monthly</a>
 
@@ -2395,7 +2395,7 @@
 
                 </div>
 
-                {{-- <div class="text-center plan-btn">
+                 <div class="text-center plan-btn">
 
                     <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button" data-id="unlimited_both" data-time="month" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Buy monthly</a>
 
@@ -2789,7 +2789,7 @@
 
             </div>
 
-            {{-- <div class="text-center plan-btn">
+             <div class="text-center plan-btn">
 
                 <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 
@@ -2895,7 +2895,7 @@
 
             </div>
 
-            {{-- <div class="text-center plan-btn">
+             <div class="text-center plan-btn">
 
                 <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 
@@ -2995,9 +2995,9 @@
 
             </div>
 
-        {{-- </div> --}}
+         </div> --}}
 
-        {{-- <div class="text-center plan-btn">
+         <div class="text-center plan-btn">
 
             <a href="#" class="btn btn-primary btn-sm waves-effect waves-light upload-modal-button1" data-id="custom_prospects" data-label="PLEASE DESCRIBE YOUR BUSINESS AND PROSPECT REQUIREMENTS IN DETAIL AND SUPPORT WILL REACH OUT TO YOU*" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg1">Buy Quarterly</a>
 
@@ -3333,13 +3333,13 @@
             }
 
 
-			{{--function cart(e,id,time){--}}
+			function cart(e,id,time){--}}
 
-			{{--	// let package_id=$(this).attr('package_name')--}}
+				// let package_id=$(this).attr('package_name')--}}
 
 
 
-			{{--	$.ajax({--}}
+				$.ajax({--}}
 
 			{{--	url: '{{ url('cart') }}',--}}
 
