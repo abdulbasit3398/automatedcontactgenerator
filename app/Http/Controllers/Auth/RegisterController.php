@@ -276,27 +276,27 @@ class RegisterController extends Controller
             'guest' => 1,
         ]);
 
-        $cpanel = new \myPHPnotes\cPanel(env('CPANEL_USERNAME'),env('CPANEL_PASSWORD'), env('CPANEL_HOST'));
+        // $cpanel = new \myPHPnotes\cPanel(env('CPANEL_USERNAME'),env('CPANEL_PASSWORD'), env('CPANEL_HOST'));
 
-        $response = $cpanel->uapi(
-            'Email',
-            'add_pop',
-            array (
-                'email' => $username,
-                'password' => $username,
-                'domain' => env('CPANEL_DOMAIN'),
-            )
-        );
+        // $response = $cpanel->uapi(
+        //     'Email',
+        //     'add_pop',
+        //     array (
+        //         'email' => $username,
+        //         'password' => $username,
+        //         'domain' => env('CPANEL_DOMAIN'),
+        //     )
+        // );
         
-        if ($response->status) {
-            $email = str_replace("+","@",$response->data);
+        // if ($response->status) {
+        //     $email = str_replace("+","@",$response->data);
 
-            UserCpanelEmailAddress::create([
-                'user_id' => $user->id,
-                'email_address' => $email,
-                'password' => $username,
-            ]);
-        }
+        //     UserCpanelEmailAddress::create([
+        //         'user_id' => $user->id,
+        //         'email_address' => $email,
+        //         'password' => $username,
+        //     ]);
+        // }
 
         Auth::login($user);
         return redirect()->route('dashboard');

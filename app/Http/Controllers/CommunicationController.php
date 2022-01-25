@@ -414,22 +414,41 @@ class CommunicationController extends Controller
   public function send_communication_phone(Request $request)
   {
     $post = [
-    'from' => '+12029807462',
-    'to' => '+17188728161',
-];
+      'from' => '+12029807462',
+      'to' => '+17188728161',
+    ];
+     
+    $json_data_to_send = [
+      'from' => '+12195298699',
+      'to' => '+923247763398',
+      "text" => "Demo testing",
+    ];
 
-$ch = curl_init('http://signal.automatedcontactgenerator.com/');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+    $access_key = 'EgbDR3v45tc532e02220eaf338d4c61b4d7a656fc1';
+    $access_token = 'ZrPcxeC19e0W4KsDvtNd3iK4QLCW4bn41r8';
 
-// execute!
-$response = curl_exec($ch);
+    $ch = curl_init(); 
+    curl_setopt($ch, CURLOPT_URL, "https://api.didforsale.com/didforsaleapi/index.php/api/V4/SMS/SingleSend"); 
+    curl_setopt($ch,
+     CURLOPT_CUSTOMREQUEST, "POST");
+     curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data_to_send);
+     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+     curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json","Authorization: Basic base64_encode(EgbDR3v45tc532e02220eaf338d4c61b4d7a656fc1:ZrPcxeC19e0W4KsDvtNd3iK4QLCW4bn41r8)"));
+     $result = curl_exec($ch);
+     dd($result);
 
-// close the connection, release resources used
-curl_close($ch);
+    $ch = curl_init('http://signal.automatedcontactgenerator.com/');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 
-// do anything you want with your response
-dd($response);
+    // execute!
+    $response = curl_exec($ch);
+
+    // close the connection, release resources used
+    curl_close($ch);
+
+    // do anything you want with your response
+    dd($response);
 
       // $this->validate($request,[
       //     'phone_number' => 'required'
